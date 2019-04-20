@@ -19,6 +19,8 @@ class CRUDController extends Controller
      */
     public function create($class)
     {
+        if(!$class::ACL('create'))
+            return view('error.404');
         return view('crud.create',['class' => $class]);
     }
 
@@ -30,9 +32,48 @@ class CRUDController extends Controller
      */
     public function store(Request $request,$class)
     {
-
+        if(!$class::ACL('store'))
+            return view('error.404');
         $this->validate($request,$class::getvalidation());
-        $class::create($request->all());
+        $new = new $class;
+//        dd($new);
+        foreach ($new->getFillable() as $fillable)
+        {
+            $field = $class::findField($fillable);
+            switch ($field['type']){
+                case 'file':
+                    if (isset($field['addable']) && $field['addable']){
+                        $file_addresses=[];
+                        if (isset($request->{$fillable}) && is_array($request->{$fillable}))
+                            foreach ($request->file($fillable) as $key => $file)
+                                {
+                                    $name = time() . '.'.$file->getClientOriginalName();
+                                    $file->move(public_path('files'), $name);
+                                    $file_addresses[]='files/'.$name;
+                                }
+
+                        $new->{$fillable} = $file_addresses;
+                    }
+                    else{
+                        if($request->hasFile($fillable)){
+                            $name = time() . '.'.$request->{$fillable}->getClientOriginalName();
+                            $request->file($fillable)->move(public_path('files'), $name);
+                            $new->{$fillable} ='files/'.$name;
+                        }
+
+
+                    }
+                    break;
+                default :
+                    if (isset($request->{$fillable}))
+                        $new->{$fillable} = $request->{$fillable};
+
+            }
+
+
+        }
+
+        $new->save();
         return redirect($class::route('index'))->with('message','با موفقیت وارد سیستم شد');
     }
 
@@ -57,6 +98,8 @@ class CRUDController extends Controller
     public function edit($id,$class)
     {
         $record = $class::findOrFail($id);
+        if(!$class::ACL('edit',$record))
+            return view('error.404');
 //        dd($record);
         return view('crud.edit',['class' => $class,'record'=>$record]);
     }
@@ -71,8 +114,50 @@ class CRUDController extends Controller
     public function update(Request $request, $id,$class)
     {
         $record = $class::findOrFail($id);
+        if(!$class::ACL('update',$record))
+            return view('error.404');
         $this->validate($request,$class::getvalidation());
-        $record->update($request->all());
+        foreach ($record->getFillable() as $fillable)
+        {
+            $field = $class::findField($fillable);
+            switch ($field['type']){
+                case 'file':
+//                    dd('hello');
+                    if (isset($field['addable']) && $field['addable']){
+                        $file_addresses=[];
+                        if (isset($request->{$fillable}) && is_array($request->{$fillable}))
+                            foreach ($request->file($fillable) as $key => $file)
+                            {
+                                $name = time() . '.'.$file->getClientOriginalName();
+                                $file->move(public_path('files'), $name);
+                                $file_addresses[]='files/'.$name;
+                            }
+                        if (isset($request->{$fillable.'_old'}))
+                            $file_addresses = array_merge($file_addresses,$request->{$fillable.'_old'});
+                        $record->{$fillable} = $file_addresses;
+                    }
+                    else{
+                        if($request->hasFile($fillable)){
+                            $name = time() . '.'.$request->{$fillable}->getClientOriginalName();
+                            $request->file($fillable)->move(public_path('files'), $name);
+                            $record->{$fillable} ='files/'.$name;
+                        }
+                        elseif (isset($request->{$fillable.'_old'}))
+                            $record->{$fillable} =$request->{$fillable.'_old'};
+
+
+                    }
+                    break;
+
+                default :
+                    if (isset($request->{$fillable}))
+                        $record->{$fillable} = $request->{$fillable};
+
+            }
+
+
+        }
+        $record->save();
         return redirect($class::route('index'))->with('message','با موفقیت ویرایش شد');
     }
 
@@ -85,6 +170,8 @@ class CRUDController extends Controller
     public function destroy($id,$class)
     {
         $record = $class::findOrFail($id);
+        if(!$class::ACL('destroy',$record))
+            return view('error.404');
         $record->delete();
         return redirect($class::route('index'))->with('message','با موفقیت از سیستم حذف شد');
 
@@ -92,5 +179,8 @@ class CRUDController extends Controller
 
     public function getdata($class){
         return Laratables::recordsOf($class);
+    }
+    public function condition(Request $request,$field,$class){
+        return json_encode($class::condition($field,$request));
     }
 }

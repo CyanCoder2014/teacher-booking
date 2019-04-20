@@ -1,0 +1,241 @@
+
+.window-drop {
+    position: fixed;
+    top: 72px;
+    height: auto;
+    width: 100%;
+    right: 0;
+    background: white;
+    display: none;
+    padding: 70px;
+    z-index: 20;
+}
+
+.apear {
+    display: block;
+}
+
+.zIndex100 {
+    z-index: 100;
+}
+
+.tab {
+    float: left;
+    background-color: #fff;
+    width: 26%;
+    margin-right: 3%;
+    height: 300px;
+    font-weight: bold;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+    background-color: #ddd;
+}
+
+/* Create an active/current "tab button" class */
+.tab button.active {
+    background-color: #f7f9fd;
+    color: #ef5258;
+}
+
+/* Style the tab content */
+.tabcontent {
+    float: left;
+    padding: 0px 12px;
+    border-left: 1px solid #ccc;
+    width: 70%;
+    height: 300px;
+    display: none;
+}
+
+.mr-hover {
+    margin-right: 10px;
+    transition: all .3s;
+
+}
+
+.tablinks:hover .mr-hover {
+    margin-right: 20px;
+}
+
+.ancherLinks {
+    color: black;
+}
+
+.ancherLinks:hover {
+    color: #ef5258;
+}
+
+.ancherLinks:hover img {
+    top: -10px;
+}
+
+.ancherLinks img {
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    position: absolute;
+    top: 0;
+}
+
+.ancherLinks div {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/*ENDNAV*/
+.bgTOP {
+    padding: 100px;
+    background: url("../img/bgtop.png") center no-repeat;
+    background-size: cover;
+}
+
+.layer {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, .5);
+    z-index: 0;
+}
+
+.zindex1 {
+    z-index: 1;
+}
+
+.bg-gray {
+    background-color: #f2f2f2;
+}
+
+.text-black {
+    color: black !important;
+}
+
+.text-grey {
+    color: grey;
+}
+
+.font-13 {
+    font-size: 13px;
+}
+
+.text-orang {
+    color: orange;
+}
+
+.linkTooltip {
+    cursor: pointer;
+}
+
+.linkTooltip:hover {
+    background-color: dimgray;
+    color: white;
+}
+
+.fix-tab {
+    position: fixed;
+    top: 100px;
+}
+
+.mt-menu {
+    margin-top: 80px;
+}
+
+.pt-menu {
+    padding-top: 80px;
+}
+
+.pt-flow {
+    overflow: hidden
+}
+
+.top-nav-collapse {
+    background-color: white !important;
+    box-shadow: 0 0px 11px rgba(0, 0, 0, 0.15), 0 0px 4px rgba(0, 0, 0, 0.12);
+}
+
+.bg-transparent {
+    background-color: transparent;
+}
+
+.navbar .nav-link {
+    color: #403447;
+}
+
+.filterUl li {
+    background-color: white;
+}
+
+.filterUl a {
+    color: grey;
+    font-weight: bold;
+}
+
+.filterUl .active {
+    background-color: deepskyblue !important;
+    color: white !important;
+}
+
+.closeLink {
+    display: none;
+}
+
+.bg-image {
+    background-image: url('../img/back-1.jpg');
+    background-size: cover
+}
+.red-border{
+    border: 1px solid rgba(255,0,0,.5)!important;
+}
+@media only screen and (max-width: 992px) {
+    .mt-menu{
+        margin-top: 75px;
+    }
+    .closeLink {
+        display: block;
+    }
+
+    .window-drop {
+        z-index: 200;
+        padding: 20px;
+        top: 0;
+        height: 100%;
+        overflow-y: scroll;
+    }
+
+    .tab {
+        width: 100%;
+        float: none;
+    }
+
+    .tabcontent {
+        float: none;
+        height: 100%;
+        width: 100%;
+        border: none;
+    }
+
+}
+@media only screen and (max-width: 768px) {
+    .fix-tab {
+        position: initial;
+        margin-top: 20px;
+    }
+}

@@ -27,7 +27,7 @@ class UserLog extends Model
     public static function User(){
         $cookie = Cookie::get('user_info');
         if ($cookie){
-            $cookie = Crypt::decrypt($cookie);
+//            $cookie = Crypt::decrypt($cookie);
             $cookie =explode('-',$cookie);
             if (isset($cookie[1]) and ctype_digit($cookie[1]))
                 return static::find($cookie[1]);
@@ -37,7 +37,7 @@ class UserLog extends Model
     public static function id(){
         $cookie = Cookie::get('user_info');
         if ($cookie){
-            $cookie = Crypt::decrypt($cookie);
+//            $cookie = Crypt::decrypt($cookie);
             $cookie =explode('-',$cookie);
             if (isset($cookie[1]) and ctype_digit($cookie[1]))
                 return $cookie[1];
@@ -53,6 +53,6 @@ class UserLog extends Model
         return $user;
     }
     public static function makeCookie(UserLog $user){
-        return Cookie::queue(Cookie::make('user_info', Crypt::encrypt( Str::random(12).'-'.$user->id)));
+        return Cookie::queue(Cookie::make('user_info',  Str::random(12).'-'.$user->id));
     }
 }
