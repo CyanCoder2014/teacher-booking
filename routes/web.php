@@ -17,4 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 \App\CourseRequest::Route_list();
+\App\Course::Route_list();
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/profile', 'UserProfileController@index')->name('profile');
+Route::post('/profile', 'UserProfileController@update')->name('profile.update');

@@ -190,8 +190,8 @@ abstract class CRUD extends Model
 //
 //            }
             switch (static::$crud[$key1]['type']){
-                case 'datetime': return Jalalian::forge(parent::getAttribute($key))->format('Y/m/d   H:i:s');break;
-                case 'date': return CalendarUtils::strftime('Y/m/d', strtotime(parent::getAttribute($key)));break;
+//                case 'datetime': return Jalalian::forge(parent::getAttribute($key))->format('Y/m/d   H:i:s');break;
+//                case 'date': return CalendarUtils::strftime('Y/m/d', strtotime(parent::getAttribute($key)));break;
 //                case 'select':
 //                    if(is_array(static::$crud[$key1]['values']))
 //                        return static::$crud[$key1]['values'][parent::getAttribute($key)];
@@ -210,11 +210,11 @@ abstract class CRUD extends Model
     }
     public function setAttribute($key, $value){
         $key1 = array_search($key, array_column(static::$crud, 'name'));
-        switch (static::$crud[$key1]['type']){
-            case 'datetime':$value = Jalalian::toGeorgian($value); break;
-            case 'date':$value = Jalalian::toGeorgianDate($value); break;
-
-        }
+//        switch (static::$crud[$key1]['type']){
+//            case 'datetime':$value = Jalalian::toGeorgian($value); break;
+//            case 'date':$value = Jalalian::toGeorgianDate($value); break;
+//
+//        }
         parent::setAttribute($key,$value);
 
 
@@ -235,13 +235,13 @@ abstract class CRUD extends Model
             switch (static::$crud[$key1]['type']){
                 case 'select':
                     if(is_array(static::$crud[$key1]['values']))
-                        return static::$crud[$key1]['values'][$this->attributes[$method]];
+                        return static::$crud[$key1]['values'][parent::getAttribute($method)];
                     else{
                         $model= explode(',',static::$crud[$key1]['values']);
                         $model_name =$model[0];
                         $model_key =$model[1];
                         $model_value =$model[2];
-                        return $model_name::where($model_key,$this->attributes[$method])->first()->{$model_value};
+                        return $model_name::where($model_key,parent::getAttribute($method))->first()->{$model_value};
                     }
 
             }

@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class CourseRequest extends CRUD
 {
     protected $fillable = ['lang_id','user_id','category_id','title','intro','approved','type','status','created_by','updated_by'];
-    protected static $name='Courses';
+    protected static $name='Course Reques';
     protected static $layout='layout';
     protected static $tablefields=[
 
@@ -25,7 +25,7 @@ class CourseRequest extends CRUD
             'searchable' => true,
         ],
         [
-            'name' => 'category.name',
+            'name' => 'category.title',
             'slug' => 'Category',
             'orderable' => true,
             'searchable' => true,
@@ -56,6 +56,11 @@ class CourseRequest extends CRUD
             'default' => true
         ],
         [
+            'name' => 'created_by',
+            'type' => 'null',
+            'default' => true
+        ],
+        [
             'name' => 'approved',
             'type' => 'null',
             'default' => true
@@ -78,10 +83,17 @@ class CourseRequest extends CRUD
             'validation' => 'required',
         ],
         [
+            'name' => 'category_id',
+            'type' => 'select',
+            'slug' => 'Category',
+            'values' => 'App\Category,id,title',
+            'validation' => 'required',
+        ],
+        [
             'name' => 'type',
             'type' => 'select',
             'slug' => 'Type',
-            'values' => ['type1','type2','type3'],
+            'values' => [1 => 'type1',2 =>'type2',3 =>'type3'],
             'validation' => 'required',
         ],
     ];
@@ -111,6 +123,9 @@ class CourseRequest extends CRUD
     protected function default_user_id(){
         return Auth::id();
     }
+    protected function default_created_by(){
+        return Auth::id();
+    }
     protected function default_lang_id(){
         return 1;
     }
@@ -123,6 +138,13 @@ class CourseRequest extends CRUD
     public static function laratablesQueryConditions($query)
     {
         return $query->where('user_id', Auth::id());
+    }
+
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
+    public function LaratablesType(){
+        return $this->type();
     }
 
 }

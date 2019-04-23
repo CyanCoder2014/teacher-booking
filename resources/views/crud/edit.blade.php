@@ -6,49 +6,21 @@
 
 @endsection
 @section('end_script')
-    <script src="{{asset('/vendor/laravel-filemanager/js/lfm.js')}}"></script>
-    <script>
-        $('.lfm').click(function(){
-            $('.lfm').filemanager('image');
-        });
-        $('.filelfm').filemanager('file');
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
-    <script>
-        $('#shipping_list').select2({
-            dropdownAutoWidth : true,
-            placeholder: "سیستم های حمل و نقل را انتخاب کنید ...",
-            minimumInputLength: 2,
-            ajax: {
-                url: '{{ route('shipping.find') }}',
-                dataType: 'json',
-                data: function (params) {
-                    return {
-                        q: $.trim(params.term)
-                    };
-                },
-                processResults: function (data) {
-                    return {
-                        results: data
-                    };
-                },
-                cache: true
-            }
-        });
-    </script>
+
 @endsection
 @section('content')
 
     <!-- ====================================================
             ================= CONTENT ===============================
             ===================================================== -->
-    <section id="content" style="text-align: right">
+    <div class="bg-gray pt-menu pb-5 ">
+    <section id="content" >
 
         <div class="page page-shop-single-product">
 
             <div class="pageheader">
 
-                <h2>ویرایش<span></span></h2>
+                <h2>Editing<span></span></h2>
 
                 <div class="page-bar">
 
@@ -88,7 +60,7 @@
                             @endif
                         @endforeach
                     </div>
-                    <button type="submit" class="btm btn-success">ثبت</button>
+                    <button type="submit" class="btn btn-success">Edit</button>
 
                 </form>
 
@@ -98,6 +70,7 @@
         </div>
 
     </section>
+    </div>
     <!--/ CONTENT -->
 
 

@@ -1,6 +1,5 @@
-<link rel="stylesheet" type="text/css" href="/DataTables/datatables.min.css"/>
+<link rel="stylesheet" type="text/css" href="/widgets/DataTables/datatables.min.css"/>
 
-<script type="text/javascript" src="/DataTables/datatables.min.js"></script>
 
 <table class="table table-striped table-hover table-custom" id="{{ $id }}">
     <thead>
@@ -12,8 +11,9 @@
     </thead>
 
 </table>
-
-<script>
+@section('script')
+    <script type="text/javascript" src="/widgets/DataTables/datatables.min.js"></script>
+    <script>
     $('#{{ $id }}').DataTable({
         serverSide: true,
         ajax: "{{ $class::route('data') }}",
@@ -34,3 +34,4 @@
         ]
     });
 </script>
+@endsection

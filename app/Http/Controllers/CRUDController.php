@@ -74,7 +74,7 @@ class CRUDController extends Controller
         }
 
         $new->save();
-        return redirect($class::route('index'))->with('message','با موفقیت وارد سیستم شد');
+        return redirect($class::route('index'))->with('message','Created Succesfully');
     }
 
     /**
@@ -144,6 +144,8 @@ class CRUDController extends Controller
                         }
                         elseif (isset($request->{$fillable.'_old'}))
                             $record->{$fillable} =$request->{$fillable.'_old'};
+                        else
+                            $record->{$fillable} = '';
 
 
                     }
@@ -158,7 +160,7 @@ class CRUDController extends Controller
 
         }
         $record->save();
-        return redirect($class::route('index'))->with('message','با موفقیت ویرایش شد');
+        return redirect($class::route('index'))->with('message','Edit Completed');
     }
 
     /**
@@ -173,7 +175,7 @@ class CRUDController extends Controller
         if(!$class::ACL('destroy',$record))
             return view('error.404');
         $record->delete();
-        return redirect($class::route('index'))->with('message','با موفقیت از سیستم حذف شد');
+        return redirect($class::route('index'))->with('message','Deleted Succesfully');
 
     }
 

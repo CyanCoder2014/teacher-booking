@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\UserLog;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Crypt;
-use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Str;
 
 class LoginController extends Controller
@@ -56,7 +56,7 @@ class LoginController extends Controller
         if(!isset($user_log) or // cookie not exist or corrupted
             (isset($user_log->user_id) and $user_log->user_id != $user->id) // another user logged in with same cookie
         ){
-            $user_log = UserLog::make(Request::ip(),$user->id);
+            $user_log = UserLog::make($request->ip(),$user->id);
             UserLog::makeCookie($user_log);
         }
     }

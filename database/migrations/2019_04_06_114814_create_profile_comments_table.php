@@ -20,8 +20,8 @@ class CreateProfileCommentsTable extends Migration
             $table->unsignedBigInteger('parent_id');
             $table->string('name')->nullable();
             $table->string('email')->nullable();
-            $table->binary('approved')->nullable();
-            $table->binary('ban')->nullable();
+            $table->boolean('approved')->nullable();
+            $table->boolean('ban')->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('profile_id')->references('id')->on('user_profiles')->onDelete('cascade');

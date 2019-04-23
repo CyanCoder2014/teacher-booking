@@ -19,8 +19,8 @@ class CreateCourseRequestsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('title');
             $table->text('intro');
-            $table->binary('approved')->nullable();
-            $table->binary('ban')->nullable();
+            $table->boolean('approved')->nullable();
+            $table->boolean('ban')->nullable();
             $table->unsignedSmallInteger('type');
             $table->unsignedSmallInteger('status');
             $table->timestamps();

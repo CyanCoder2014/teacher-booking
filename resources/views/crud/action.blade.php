@@ -2,8 +2,7 @@
     {{ csrf_field() }}
     {{ method_field('DELETE') }}
 
-    <div class="form-group">
-        <input type="submit" class="btn btn-danger delete-user" value="حذف" onclick="return confirm('ایا از حذف اطمینان دارید؟');">
-    </div>
+
+    <button type="submit" class="btn btn-danger delete-user"  onclick="return confirm('are you sure?');">Delete</button>
 </form>
-<a href="{{ $class::route('edit',$id) }}" class="btn btn-warning">ویرایش</a>
+<a href="{{ $class::route('edit',$id) }}" ><button class="btn btn-warning">edit</button></a>

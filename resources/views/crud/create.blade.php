@@ -12,13 +12,14 @@
     <!-- ====================================================
             ================= CONTENT ===============================
             ===================================================== -->
-    <section id="content" style="text-align: right">
+    <div class="bg-gray pt-menu pb-5 ">
+    <section id="content" >
 
         <div class="page page-shop-single-product">
 
             <div class="pageheader">
 
-                <h2>افزودن<span></span></h2>
+                <h2>Creating<span></span></h2>
 
                 <div class="page-bar">
 
@@ -57,7 +58,7 @@
                         @endif
                     @endforeach
                 </div>
-                <button type="submit" class="btm btn-success">Submit</button>
+                <button type="submit" class="btn btn-success">Submit</button>
 
             </form>
 
@@ -67,6 +68,7 @@
         </div>
 
     </section>
+    </div>
     <!--/ CONTENT -->
 
 

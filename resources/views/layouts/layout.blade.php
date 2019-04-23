@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/front/css/General.css">
     <link rel="stylesheet" href="/front/css/style.css">
     <link rel="stylesheet" href="/front/css/fam.css">
+    <script src="/front/js/jquery.min.js"></script>
     @yield('head')
 
 </head>
@@ -184,7 +185,6 @@
 <!-- Footer -->
 
 
-<script src="/front/js/jquery.min.js"></script>
 <script src="/front/js/popper.min.js"></script>
 <script src="/front/js/bootstrap.min.js"></script>
 <script src="/front/js/mdb.min.js"></script>
@@ -192,6 +192,6 @@
 <!--<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>-->
 <!--<script src="/front/js/navbar.js"></script>-->
 @yield('script')
-
+@include('layouts.toastr')
 </body>
 </html>

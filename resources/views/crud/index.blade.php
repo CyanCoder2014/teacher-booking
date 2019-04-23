@@ -1,6 +1,7 @@
 @extends($class::getLayout())
 
 @section('content')
+    <div class="bg-gray pt-menu pb-5 ">
     <section id="content">
 
         <div class="page page-dashboard">
@@ -39,14 +40,13 @@
                 <div class="inner" style="min-height: 565px;">
                     <div class="row">
 
-                        <section id="lts_sec " class="right" style="margin: 0px auto">
 
                             <div class="container ">
                                 <div class="row ">
                                     <div class="col-lg-12 col-md-12  col-sm-12 col-xs12 ">
                                         <div class="title_sec">
 
-                                            <a href="{{ $class::route('create') }}" class="btn btn-primary">افزودن</a>
+                                            <a href="{{ $class::route('create') }}" class="btn btn-primary">Create new</a>
                                         </div>
 
 
@@ -63,7 +63,6 @@
                             </div>
 
 
-                        </section>
                     </div>
                 </div>
             </div>
@@ -90,6 +89,6 @@
 
         </div>
     </section>
-
+    </div>
 
 @endsection
