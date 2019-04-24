@@ -146,5 +146,8 @@ class CourseRequest extends CRUD
     public function LaratablesType(){
         return $this->type();
     }
+    public function link(){
+        return '#';
+    }
 
 }

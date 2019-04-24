@@ -127,7 +127,6 @@ namespace App\FormMaker;
          $files=[];
          foreach ($this->getCrud() as $field)
          {
-             if ($request->get($field['name']))
              switch ($field['type']){
                  case 'file':
 //                    dd('hello');
@@ -153,7 +152,7 @@ namespace App\FormMaker;
                          elseif (isset($request->{$field['name'].'_old'}))
                              $files[$field['name']]= $request->{$field['name'].'_old'};
                          else
-                             $files[$field['name']]='';
+                             $files[$field['name']]=null;
 
 
                      }

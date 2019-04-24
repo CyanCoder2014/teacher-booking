@@ -63,6 +63,13 @@ class Course extends CRUD
             'slug' => 'Introduction',
             'validation' => 'required',
         ],
+//        [
+//            'name' => 'lang_id',
+//            'type' => 'select',
+//            'slug' => 'Language',
+//            'values' => 'App\Language,id,name',
+//            'validation' => 'required',
+//        ],
         [
             'name' => 'category_id',
             'type' => 'select',
@@ -144,9 +151,6 @@ class Course extends CRUD
     protected function default_created_by(){
         return Auth::id();
     }
-    protected function default_lang_id(){
-        return 1;
-    }
     protected function default_approved(){
         return 0;
     }
@@ -163,5 +167,12 @@ class Course extends CRUD
     }
     public function LaratablesType(){
         return $this->type();
+    }
+
+//    public function lang(){
+//        return $this->belongsTo(Language::class);
+//    }
+    public function link(){
+        return '#';
     }
 }

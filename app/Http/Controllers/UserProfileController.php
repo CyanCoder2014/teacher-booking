@@ -6,7 +6,6 @@ use App\FormMaker\FormMaker;
 use App\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use function Sodium\compare;
 
 class UserProfileController extends Controller
 {
@@ -95,7 +94,8 @@ class UserProfileController extends Controller
      */
     public function index()
     {
-        $this->middleware('auth');
+        if ( Auth::user()->courses->count() < 1)
+            return redirect(route('myCourses.index'))->with('message','You Must have Course to Edit your Teacher Profile');
         $profile = UserProfile::where('user_id',Auth::id())->first();
         $form = new FormMaker($this->crud,$profile);
         $form->setUrlForm('');
@@ -132,7 +132,7 @@ class UserProfileController extends Controller
      */
     public function show(UserProfile $userProfile)
     {
-        //
+        return view('profile.show',compact('userProfile'));
     }
 
     /**
@@ -155,7 +155,7 @@ class UserProfileController extends Controller
      */
     public function update(Request $request)
     {
-        $this->middleware('auth');
+
         $form = new FormMaker($this->crud);
         $form->validate($request);
         $files = $form->HandleFiles($request);
@@ -163,14 +163,16 @@ class UserProfileController extends Controller
 
         $profile = UserProfile::where('user_id',Auth::id())->first();
 //        dd($request->except('_token'));
-        if(!$profile)
-        {
+        if(!$profile){
             $profile = new UserProfile();
             $profile->user_id = Auth::id();
         }
 
-        $profile->update($request->except('_token'));
-        $profile->update($files);
+
+
+        $profile->fill($request->except('_token'));
+        $profile->fill($files);
+//        if (!isset($profile->user_id))
 //        dd($profile);
         $profile->save();
         return back()->with('message','profile Edited Succesfuly');

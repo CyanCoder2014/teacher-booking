@@ -16,7 +16,7 @@
                                         <section class="mb-4">
 
                                             <!--Section heading-->
-                                            <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+                                            <h2 class="h1-responsive font-weight-bold text-center my-4">{{ $page_title??'' }}</h2>
                                             <!--Section description-->
                                             <p class="text-center w-responsive mx-auto mb-5"></p>
 

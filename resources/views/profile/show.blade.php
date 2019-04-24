@@ -16,87 +16,87 @@
                             <div class="container-fluid">
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <img src="img/avatar.png" class="w-100">
-                                        <div class="text-grey text-center mt-2">dfsjf skergkijr</div>
+                                        <img src="{{ $userProfile->image() }}" class="w-100">
+                                        <div class="text-grey text-center mt-2">{{ $userProfile->user->email }}</div>
                                     </div>
                                     <div class="col-md-9">
-                                        <h1 class="d-inline-block">Mateusz Dudek</h1>
+                                        <h1 class="d-inline-block">{{ $userProfile->user->name }}</h1>
                                         <div class="float-right">
                                             <button type="button" class="btn btn-light p-2 m-0 text-black waves-effect waves-light"><i class="fas fa-heart"></i> book mark
                                             </button>
                                             <button type="button" class="btn btn-light p-2 text-black waves-effect waves-light"><i class="fas fa-share-alt"></i></button>
                                             <button type="button" class="btn btn-light p-2 m-0 text-black waves-effect waves-light"><i class="fas fa-ellipsis-h"></i></button>
                                         </div>
-                                        <div class="text-grey font-13"> Visited an hour ago</div>
+                                        <div class="text-grey font-13"> {{ $userProfile->gender() }}</div>
                                         <div class=" font-13 py-3">
-                                            <span class="text-info pr-3">Community Tutor</span>
-                                            <span>From Warsaw, Poland</span>
+                                            <span class="text-info pr-3">{{ $userProfile->tell }}  <i class="fa fa-phone"></i></span>
+                                            <span>From {{ $userProfile->city->name }}, {{ $userProfile->state->name }}</span>
                                         </div>
                                         <div class="font-weight-bold">
-                                            Teaches Sweden, English
+{{--                                            Teaches Sweden, English--}}
                                         </div>
                                         <div class="container-fluid mt-3">
                                             <div class="row">
-                                                <div class="col-md-3 p-1">
-                                                    <div class="bg-gray p-3">
-                                                        <div class="font-13 text-grey text-center">Rating</div>
-                                                        <div class=" text-center">
-                                                            <div class="text-orang" style="font-size: 10px">
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                            </div>
-                                                            <span class="font-weight-bold">5.0</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3 p-1">
-                                                    <div class="bg-gray p-3">
-                                                        <div class="font-13 text-grey text-center">Rating</div>
-                                                        <div class=" text-center">
-                                                            <div class="text-orang" style="font-size: 10px">
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                            </div>
-                                                            <span class="font-weight-bold">5.0</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3 p-1">
-                                                    <div class="bg-gray p-3">
-                                                        <div class="font-13 text-grey text-center">Rating</div>
-                                                        <div class=" text-center">
-                                                            <div class="text-orang" style="font-size: 10px">
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                            </div>
-                                                            <span class="font-weight-bold">5.0</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-3 p-1">
-                                                    <div class="bg-gray p-3">
-                                                        <div class="font-13 text-grey text-center">Rating</div>
-                                                        <div class=" text-center">
-                                                            <div class="text-orang" style="font-size: 10px">
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                                <i class="fas fa-star"></i>
-                                                            </div>
-                                                            <span class="font-weight-bold">5.0</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
+{{--                                                <div class="col-md-3 p-1">--}}
+{{--                                                    <div class="bg-gray p-3">--}}
+{{--                                                        <div class="font-13 text-grey text-center">Rating</div>--}}
+{{--                                                        <div class=" text-center">--}}
+{{--                                                            <div class="text-orang" style="font-size: 10px">--}}
+{{--                                                                <i class="fas fa-star"></i>--}}
+{{--                                                                <i class="fas fa-star"></i>--}}
+{{--                                                                <i class="fas fa-star"></i>--}}
+{{--                                                                <i class="fas fa-star"></i>--}}
+{{--                                                                <i class="fas fa-star"></i>--}}
+{{--                                                            </div>--}}
+{{--                                                            <span class="font-weight-bold">5.0</span>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="col-md-3 p-1">--}}
+{{--                                                    <div class="bg-gray p-3">--}}
+{{--                                                        <div class="font-13 text-grey text-center">Rating</div>--}}
+{{--                                                        <div class=" text-center">--}}
+{{--                                                            <div class="text-orang" style="font-size: 10px">--}}
+{{--                                                                <i class="fas fa-star"></i>--}}
+{{--                                                                <i class="fas fa-star"></i>--}}
+{{--                                                                <i class="fas fa-star"></i>--}}
+{{--                                                                <i class="fas fa-star"></i>--}}
+{{--                                                                <i class="fas fa-star"></i>--}}
+{{--                                                            </div>--}}
+{{--                                                            <span class="font-weight-bold">5.0</span>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="col-md-3 p-1">--}}
+{{--                                                    <div class="bg-gray p-3">--}}
+{{--                                                        <div class="font-13 text-grey text-center">Rating</div>--}}
+{{--                                                        <div class=" text-center">--}}
+{{--                                                            <div class="text-orang" style="font-size: 10px">--}}
+{{--                                                                <i class="fas fa-star"></i>--}}
+{{--                                                                <i class="fas fa-star"></i>--}}
+{{--                                                                <i class="fas fa-star"></i>--}}
+{{--                                                                <i class="fas fa-star"></i>--}}
+{{--                                                                <i class="fas fa-star"></i>--}}
+{{--                                                            </div>--}}
+{{--                                                            <span class="font-weight-bold">5.0</span>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                                <div class="col-md-3 p-1">--}}
+{{--                                                    <div class="bg-gray p-3">--}}
+{{--                                                        <div class="font-13 text-grey text-center">Rating</div>--}}
+{{--                                                        <div class=" text-center">--}}
+{{--                                                            <div class="text-orang" style="font-size: 10px">--}}
+{{--                                                                <i class="fas fa-star"></i>--}}
+{{--                                                                <i class="fas fa-star"></i>--}}
+{{--                                                                <i class="fas fa-star"></i>--}}
+{{--                                                                <i class="fas fa-star"></i>--}}
+{{--                                                                <i class="fas fa-star"></i>--}}
+{{--                                                            </div>--}}
+{{--                                                            <span class="font-weight-bold">5.0</span>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
                                             </div>
                                         </div>
                                     </div>
@@ -104,43 +104,42 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <hr>
-                                        <span class="font-weight-bold">Language Skills:</span>
+                                        <span class="font-weight-bold">Skills:</span>
                                         <div class="d-inline-block">
-                                            <ul class="navbar-nav flex-row">
-                                                <li class="nav-item p-2">Sweden</li>
-                                                <li class="nav-item p-2">Sweden</li>
+{{--                                            <ul class="navbar-nav flex-row">--}}
+{{--                                                <li class="nav-item p-2">Sweden</li>--}}
+{{--                                                <li class="nav-item p-2">Sweden</li>--}}
 
-                                            </ul>
+{{--                                            </ul>--}}
+                                            <p>{!!  $userProfile->skills  !!}</p>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <span class="font-weight-bold">Teaching Specialities:</span>
+                                        <span class="font-weight-bold">Education:</span>
                                         <div class="d-inline-block">
                                             <ul class="navbar-nav flex-row">
                                                 <li class="nav-item p-1 rounded m-2 bg-gray linkTooltip" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Another tooltip">
-                                                    Sweden
+                                                    {{ $userProfile->education }}
                                                 </li>
-                                                <li class="nav-item p-1 rounded m-2 bg-gray linkTooltip" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Another tooltip">
-                                                    Sweden
-                                                </li>
+
 
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="col-md-12">
-                                        <span class="font-weight-bold">Teaching Specialities:</span>
-                                        <div class="d-inline-block">
-                                            <ul class="navbar-nav flex-row">
-                                                <li class="nav-item p-1 rounded m-2 border text-grey">Sweden</li>
-                                                <li class="nav-item p-1 rounded m-2 border text-grey">Sweden</li>
-                                                <li class="nav-item p-1 rounded m-2 border text-grey">Sweden</li>
+{{--                                    <div class="col-md-12">--}}
+{{--                                        <span class="font-weight-bold">Teaching Specialities:</span>--}}
+{{--                                        <div class="d-inline-block">--}}
+{{--                                            <ul class="navbar-nav flex-row">--}}
+{{--                                                <li class="nav-item p-1 rounded m-2 border text-grey">Sweden</li>--}}
+{{--                                                <li class="nav-item p-1 rounded m-2 border text-grey">Sweden</li>--}}
+{{--                                                <li class="nav-item p-1 rounded m-2 border text-grey">Sweden</li>--}}
 
-                                            </ul>
-                                        </div>
-                                    </div>
+{{--                                            </ul>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                     <div class="col-md-12">
-                                        <span class="font-weight-bold">Teacher since: </span>
-                                        <span class="text-grey"> Dec 16, 2017 </span>
+                                        <span class="font-weight-bold">Birthday: </span>
+                                        <span class="text-grey"> {{ $userProfile->birth }} </span>
                                     </div>
                                 </div>
                             </div>
@@ -156,16 +155,9 @@
                                         About Teacher
                                     </div>
                                     <div class="font-13 py-3">
-                                        My friends describe me as a very friendly and open-minded person. I love going out
-                                        and spending time with my friends. Sometimes I like to get lost in my city as well,
-                                        it's a great opportunity to find some new amazing places to chill after work or
-                                        classes. I study European Studies at the University of Warsaw. I love social and
-                                        political issues, but I also love expanding my knowledge in other areas. As for my
-                                        hobbies, the first thing that comes to my mind is surely languages. Helping people
-                                        improve their skills brings me a huge satisfaction. As for my current learning goal
-                                        - it's Chinese. And of course, traveling is
+                                      {!! $userProfile->intro !!}
                                     </div>
-                                    <a href="#" class="text-info">+ read more</a>
+{{--                                    <a href="#" class="text-info">+ read more</a>--}}
                                 </div>
                             </div>
                         </div>
@@ -180,40 +172,28 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="container">
-                                        <div class="row mt-4">
+                                        @foreach($userProfile->courses as $course)
+                                            <div class="row mt-4">
                                             <div class="col-md-6">
-                                                <div class="font-13">nformal Tutoring: Sweden</div>
-                                                <div class="text-grey "><span class="font-13">73 completed lesson(s)</span>
+                                                <div class="font-13">{{ $course->title }}</div>
+                                                <div class="text-grey "><span class="font-13">{{ $course->registered }} registered lesson(s)</span>
                                                     <span class="badge badge-danger">New</span></div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="text-right font-13">
-                                                    <span class="font-weight-bold">$13.90 </span>
+                                                    <span class="font-weight-bold">{{ $course->hourly_price }} </span>
                                                     <span class="text-grey">USD per hour</span>
                                                 </div>
                                                 <div class="text-right">
-                                                    <button type="button" class="btn btn-light py-1 px-2 m-0 text-black waves-effect waves-light"> book mark
-                                                    </button>
+                                                    <a href="{{ $course->link() }}">
+                                                        <button type="button" class="btn btn-light py-1 px-2 m-0 text-black waves-effect waves-light"> more
+                                                        </button>
+                                                    </a>
+
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row mt-4">
-                                            <div class="col-md-6">
-                                                <div class="font-13">nformal Tutoring: Sweden</div>
-                                                <div class="text-grey "><span class="font-13">73 completed lesson(s)</span>
-                                                    <span class="badge badge-danger">New</span></div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="text-right font-13">
-                                                    <span class="font-weight-bold">$13.90 </span>
-                                                    <span class="text-grey">USD per hour</span>
-                                                </div>
-                                                <div class="text-right">
-                                                    <button type="button" class="btn btn-light py-1 px-2 m-0 text-black waves-effect waves-light"> book mark
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @endforeach
                                     </div>
                                 </div>
 
@@ -255,10 +235,10 @@
                     <div id="fix-tab">
                         <div class="bg-white p-4">
                             <div class="font-13 text-grey">Hourly rate starts from</div>
-                            <h1 class="text-grey">$12</h1>
-                            <a href="profile.html" class="btn btn-danger btn-block waves-effect waves-light">Contact teacher</a>
+                            <h1 class="text-grey">{{ $userProfile->hourly_rate }}$</h1>
+                            <a href="tel:{{ $userProfile->tell }}" class="btn btn-danger btn-block waves-effect waves-light">Contact teacher</a>
                             <button class="btn text-black mt-3 btn-light btn-block waves-effect waves-light">Bookmark</button>
-                            <div class="font-weight-bold p-3 text-center">79% Satisfaction </div>
+{{--                            <div class="font-weight-bold p-3 text-center">79% Satisfaction </div>--}}
                         </div>
 
                         <!--

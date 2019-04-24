@@ -21,14 +21,14 @@ class CreateUserProfilesTable extends Migration
             $table->unsignedBigInteger('state_id');
             $table->unsignedBigInteger('city_id');
             $table->string('address');
-            $table->string('image');
-            $table->string('intro_video');
+            $table->string('image')->nullable();
+            $table->string('intro_video')->nullable();
             $table->string('tell');
             $table->text('intro');
-            $table->text('skills');
+            $table->text('skills')->nullable();
             $table->string('education');
             $table->date('birth');
-            $table->decimal('lat',10,8)->nullable();
+            $table->decimal('lat',11,8)->nullable();
             $table->decimal('lng',11,8)->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

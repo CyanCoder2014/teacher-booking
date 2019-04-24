@@ -14,7 +14,8 @@ class CourseRequestController extends Controller
      */
     public function index()
     {
-        //
+        $Courserequests = CourseRequest::orderBy('id','desc')->paginate(20);
+        return view('show.CourseRequestList',compact('Courserequests'));
     }
 
     /**
