@@ -16,10 +16,12 @@
 //});
 
 Auth::routes();
+
+Route::get('/', 'HomeController@index')->name('index');
+
 Route::group(['middleware' => 'auth'],function (){
     \App\CourseRequest::Route_list();
     \App\Course::Route_list();
-    Route::get('/', 'HomeController@index')->name('index');
     Route::get('/profile/edit', 'UserProfileController@index')->name('profile');
     Route::post('/profile/edit', 'UserProfileController@update')->name('profile.update');
 });
