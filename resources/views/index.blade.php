@@ -206,7 +206,7 @@
                     <div class="input-group mb-4 shadow  flex-center" >
 
                         @foreach($categories as $category)
-                            <a class="nav-link btn  nav-btn-category" href="#"><i class="fa fa-fax "> </i> <h3>{{$category->title}}</h3></a>
+                            <a class="nav-link btn  nav-btn-category" href="#"><img style="height: 30px" src="{{$category->image}}"> <h3>{{$category->title}}</h3></a>
                         @endforeach
 
 
