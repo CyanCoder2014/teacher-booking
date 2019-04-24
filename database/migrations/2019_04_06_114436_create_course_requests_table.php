@@ -22,7 +22,7 @@ class CreateCourseRequestsTable extends Migration
             $table->boolean('approved')->nullable();
             $table->boolean('ban')->nullable();
             $table->unsignedSmallInteger('type');
-            $table->unsignedSmallInteger('status');
+            $table->unsignedSmallInteger('status')->nullable();
             $table->timestamps();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->unsignedBigInteger('updated_by')->nullable();

@@ -25,7 +25,17 @@ Route::group(['middleware' => 'auth'],function (){
 });
 Route::get('CourseRequest','CourseRequestController@index')->name('CourseRequest');
 
+///////////////////// Admin /////////////////////////
+Route::group(['middleware' => 'admin','prefix' =>'admin'],function (){
+    \App\Content::Route_list();
+    \App\Category::Route_list();
+    Route::get('/', function (){
+//        dd('hello');
+        return view('admin.index');
+    })->name('admin.index');
 
+});
 
 /// end
 Route::get('user/{userProfile}','UserProfileController@show')->name('profile.show');
+

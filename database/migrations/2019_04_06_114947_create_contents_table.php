@@ -20,8 +20,8 @@ class CreateContentsTable extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
             $table->string('title');
-            $table->string('image');
-            $table->string('image_b');
+            $table->string('image')->nullable();
+            $table->string('image_b')->nullable();
             $table->string('intro');
             $table->text('text');
             $table->timestamps();

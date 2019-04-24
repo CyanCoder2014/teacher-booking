@@ -13,7 +13,7 @@
     <!-- ====================================================
             ================= CONTENT ===============================
             ===================================================== -->
-    <div class="bg-gray pt-menu pb-5 main-content">
+    <div class="bg-gray pt-menu pb-5 page-container">
     <section id="content" >
 
         <div class="page page-shop-single-product">

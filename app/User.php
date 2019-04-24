@@ -43,4 +43,9 @@ class User extends Authenticatable
     public function profile(){
         $this->hasOne(UserProfile::class);
     }
+    public function isAdmin(){
+        if ($this->type == 1)
+            return true;
+        return false;
+    }
 }

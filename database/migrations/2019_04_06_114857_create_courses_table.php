@@ -22,7 +22,7 @@ class CreateCoursesTable extends Migration
             $table->text('intro');
             $table->text('weekly_schedule');
             $table->unsignedBigInteger('hourly_price');
-            $table->unsignedBigInteger('total_price');
+            $table->unsignedBigInteger('total_price')->nullable();
             $table->string('image')->nullable();
             $table->string('intro_video')->nullable();
             $table->unsignedBigInteger('registered')->nullable();

@@ -9,18 +9,17 @@
 
 @endsection
 @section('content')
-
     <!-- ====================================================
             ================= CONTENT ===============================
             ===================================================== -->
-    <div class="bg-gray pt-menu pb-5 main-content">
+    <div class="bg-gray pt-menu pb-5 page-container">
     <section id="content" >
 
         <div class="page page-shop-single-product">
 
             <div class="pageheader">
 
-                <h2>Editing<span></span></h2>
+                <h2>Creating<span></span></h2>
 
                 <div class="page-bar">
 
@@ -32,7 +31,7 @@
 {{--                            <a href="{{ url('/admin') }}">مدیریت</a>--}}
 {{--                        </li>--}}
 {{--                        <li>--}}
-{{--                            <a href="">ویرایش {{ $class::getName() }} </a>--}}
+{{--                            <a href="">افزودن{{ $class::getName() }} </a>--}}
 {{--                        </li>--}}
 {{--                    </ul>--}}
 
@@ -48,21 +47,20 @@
                     </div>
                 @endif
 
-                <form id="productForm" class="form-horizontal ng-pristine ng-valid" role="form" method="post" action="{{ $class::route('update',$record->id) }}" enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    {{ method_field('put') }}
-                    <div class="row">
-                        @foreach($class::getform() as $form)
-                            @if(isset($form['addable']) && $form['addable'])
-                                @include('crud.widgets.addable.'.$form['type'],['fiels' => $form,'value' => $record->{$form['name']},'class' =>$class ])
-                            @else
-                                @include('crud.widgets.'.$form['type'],['fiels' => $form,'value' => $record->{$form['name']},'class' =>$class ])
-                            @endif
-                        @endforeach
-                    </div>
-                    <button type="submit" class="btn btn-success">Edit</button>
+            <form id="productForm" class="form-horizontal ng-pristine ng-valid" role="form" method="post" action="{{ $class::route('store') }}"  enctype="multipart/form-data">
+                {{ csrf_field() }}
+                <div class="row">
+                    @foreach($class::getform() as $form)
+                        @if(isset($form['addable']) && $form['addable'])
+                            @include('crud.widgets.addable.'.$form['type'],['fiels' => $form,'value' => old($form['name']),'class' =>$class ])
+                        @else
+                            @include('crud.widgets.'.$form['type'],['fiels' => $form,'value' => old($form['name']), 'class' => $class ])
+                        @endif
+                    @endforeach
+                </div>
+                <button type="submit" class="btn btn-success">Submit</button>
 
-                </form>
+            </form>
 
 
             </div>
@@ -76,6 +74,9 @@
 
 
 
+    <script type="text/javascript">
+        // $(document).ready(function(){
 
-
+        // });
+    </script>
 @endsection

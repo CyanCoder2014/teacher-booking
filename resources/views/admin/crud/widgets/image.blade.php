@@ -1,8 +1,8 @@
 <div class="col-sm-4 input-group">
     <label for="{{ $fiels['name'] }}">{{ $fiels['slug'] }}</label>
    <span class="input-group-btn">
-     <a id="lfm{{ $fiels['name'] }}" data-input="{{ $fiels['name'] }}" data-preview="thumbnail{{ $fiels['name'] }}" class="btn btn-primary" href="#">
-       <i class="fa fa-picture-o"></i> choose
+     <a id="lfm{{ $fiels['name'] }}" data-input="{{ $fiels['name'] }}" data-preview="thumbnail{{ $fiels['name'] }}" class="btn btn-primary">
+       <i class="fa fa-picture-o"></i> انتخاب
      </a>
    </span>
     <input id="{{ $fiels['name'] }}" class="form-control" type="text" name="{{ $fiels['name'] }}" value="{{ $value }}">

@@ -3,7 +3,6 @@
         <label for="{{ $fiels['name'] }}">{{ $fiels['slug'] }}</label>
     @endif
         <select name="{{ $fiels['name'] }}" id="{{ $fiels['name'] }}" class="form-control">
-            <option value="">--choose--</option>
             @if(is_array($fiels['values']))
                 @foreach($fiels['values'] as $key => $val)
                         <option value="{{$key}}" @if($key == $value) selected @endif>{{ $val }}</option>

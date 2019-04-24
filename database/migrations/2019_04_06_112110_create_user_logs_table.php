@@ -20,7 +20,7 @@ class CreateUserLogsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
 
         });
-        \Illuminate\Support\Facades\DB::statement('ALTER TABLE `user_logs` ADD `ip_address` VARboolean(16)');
+        \Illuminate\Support\Facades\DB::statement('ALTER TABLE `user_logs` ADD `ip_address` VARbinary(16)');
     }
 
     /**

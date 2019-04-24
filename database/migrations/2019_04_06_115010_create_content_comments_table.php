@@ -17,7 +17,7 @@ class CreateContentCommentsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('content_id');
-            $table->unsignedBigInteger('parent_id');
+            $table->unsignedBigInteger('parent_id')->nullable();
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->boolean('approved')->nullable();

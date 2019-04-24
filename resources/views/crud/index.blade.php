@@ -1,7 +1,7 @@
 @extends($class::getLayout())
 
 @section('content')
-    <div class="bg-gray pt-menu pb-5 ">
+    <div class="bg-gray pt-menu pb-5 main-content ">
     <section id="content">
 
         <div class="page page-dashboard">
