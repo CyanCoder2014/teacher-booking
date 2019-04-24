@@ -22,13 +22,13 @@
 <body>
 <!--Navbar-->
 
-<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-transparent pt-3 pb-0 zIndex100 scrolling-navbar"
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-transparent pt-3 pb-0 zIndex100 scrolling-navbar "
      style="background-color: white!important;">
 
     <!-- Navbar brand -->
-    <a class="navbar-brand  pt-0" href="#">
+    <a class="navbar-brand  pt-0" href="/">
 
-        <img src="/front/img/logo.png" style=";height: 40px;"/>
+        <img src="/front/img/logo-teacher.png" style="margin-top: -17px;height: 45px;"/>
     </a>
 
     <!-- Collapse button -->
@@ -44,25 +44,36 @@
         <ul class="navbar-nav mr-auto">
 
 
-            <!-- Dropdown -->
+            <!-- Dropdown
+
             <li class="nav-item dropdown pr-3 pb-3 letter-s2 windowlink">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink"
                    aria-haspopup="true"
                    aria-expanded="false">Courses</a>
             </li>
+             -->
 
 
-            <li class="nav-item pr-3 letter-s2 pb-3">
-                <a class="nav-link" href="course.html">Events</a>
-            </li>
+
             <li class="nav-item dropdown pr-3 letter-s2 pb-3">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown"
                    aria-haspopup="true"
-                   aria-expanded="false">Blog</a>
+                   aria-expanded="false">Categories</a>
                 <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="course.html">Learn</a>
-                    <a class="dropdown-item" href="course.html">General</a>
+
+                   @foreach($categories as $category)
+                    <a class="dropdown-item" href="#">{{$category->title}}</a>
+                    @endforeach
+
+
+
                 </div>
+            </li>
+
+
+
+            <li class="nav-item pr-3 letter-s2 pb-3">
+                <a class="nav-link" href="course.html">Blog</a>
             </li>
             <li class="nav-item pr-3 letter-s2 pb-3">
                 <a class="nav-link" href="about.html">About us</a>
@@ -70,18 +81,34 @@
             <li class="nav-item pr-3 letter-s2 pb-3">
                 <a class="nav-link" href="contact.html">Contact us</a>
             </li>
-            <!--<li class="nav-item position-relative nav-li-line pr-3 mr-3">
 
-            </li>-->
+
+
+          <li class="nav-item position-relative nav-li-line pl-4 mr-3">
+              <a class="nav-link nav-link btn btn-sm orange-border" href="{{ route('profile') }}">Register as teacher</a>
+
+
+          </li>
+
+            <li class="nav-item pb-3 ">
+                <a class="nav-link nav-link btn btn-sm" href="{{ route('CourseRequest') }}">Request a course</a>
+
+            </li>
 
             <li class="nav-item pr-3 letter-s2 pb-3">
 
                 @if(!Auth::check())
-                    <button class="nav-link btn nav-btn"><a href="{{ route('login') }}">Login</a></button>
+                   <a class="nav-link btn nav-btn nav-btn-line " href="{{ route('login') }}">Login</a>
+                    @else
+                    <a class="nav-link btn nav-btn nav-btn-line " href="{{ route('profile') }}"> {{Auth::user()->name}} Profile</a>
                 @endif
 
 
+
             </li>
+
+
+
 
         </ul>
         <!-- Links -->

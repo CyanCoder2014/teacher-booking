@@ -189,7 +189,8 @@
 }
 
 .filterUl .active {
-    background-color: deepskyblue !important;
+    background: linear-gradient(to top right, #403447, deepskyblue) !important;
+
     color: white !important;
 }
 

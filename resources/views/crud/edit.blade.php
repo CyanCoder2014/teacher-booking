@@ -13,12 +13,12 @@
     <!-- ====================================================
             ================= CONTENT ===============================
             ===================================================== -->
-    <div class="bg-gray pt-menu pb-5 main-content">
-    <section id="content" >
+    <div class="bg-gray pt-menu pb-5 main-content mt-4">
+        <section id="content">
 
-        <div class="page page-shop-single-product">
+            <div class="page page-dashboard">
 
-            <div class="pageheader">
+                <div class="pageheader flex-center " >
 
                 <h2>Editing<span></span></h2>
 
@@ -60,7 +60,7 @@
                             @endif
                         @endforeach
                     </div>
-                    <button type="submit" class="btn btn-success">Edit</button>
+                    <button type="submit" class="btn btn-success  mt-4">Edit</button>
 
                 </form>
 

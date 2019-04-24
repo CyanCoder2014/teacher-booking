@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
+use App\CourseRequest;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+
+//        $courses = Course::where('type',"slider")->orderBy('id', 'desc')->paginate(6);
+
+
+        $courses = Course::orderBy('id', 'desc')->take(20)->get();
+
+
+        $coursesRequests = CourseRequest::orderBy('id', 'desc')->take(20)->get();
+
+        return view('index', compact( 'slides',
+            'courses',
+            'coursesRequests'
+
+        ));
     }
 }

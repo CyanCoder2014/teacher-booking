@@ -1,12 +1,17 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="bg-gray pt-menu pb-5 ">
+    <div class="bg-gray pt-menu pb-5 mt-5">
         <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header">{{ __('Login') }} or
+                    <a class="btn orange-color" href="{{ route('register') }}">
+                        Register
+                    </a>
+                      if you are new
+                </div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">

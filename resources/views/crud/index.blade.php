@@ -1,12 +1,12 @@
 @extends($class::getLayout())
 
 @section('content')
-    <div class="bg-gray pt-menu pb-5 main-content ">
+    <div class="bg-gray pt-menu pb-5 main-content mt-4">
     <section id="content">
 
         <div class="page page-dashboard">
 
-            <div class="pageheader">
+            <div class="pageheader flex-center " >
 
                 <h2><span>{{ $class::getName() }}</span></h2>
 
