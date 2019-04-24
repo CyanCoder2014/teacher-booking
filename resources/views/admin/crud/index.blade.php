@@ -710,7 +710,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="copyright">
-                                <p>CMS Powered by<a href="https://cyancoder.co/en">Cyan Coder</a></p>
+                                <p>CMS Powered by<a target="_blank" href="https://cyancoder.co/en"> Cyan Coder</a></p>
                             </div>
                         </div>
                     </div>
