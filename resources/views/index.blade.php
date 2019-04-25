@@ -321,7 +321,7 @@
                                 @foreach($courses as $course)
 
 
-                                    <a href="{{$course->link}}" class="col-md-4 mt-3 mother1">
+                                    <a href="/user/{{$course->id}}" class="col-md-4 mt-3 mother1">
                                         <div class="shadow hoverable p-3 bg-white">
                                             <div class="row">
                                                 <div class="col-md-12 mother2">
@@ -348,7 +348,7 @@
 
 
 
-                                <a class="col-md-4 mt-3 mother1">
+                                <a  href="/user/1"  class="col-md-4 mt-3 mother1">
                                     <div class="shadow hoverable p-3 bg-white">
                                         <div class="row">
                                             <div class="col-md-12 mother2">
@@ -358,7 +358,7 @@
                                             </div>
                                             <div class="col-md-12 mother2">
                                                 <h5 class="text-center font-weight-bold mt-3">
-                                                   Sam Smith
+                                                   Sam Smith (test)
                                                 </h5>
                                                 <h6 class="text-center  mt-3">
                                                     English teacher
@@ -372,7 +372,7 @@
 
 
 
-                                    <a class="col-md-4 mt-3 mother1">
+                                    <a href="/user/1" class="col-md-4 mt-3 mother1">
                                         <div class="shadow hoverable p-3 bg-white">
                                             <div class="row">
                                                 <div class="col-md-12 mother2">
@@ -382,7 +382,7 @@
                                                 </div>
                                                 <div class="col-md-12 mother2">
                                                     <h5 class="text-center font-weight-bold mt-3">
-                                                       Rose Green
+                                                       Rose Green (test)
                                                     </h5>
                                                     <h6 class="text-center  mt-3">
                                                         Art teacher
@@ -397,7 +397,7 @@
 
 
 
-                                    <a class="col-md-4 mt-3 mother1">
+                                    <a  href="/user/1"  class="col-md-4 mt-3 mother1">
                                         <div class="shadow hoverable p-3 bg-white">
                                             <div class="row">
                                                 <div class="col-md-12 mother2">
@@ -407,7 +407,7 @@
                                                 </div>
                                                 <div class="col-md-12 mother2">
                                                     <h5 class="text-center font-weight-bold mt-3">
-                                                        Sam Smith
+                                                        Sam Smith (test)
                                                     </h5>
                                                     <h6 class="text-center  mt-3">
                                                         Traffic teacher
@@ -476,7 +476,7 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="user-meta has-text-centered">
-                                                        <h3 class="username">Josef Nash </h3>
+                                                        <h3 class="username">Josef Nash (test) </h3>
                                                         <h5 class="position">Art teacher</h5>
                                                     </div>
                                                     <div class="user-bio has-text-centered">
@@ -484,7 +484,7 @@
                                                             works very hard.</p>
                                                     </div>
                                                     <div class="action has-text-centered">
-                                                        <a href="profile.html" class="button is-small">View profile</a>
+                                                        <a  href="/user/1"  class="button is-small">View profile</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -509,7 +509,7 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="user-meta has-text-centered">
-                                                        <h3 class="username">Helen Miller</h3>
+                                                        <h3 class="username">Helen Miller (test)</h3>
                                                         <h5 class="position">Computer teacher</h5>
                                                     </div>
                                                     <div class="user-bio has-text-centered">
@@ -517,7 +517,7 @@
                                                             works very hard.</p>
                                                     </div>
                                                     <div class="action has-text-centered">
-                                                        <a href="#" class="button is-small">View profile</a>
+                                                        <a  href="/user/1"  class="button is-small">View profile</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -540,7 +540,7 @@
                                                 </div>
                                                 <div class="card-body">
                                                     <div class="user-meta has-text-centered">
-                                                        <h3 class="username">Sara Gordon</h3>
+                                                        <h3 class="username">Sara Gordon (test)</h3>
                                                         <h5 class="position">Sport teacher</h5>
                                                     </div>
                                                     <div class="user-bio has-text-centered">
@@ -548,7 +548,7 @@
                                                             works very hard.</p>
                                                     </div>
                                                     <div class="action has-text-centered">
-                                                        <a href="#" class="button is-small">View profile</a>
+                                                        <a  href="/user/1"  class="button is-small">View profile</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -581,7 +581,7 @@
 
         <div class="row justify-content-center py-3 mb-5">
             <div class="col-md-12 pb-5 mt-0 ">
-                <h3 class="text-center pb-3">Requested courses</h3>
+                <h3 class="text-center pb-3">Requested courses or teacher</h3>
             </div>
 
 
@@ -593,7 +593,7 @@
 
                     <div class="card-body">
                         <h4 class="card-title"><a>{{$coursesRequest->title}}</a></h4>
-                        <p class="card-text">{{$coursesRequest->intro}}</p>
+                        <p class="card-text">{!! $coursesRequest->intro !!}</p>
 
                     </div>
 

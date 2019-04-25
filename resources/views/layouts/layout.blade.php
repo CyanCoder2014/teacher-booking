@@ -83,9 +83,7 @@ Choose what you want to learn">
             <li class="nav-item pr-3 letter-s2 pb-3">
                 <a class="nav-link" href="about.html">About us</a>
             </li>
-            <li class="nav-item pr-3 letter-s2 pb-3">
-                <a class="nav-link" href="contact.html">Contact us</a>
-            </li>
+
 
 
 
@@ -96,7 +94,7 @@ Choose what you want to learn">
           </li>
 
             <li class="nav-item pb-3 ">
-                <a class="nav-link nav-link btn btn-sm" href="{{ route('CourseRequest') }}">Request a course</a>
+                <a class="nav-link nav-link btn btn-sm" href="/myCourseRequests/create">Request a course or teacher</a>
 
             </li>
 
