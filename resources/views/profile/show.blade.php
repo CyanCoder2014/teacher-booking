@@ -24,8 +24,12 @@
                                         <div class="float-right">
                                             <button class="btn btn-light p-2 m-0 text-black waves-effect waves-light"><i class="fas fa-heart"></i>
                                             </button>
-                                            <a href="/myCourses" class="btn btn-light p-2 text-black waves-effect waves-light"><i class="fas fa-calendar"></i> Add Course</a>
-                                            <a href="{{ route('profile') }}" class="btn btn-light p-2 m-0 text-black waves-effect waves-light"><i class="fas fa-edit"></i> Edit profile</a>
+
+                                            @if(Auth::check())
+                                            <a href="/myCourses" class="btn btn-orange p-2 text-black waves-effect waves-light"><i class="fas fa-calendar"></i> Add Course</a>
+                                            <a href="{{ route('profile') }}" class="btn btn-black p-2 m-0 text-black waves-effect waves-light"><i class="fas fa-edit"></i> Edit profile</a>
+                                            @endif
+
                                         </div>
                                         <div class="text-grey font-13"> {{ $userProfile->gender() }}</div>
                                         <div class=" font-13 py-3">
