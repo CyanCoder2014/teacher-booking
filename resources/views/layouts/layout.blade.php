@@ -78,10 +78,10 @@ Choose what you want to learn">
 
 
             <li class="nav-item pr-3 letter-s2 pb-3">
-                <a class="nav-link" href="course.html">Blog</a>
+                <a class="nav-link" href="#">Blog</a>
             </li>
             <li class="nav-item pr-3 letter-s2 pb-3">
-                <a class="nav-link" href="about.html">About us</a>
+                <a class="nav-link" href="#">About us</a>
             </li>
 
 
@@ -103,7 +103,7 @@ Choose what you want to learn">
                 @if(!Auth::check())
                    <a class="nav-link btn nav-btn nav-btn-line " href="{{ route('login') }}">Login</a>
                     @else
-                    <a class="nav-link btn nav-btn nav-btn-line " href="{{ route('profile') }}"> {{Auth::user()->name}} Profile</a>
+                    <a class="nav-link btn nav-btn nav-btn-line " href="/user/{{Auth::user()->id}}"> {{Auth::user()->name}} Profile</a>
                 @endif
 
 

@@ -22,10 +22,10 @@
                                     <div class="col-md-9">
                                         <h1 class="d-inline-block">{{ $userProfile->user->name }}</h1>
                                         <div class="float-right">
-                                            <button type="button" class="btn btn-light p-2 m-0 text-black waves-effect waves-light"><i class="fas fa-heart"></i> book mark
+                                            <button class="btn btn-light p-2 m-0 text-black waves-effect waves-light"><i class="fas fa-heart"></i>
                                             </button>
-                                            <button type="button" class="btn btn-light p-2 text-black waves-effect waves-light"><i class="fas fa-share-alt"></i></button>
-                                            <button type="button" class="btn btn-light p-2 m-0 text-black waves-effect waves-light"><i class="fas fa-ellipsis-h"></i></button>
+                                            <a href="/myCourses" class="btn btn-light p-2 text-black waves-effect waves-light"><i class="fas fa-calendar"></i> Add Course</a>
+                                            <a href="{{ route('profile') }}" class="btn btn-light p-2 m-0 text-black waves-effect waves-light"><i class="fas fa-edit"></i> Edit profile</a>
                                         </div>
                                         <div class="text-grey font-13"> {{ $userProfile->gender() }}</div>
                                         <div class=" font-13 py-3">
