@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
 use App\Course;
 use App\CourseRequest;
 use App\UserProfile;
@@ -24,7 +25,7 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
 
 
@@ -32,8 +33,18 @@ class HomeController extends Controller
 
 
 //        $courses = Course::orderBy('id', 'desc')->take(20)->get();
-        $courses = UserProfile::orderBy('id', 'desc')->take(20)->get();
+        $courses = UserProfile::orderBy('id', 'desc');
+        if ($request->categories && is_array($request->categories))
+            $courses = $courses->WhereIn('category_id',$request->categories);
+        if ($request->types && is_array($request->types))
+            $courses = $courses->WhereIn('type',$request->types);
+        if ($request->min && is_int($request->min))
+            $courses = $courses->WhereIn('hourly_rate','>=',$request->min);
+        if ($request->max && is_int($request->max))
+            $courses = $courses->WhereIn('hourly_rate','<=',$request->max);
+        $courses = $courses->take(20)->get();
 
+        $categories = Category::all();
 
 
         $coursesRequests = CourseRequest::orderBy('id', 'desc')->take(20)->get();

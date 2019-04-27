@@ -3,13 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\FormMaker\FormMaker;
+use App\ProfileComment;
 use App\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class UserProfileController extends Controller
 {
-    protected $crud = [
+    protected $form = [
         [
             'name' => 'gender',
             'type' => 'select',
@@ -75,6 +76,20 @@ class UserProfileController extends Controller
             'validation' => 'required',
         ],
         [
+            'name' => 'type',
+            'type' => 'select',
+            'slug' => 'Teaching Type',
+            'values' => ['private','group','online'],
+            'validation' => 'required',
+        ],
+        [
+            'name' => 'category_id',
+            'type' => 'select',
+            'slug' => 'Category',
+            'values' => 'App\Category,id,title',
+            'validation' => 'required',
+        ],
+        [
             'name' => 'image',
             'type' => 'file',
             'slug' => 'Image',
@@ -97,7 +112,7 @@ class UserProfileController extends Controller
         if ( Auth::user()->courses->count() < 1)
             return redirect(route('myCourses.index'))->with('message','You Must have Course to Edit your Teacher Profile');
         $profile = UserProfile::where('user_id',Auth::id())->first();
-        $form = new FormMaker($this->crud,$profile);
+        $form = new FormMaker($this->form,$profile);
         $form->setUrlForm('');
         $form->setMethod('post');
         return view('form',compact('form'));
@@ -132,7 +147,53 @@ class UserProfileController extends Controller
      */
     public function show(UserProfile $userProfile)
     {
-        return view('profile.show',compact('userProfile'));
+        if(!Auth::check())
+            $comment = [
+                [
+                    'name'=> 'name',
+                    'slug'=> 'name',
+                    'type'=> 'text',
+                    'validation' => 'required'
+                ],
+                [
+                    'name'=> 'email',
+                    'slug'=> 'email',
+                    'type'=> 'text',
+                    'validation' => 'required'
+                ],
+                [
+                    'name'=> 'rate',
+                    'slug'=> 'rate',
+                    'type'=> 'rating',
+                    'validation' => 'required'
+                ],
+                [
+                    'name'=> 'comment',
+                    'slug'=> 'comment',
+                    'type'=> 'textarea',
+                    'validation' => 'required'
+                ],
+            ];
+        else
+            $comment = [
+                [
+                    'name'=> 'rate',
+                    'slug'=> 'rate',
+                    'type'=> 'rating',
+                    'validation' => 'required'
+                ],
+                [
+                    'name'=> 'comment',
+                    'slug'=> 'comment',
+                    'type'=> 'textarea',
+                    'validation' => 'required'
+                ],
+            ];
+
+        $form = new FormMaker($comment);
+        $form->setMethod('post');
+        $form->setUrlForm('');
+        return view('profile.show',compact('userProfile','form'));
     }
 
     /**
@@ -141,9 +202,62 @@ class UserProfileController extends Controller
      * @param  \App\UserProfile  $userProfile
      * @return \Illuminate\Http\Response
      */
-    public function edit(UserProfile $userProfile)
+    public function postComment(Request $request,UserProfile $userProfile)
     {
-        //
+        if(!Auth::check())
+            $comment = [
+                [
+                    'name'=> 'name',
+                    'slug'=> 'name',
+                    'type'=> 'text',
+                    'validation' => 'required'
+                ],
+                [
+                    'name'=> 'email',
+                    'slug'=> 'email',
+                    'type'=> 'text',
+                    'validation' => 'required'
+                ],
+                [
+                    'name'=> 'rate',
+                    'slug'=> 'rate',
+                    'type'=> 'rating',
+                    'validation' => 'required'
+                ],
+                [
+                    'name'=> 'comment',
+                    'slug'=> 'comment',
+                    'type'=> 'textarea',
+                    'validation' => 'required'
+                ],
+            ];
+        else
+            $comment = [
+                [
+                    'name'=> 'rate',
+                    'slug'=> 'rate',
+                    'type'=> 'rating',
+                    'validation' => 'required'
+                ],
+                [
+                    'name'=> 'comment',
+                    'slug'=> 'comment',
+                    'type'=> 'textarea',
+                    'validation' => 'required'
+                ],
+            ];
+
+        $form = new FormMaker($comment);
+        $form->validate($request);
+        if (!isset($userProfile->id))
+            return back();
+        $comment = new ProfileComment();
+        $comment->profile_id = $userProfile->id;
+        $comment->user_id = Auth::id();
+        $comment->fill($request->except('_token'));
+        $comment->save();
+        return back()->with('message','Your Comment Submitted');
+
     }
 
     /**
@@ -156,7 +270,7 @@ class UserProfileController extends Controller
     public function update(Request $request)
     {
 
-        $form = new FormMaker($this->crud);
+        $form = new FormMaker($this->form);
         $form->validate($request);
         $files = $form->HandleFiles($request);
 //        dd($files);

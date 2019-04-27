@@ -1,4 +1,3 @@
-
 <form id="productForm" class="form-horizontal ng-pristine ng-valid" role="form" method="{{ $form->getMethod() }}" action="{{ $form->getUrlForm() }}" enctype="multipart/form-data">
     {{ csrf_field() }}
     <div class="row">

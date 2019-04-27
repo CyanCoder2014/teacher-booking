@@ -265,28 +265,75 @@
                 </ul>
                 <hr>
                 -->
-                <ul style="list-style: none" class="p-0">
-
-                    <li>
-                        <!-- Default unchecked -->
-                        <div class="custom-control custom-checkbox">
-                            <input checked type="checkbox" class="custom-control-input" id="defaultUnchecked">
-                            <label class="custom-control-label" for="defaultUnchecked">All Categories</label>
-                        </div>
-                    </li>
-
-                    @foreach($categories as $category)
+                <form action="">
+                    <h1>Category</h1>
+                    <ul style="list-style: none" class="p-0">
                         <li>
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-                                <label class="custom-control-label" for="defaultUnchecked">{{$category->title}}</label>
+                                <input @if(!is_array(Request::get('categories')))checked @endif type="checkbox" class="custom-control-input" id="defaultUnchecked">
+                                <label class="custom-control-label" for="defaultUnchecked">All Categories</label>
                             </div>
                         </li>
-                    @endforeach
+
+                        @foreach($categories as $category)
+                            <li>
+                                <!-- Default unchecked -->
+                                <div class="custom-control custom-checkbox">
+                                    <input @if(is_array(Request::get('categories')) and in_array($category->id,Request::get('categories'))) checked @endif type="checkbox" class="custom-control-input" id="{{$category->title}}" name="categories[]" value="{{$category->id}}">
+                                    <label class="custom-control-label" for="{{$category->title}}">{{$category->title}}</label>
+                                </div>
+                            </li>
+                        @endforeach
+
+                    </ul>
+                    <h1>Types</h1>
+                    <ul style="list-style: none" class="p-0">
+                        <li>
+                            <!-- Default unchecked -->
+                            <div class="custom-control custom-checkbox">
+                                <input @if(!is_array(Request::get('types')))checked @endif type="checkbox" class="custom-control-input" id="defaultUnchecked1">
+                                <label class="custom-control-label" for="defaultUnchecked1">All Types</label>
+                            </div>
+                        </li>
+                        <li>
+                            <!-- Default unchecked -->
+                            <div class="custom-control custom-checkbox">
+                                <input @if(is_array(Request::get('types')) and in_array(0,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input" id="type1" name="types[]" value="0">
+                                <label class="custom-control-label" for="type1">private</label>
+                            </div>
+                        </li>
+                        <li>
+                            <!-- Default unchecked -->
+                            <div class="custom-control custom-checkbox">
+                                <input @if(is_array(Request::get('types')) and in_array(1,Request::get('types'))) checked @endif  type="checkbox" class="custom-control-input" id="type2" name="types[]" value="1">
+                                <label class="custom-control-label" for="type2">group</label>
+                            </div>
+                        </li>
+                        <li>
+                            <!-- Default unchecked -->
+                            <div class="custom-control custom-checkbox">
+                                <input @if(is_array(Request::get('types')) and in_array(2,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input" id="type3" name="types[]" value="2">
+                                <label class="custom-control-label" for="type3">online</label>
+                            </div>
+                        </li>
 
 
-                </ul>
+
+                    </ul>
+                    <h1>Price Range</h1>
+                    <div class="row">
+                        <div class="col-6 form-group">
+                            <label for="min">Min</label>
+                            <input type="number" class="form-control" name="min" id="min" value="{{ Request::get('min') }}">
+                        </div>
+                        <div class="col-6 form-group">
+                            <label for="max">Max</label>
+                            <input type="number" class="form-control" name="max" id="max" value="{{ Request::get('max') }}">
+                        </div>
+                    </div>
+                    <button class="btn btn-blue" type="submit">Filter</button>
+                </form>
             </div>
             <div class="col-md-10 text-right ">
                 <ul class="nav nav-tabs justify-content-end filterUl" id="myTab" role="tablist">
@@ -326,7 +373,7 @@
                                             <div class="row">
                                                 <div class="col-md-12 mother2">
                                                     <div class="text-center">
-                                                        <img src="/front/img/avatar-04.jpg" class="rounded-circle w-50" style="max-width: 250px"/>
+                                                        <img src="{{ asset($course->image()) }}" class="rounded-circle w-50" style="max-width: 250px"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 mother2">

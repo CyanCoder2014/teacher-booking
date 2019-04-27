@@ -18,6 +18,8 @@ class CreateUserProfilesTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('hourly_rate',100);
             $table->unsignedSmallInteger('gender');
+            $table->unsignedSmallInteger('type')->nullable();
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('state_id')->nullable();
             $table->unsignedBigInteger('city_id')->nullable();
             $table->string('address')->nullable();
@@ -32,6 +34,7 @@ class CreateUserProfilesTable extends Migration
             $table->decimal('lng',11,8)->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
 
         });
     }

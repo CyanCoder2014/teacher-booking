@@ -40,4 +40,5 @@ Route::group(['middleware' => 'admin','prefix' =>'admin'],function (){
 
 /// end
 Route::get('user/{userProfile}','UserProfileController@show')->name('profile.show');
+Route::post('user/{userProfile}','UserProfileController@postComment')->name('profile.comment');
 

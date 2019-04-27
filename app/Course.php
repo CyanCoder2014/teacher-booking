@@ -81,7 +81,7 @@ class Course extends CRUD
             'name' => 'type',
             'type' => 'select',
             'slug' => 'Type',
-            'values' => [1 => 'type1',2 =>'type2',3 =>'type3'],
+            'values' => ['private','group','online'],
             'validation' => 'required',
         ],
         [

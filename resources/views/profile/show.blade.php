@@ -6,12 +6,12 @@
             <div class="row ">
                 <div class="col-md-8">
                     <div class="bg-white p-3">
-                        <!-- <video class="w-100" controls>
-                             <source src="movie.mp4" type="video/mp4">
-                             <source src="movie.ogg" type="video/ogg">
+                        @if(isset($userProfile->intro_video))
+                        <video class="w-100" controls>
+                             <source src="{{ asset($userProfile->intro_video) }}" type="video/mp4">
                              Your browser does not support the video tag.
                          </video>
-                         -->
+                        @endif
                         <div class="mt-3">
                             <div class="container-fluid">
                                 <div class="row">
@@ -41,66 +41,24 @@
                                         </div>
                                         <div class="container-fluid mt-3">
                                             <div class="row">
-{{--                                                <div class="col-md-3 p-1">--}}
-{{--                                                    <div class="bg-gray p-3">--}}
-{{--                                                        <div class="font-13 text-grey text-center">Rating</div>--}}
-{{--                                                        <div class=" text-center">--}}
-{{--                                                            <div class="text-orang" style="font-size: 10px">--}}
-{{--                                                                <i class="fas fa-star"></i>--}}
-{{--                                                                <i class="fas fa-star"></i>--}}
-{{--                                                                <i class="fas fa-star"></i>--}}
-{{--                                                                <i class="fas fa-star"></i>--}}
-{{--                                                                <i class="fas fa-star"></i>--}}
-{{--                                                            </div>--}}
-{{--                                                            <span class="font-weight-bold">5.0</span>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-{{--                                                <div class="col-md-3 p-1">--}}
-{{--                                                    <div class="bg-gray p-3">--}}
-{{--                                                        <div class="font-13 text-grey text-center">Rating</div>--}}
-{{--                                                        <div class=" text-center">--}}
-{{--                                                            <div class="text-orang" style="font-size: 10px">--}}
-{{--                                                                <i class="fas fa-star"></i>--}}
-{{--                                                                <i class="fas fa-star"></i>--}}
-{{--                                                                <i class="fas fa-star"></i>--}}
-{{--                                                                <i class="fas fa-star"></i>--}}
-{{--                                                                <i class="fas fa-star"></i>--}}
-{{--                                                            </div>--}}
-{{--                                                            <span class="font-weight-bold">5.0</span>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-{{--                                                <div class="col-md-3 p-1">--}}
-{{--                                                    <div class="bg-gray p-3">--}}
-{{--                                                        <div class="font-13 text-grey text-center">Rating</div>--}}
-{{--                                                        <div class=" text-center">--}}
-{{--                                                            <div class="text-orang" style="font-size: 10px">--}}
-{{--                                                                <i class="fas fa-star"></i>--}}
-{{--                                                                <i class="fas fa-star"></i>--}}
-{{--                                                                <i class="fas fa-star"></i>--}}
-{{--                                                                <i class="fas fa-star"></i>--}}
-{{--                                                                <i class="fas fa-star"></i>--}}
-{{--                                                            </div>--}}
-{{--                                                            <span class="font-weight-bold">5.0</span>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-{{--                                                <div class="col-md-3 p-1">--}}
-{{--                                                    <div class="bg-gray p-3">--}}
-{{--                                                        <div class="font-13 text-grey text-center">Rating</div>--}}
-{{--                                                        <div class=" text-center">--}}
-{{--                                                            <div class="text-orang" style="font-size: 10px">--}}
-{{--                                                                <i class="fas fa-star"></i>--}}
-{{--                                                                <i class="fas fa-star"></i>--}}
-{{--                                                                <i class="fas fa-star"></i>--}}
-{{--                                                                <i class="fas fa-star"></i>--}}
-{{--                                                                <i class="fas fa-star"></i>--}}
-{{--                                                            </div>--}}
-{{--                                                            <span class="font-weight-bold">5.0</span>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
+                                                @foreach($userProfile->AcceptedComment as $comment)
+                                                <div class="col-md-3 p-1">
+                                                    <div class="bg-gray p-3">
+                                                        <div class="font-13 text-grey text-center">{{ $comment->name }}</div>
+                                                        <div class=" text-center">
+                                                            <div class="text-orang" style="font-size: 10px">
+                                                                @for($i=1;$i< $comment->rate;$i++)
+                                                                <i class="fas fa-star"></i>
+                                                                @endfor
+                                                                @if(($comment->rate/0.5)%2 == 1)
+                                                                    <i class="fas fa-star-half"></i>
+                                                                @endif
+                                                            </div>
+                                                            <span class="font-weight-bold">{{ $comment->rate }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
@@ -230,6 +188,27 @@
                                         </div>
                                     </div>
                                 </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-3 mt-3">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="font-weight-bold">
+                                        Write a Comment
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="container">
+                                        <div class="row mt-2">
+                                            {!! $form->make() !!}
+                                        </div>
+                                    </div>
+                                </div>
+
 
                             </div>
                         </div>

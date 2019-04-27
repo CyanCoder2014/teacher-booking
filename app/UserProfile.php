@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserProfile extends Model
 {
-    protected $fillable=['gender','education','intro','state_id','city_id','address','tell','hourly_rate','skills','image','intro_video','birth','lat','lng'];
+    protected $fillable=['gender','education','intro','type','category_id','state_id','city_id','address','tell','hourly_rate','skills','image','intro_video','birth','lat','lng'];
 //    protected $casts=[
 //
 //    ]
@@ -37,5 +37,11 @@ class UserProfile extends Model
     }
     public function courses(){
         return $this->hasMany(Course::class,'user_id','user_id');
+    }
+    public function comment(){
+        return $this->hasMany(ProfileComment::class,'profile_id');
+    }
+    public function AcceptedComment(){
+        return $this->comment()->where('approved',1);
     }
 }
