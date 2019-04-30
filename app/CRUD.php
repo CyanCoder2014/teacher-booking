@@ -272,4 +272,10 @@ abstract class CRUD extends Model
     public static function getLayout(){
         return 'layouts.'.static::$layout;
     }
+    public static function ACL_Failed_Message($method,$record=null){
+        return 'Access Denied';
+    }
+    public static function ACL_Failed_redirect($method,$record=null){
+        return url('/');
+    }
 }

@@ -18,6 +18,7 @@
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('index');
+Route::get('/filter', 'HomeController@filter')->name('filter');
 
 Route::group(['middleware' => 'auth'],function (){
     \App\CourseRequest::Route_list();
@@ -35,10 +36,17 @@ Route::group(['middleware' => 'admin','prefix' =>'admin'],function (){
 //        dd('hello');
         return view('admin.index');
     })->name('admin.index');
+    Route::group(['middleware' => ['auth'], 'prefix' => '/utility'], function()
+    {
+        Route::get('/{name}',['as'=>'utility.index','uses'=>'Utility\UtiliyController@index']);
+        Route::post('/{name}',['as'=>'utility.store','uses'=>'Utility\UtiliyController@store']);
+        Route::post('/{name}/{id}',['as'=>'utility.update','uses'=>'Utility\UtiliyController@update']);
+        Route::get('/{name}/delete/{id}',['as'=>'utility.destroy','uses'=>'Utility\UtiliyController@destroy']);
 
+    });
 });
 
-/// end
+/////////////////////// end /////////////////////////
 Route::get('user/{userProfile}','UserProfileController@show')->name('profile.show');
 Route::post('user/{userProfile}','UserProfileController@postComment')->name('profile.comment');
 

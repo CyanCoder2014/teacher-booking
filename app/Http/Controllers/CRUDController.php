@@ -9,6 +9,8 @@ class CRUDController extends Controller
 {
     public function index($class)
     {
+        if(!$class::ACL('index'))
+            return redirect($class::ACL_Failed_redirect('index'))->with('message',$class::ACL_Failed_message('index'));
         return view('crud.index',['class' => $class]);
     }
 
@@ -20,7 +22,7 @@ class CRUDController extends Controller
     public function create($class)
     {
         if(!$class::ACL('create'))
-            return view('error.404');
+            return redirect($class::ACL_Failed_redirect('create'))->with('message',$class::ACL_Failed_message('create'));
         return view('crud.create',['class' => $class]);
     }
 
@@ -33,7 +35,7 @@ class CRUDController extends Controller
     public function store(Request $request,$class)
     {
         if(!$class::ACL('store'))
-            return view('error.404');
+            return redirect($class::ACL_Failed_redirect('store'))->with('message',$class::ACL_Failed_message('store'));
         $this->validate($request,$class::getvalidation());
         $new = new $class;
 //        dd($new);
@@ -99,7 +101,7 @@ class CRUDController extends Controller
     {
         $record = $class::findOrFail($id);
         if(!$class::ACL('edit',$record))
-            return view('error.404');
+            return redirect($class::ACL_Failed_redirect('edit'))->with('message',$class::ACL_Failed_message('edit'));
 //        dd($record);
         return view('crud.edit',['class' => $class,'record'=>$record]);
     }
@@ -115,7 +117,7 @@ class CRUDController extends Controller
     {
         $record = $class::findOrFail($id);
         if(!$class::ACL('update',$record))
-            return view('error.404');
+            return redirect($class::ACL_Failed_redirect('update'))->with('message',$class::ACL_Failed_message('update'));
         $this->validate($request,$class::getvalidation());
         foreach ($record->getFillable() as $fillable)
         {
@@ -173,13 +175,15 @@ class CRUDController extends Controller
     {
         $record = $class::findOrFail($id);
         if(!$class::ACL('destroy',$record))
-            return view('error.404');
+            return redirect($class::ACL_Failed_redirect('destroy'))->with('message',$class::ACL_Failed_message('destroy'));
         $record->delete();
         return redirect($class::route('index'))->with('message','Deleted Succesfully');
 
     }
 
     public function getdata($class){
+        if(!$class::ACL('index'))
+            return redirect($class::ACL_Failed_redirect('index'))->with('message',$class::ACL_Failed_message('index'));
         return Laratables::recordsOf($class);
     }
     public function condition(Request $request,$field,$class){

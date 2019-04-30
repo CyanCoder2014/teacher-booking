@@ -136,7 +136,10 @@ class Course extends CRUD
     static $middleware=['auth'];
 
     public static function ACL($method,$record=null):bool{
-        if ($method == 'edit' or $method == 'update' or $method == 'destroy')
+
+        if (!isset(Auth::user()->profile))
+            return false;
+        if (($method == 'edit' or $method == 'update' or $method == 'destroy'))
         {
             if(isset($record->user_id) && $record->user_id == Auth::id())
                 return true;
@@ -174,5 +177,19 @@ class Course extends CRUD
 //    }
     public function link(){
         return '#';
+    }
+    public static function ACL_Failed_Message($method,$record=null){
+        switch ($method){
+            case 'index':return 'You should Fill your Profile'; break;
+        }
+        return parent::ACL_Failed_Message($method,$record);
+    }
+    public static function ACL_Failed_redirect($method, $record = null)
+    {
+        switch ($method){
+            case 'index':return route('profile'); break;
+        }
+
+        return parent::ACL_Failed_redirect($method, $record);
     }
 }

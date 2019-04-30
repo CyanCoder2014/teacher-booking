@@ -41,7 +41,7 @@ class User extends Authenticatable
         return $this->hasMany(Course::class);
     }
     public function profile(){
-        $this->hasOne(UserProfile::class);
+        return $this->hasOne(UserProfile::class);
     }
     public function isAdmin(){
         if ($this->type == 1)

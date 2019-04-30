@@ -119,6 +119,6 @@ class Category extends CRUD
 //        return $this->belongsTo(Language::class);
 //    }
     public function link(){
-        return '#';
+        return route('filter',['categories[]' =>$this->id]);
     }
 }

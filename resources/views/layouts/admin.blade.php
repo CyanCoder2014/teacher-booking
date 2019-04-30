@@ -84,6 +84,21 @@
                         <a href="{{ route('category.index') }}">
                             <i class="fas fa-tags"></i>Category</a>
                     </li>
+                    <li class="has-sub">
+                        <a class="js-arrow" href="#">
+                            <i class="fas fa-gears"></i>Setting</a>
+                        <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                            <li class="has-sub">
+                                <a class="js-arrow" href="#">
+                                    <i class="fas fa-gears"></i>pages</a>
+                                <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                    @foreach(config('utility.names') as $key => $value)
+                                        <li><a href="{{ route('utility.index',['name' => $key]) }}"><i class="fa fa-arrow-circle-left"></i>{{ $value }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
 {{--                    <li>--}}
 {{--                        <a href="table.html">--}}
 {{--                            <i class="fas fa-table"></i>Tables</a>--}}
@@ -196,6 +211,22 @@
                         <a href="{{ route('category.index') }}">
                             <i class="fas fa-tags"></i>Category</a>
                     </li>
+                    <li class="has-sub">
+                        <a class="js-arrow" href="#">
+                            <i class="fas fa-gears"></i>Setting</a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li class="has-sub">
+                                <a class="js-arrow" href="#">
+                                    <i class="fas fa-gears"></i>pages</a>
+                                <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                    @foreach(config('utility.names') as $key => $value)
+                                        <li><a href="{{ route('utility.index',['name' => $key]) }}"><i class="fa fa-arrow-circle-left"></i>{{ $value }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
 {{--                    <li>--}}
 {{--                        <a href="table.html">--}}
 {{--                            <i class="fas fa-table"></i>Tables</a>--}}
