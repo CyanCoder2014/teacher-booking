@@ -42,6 +42,6 @@ class UserProfile extends Model
         return $this->hasMany(ProfileComment::class,'profile_id');
     }
     public function AcceptedComment(){
-        return $this->comment()->where('approved',1);
+        return $this->comment();//->where('approved',1);
     }
 }
