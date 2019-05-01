@@ -172,11 +172,7 @@
                                 <div class="au-inbox-wrap js-inbox-wrap">
                                     <div class="au-message js-list-load">
                                         <div class="au-message__noti">
-                                            <p>You Have
-                                                <span>2</span>
 
-                                                new messages
-                                            </p>
                                         </div>
                                         <div class="au-message-list">
                                             <div class="au-message__item unread">
@@ -188,12 +184,10 @@
                                                             </div>
                                                         </div>
                                                         <div class="text">
-                                                            <h5 class="name">John Smith</h5>
-                                                            <p>Have sent a photo</p>
+
                                                         </div>
                                                     </div>
                                                     <div class="au-message__item-time">
-                                                        <span>12 Min ago</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -207,7 +201,7 @@
                                                         </div>
                                                         <div class="text">
                                                             <h5 class="name">Nicholas Martinez</h5>
-                                                            <p>You are now connected on message</p>
+                                                            <p>Art</p>
                                                         </div>
                                                     </div>
                                                     <div class="au-message__item-time">
@@ -225,7 +219,7 @@
                                                         </div>
                                                         <div class="text">
                                                             <h5 class="name">Michelle Sims</h5>
-                                                            <p>Lorem ipsum dolor sit amet</p>
+                                                            <p>General</p>
                                                         </div>
                                                     </div>
                                                     <div class="au-message__item-time">
@@ -243,7 +237,7 @@
                                                         </div>
                                                         <div class="text">
                                                             <h5 class="name">Michelle Sims</h5>
-                                                            <p>Purus feugiat finibus</p>
+                                                            <p>Sport</p>
                                                         </div>
                                                     </div>
                                                     <div class="au-message__item-time">
@@ -261,7 +255,7 @@
                                                         </div>
                                                         <div class="text">
                                                             <h5 class="name">Michelle Sims</h5>
-                                                            <p>Lorem ipsum dolor sit amet</p>
+                                                            <p>Traffic</p>
                                                         </div>
                                                     </div>
                                                     <div class="au-message__item-time">
@@ -279,7 +273,7 @@
                                                         </div>
                                                         <div class="text">
                                                             <h5 class="name">Michelle Sims</h5>
-                                                            <p>Purus feugiat finibus</p>
+                                                            <p>Study</p>
                                                         </div>
                                                     </div>
                                                     <div class="au-message__item-time">
@@ -410,19 +404,19 @@
                                 <table class="table table-borderless table-striped table-earning">
                                     <thead>
                                     <tr>
-                                        <th>date</th>
+                                        <th>Create date</th>
                                         <th>order ID</th>
-                                        <th>name</th>
-                                        <th class="text-right">price</th>
-                                        <th class="text-right">quantity</th>
-                                        <th class="text-right">total</th>
+                                        <th>Title</th>
+                                        <th class="text-right">Hourly rate</th>
+                                        <th class="text-right">Capacity</th>
+                                        <th class="text-right">Total price</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr>
                                         <td>2018-09-29 05:57</td>
                                         <td>100398</td>
-                                        <td>iPhone X 64Gb Grey</td>
+                                        <td>lowaefasdf asfdasdf</td>
                                         <td class="text-right">$999.00</td>
                                         <td class="text-right">1</td>
                                         <td class="text-right">$999.00</td>
@@ -430,7 +424,7 @@
                                     <tr>
                                         <td>2018-09-28 01:22</td>
                                         <td>100397</td>
-                                        <td>Samsung S8 Black</td>
+                                        <td>jhkfuyu asfdasdf</td>
                                         <td class="text-right">$756.00</td>
                                         <td class="text-right">1</td>
                                         <td class="text-right">$756.00</td>
@@ -438,7 +432,7 @@
                                     <tr>
                                         <td>2018-09-27 02:12</td>
                                         <td>100396</td>
-                                        <td>Game Console Controller</td>
+                                        <td>lowaefasdf asfdasdf</td>
                                         <td class="text-right">$22.00</td>
                                         <td class="text-right">2</td>
                                         <td class="text-right">$44.00</td>
@@ -446,7 +440,7 @@
                                     <tr>
                                         <td>2018-09-26 23:06</td>
                                         <td>100395</td>
-                                        <td>iPhone X 256Gb Black</td>
+                                        <td>wer 44434</td>
                                         <td class="text-right">$1199.00</td>
                                         <td class="text-right">1</td>
                                         <td class="text-right">$1199.00</td>
@@ -454,7 +448,7 @@
                                     <tr>
                                         <td>2018-09-25 19:03</td>
                                         <td>100393</td>
-                                        <td>USB 3.0 Cable</td>
+                                        <td>lowaefasdf asfdasdf</td>
                                         <td class="text-right">$10.00</td>
                                         <td class="text-right">3</td>
                                         <td class="text-right">$30.00</td>
@@ -462,7 +456,7 @@
                                     <tr>
                                         <td>2018-09-29 05:57</td>
                                         <td>100392</td>
-                                        <td>Smartwatch 4.0 LTE Wifi</td>
+                                        <td>Smartwatch </td>
                                         <td class="text-right">$199.00</td>
                                         <td class="text-right">6</td>
                                         <td class="text-right">$1494.00</td>
@@ -470,7 +464,7 @@
                                     <tr>
                                         <td>2018-09-24 19:10</td>
                                         <td>100391</td>
-                                        <td>Camera C430W 4k</td>
+                                        <td>lowaefasdf asfdasdf</td>
                                         <td class="text-right">$699.00</td>
                                         <td class="text-right">1</td>
                                         <td class="text-right">$699.00</td>
@@ -478,7 +472,7 @@
                                     <tr>
                                         <td>2018-09-22 00:43</td>
                                         <td>100393</td>
-                                        <td>USB 3.0 Cable</td>
+                                        <td>retert asfdasdf</td>
                                         <td class="text-right">$10.00</td>
                                         <td class="text-right">3</td>
                                         <td class="text-right">$30.00</td>
@@ -495,36 +489,36 @@
                                         <table class="table table-top-countries">
                                             <tbody>
                                             <tr>
-                                                <td>United States</td>
+                                                <td>Art</td>
                                                 <td class="text-right">12</td>
                                             </tr>
                                             <tr>
-                                                <td>Australia</td>
+                                                <td>Music</td>
                                                 <td class="text-right">33</td>
                                             </tr>
                                             <tr>
-                                                <td>United Kingdom</td>
-                                                <td class="text-right">444</td>
+                                                <td>Art</td>
+                                                <td class="text-right">12</td>
                                             </tr>
                                             <tr>
-                                                <td>Turkey</td>
-                                                <td class="text-right">$35,364.90</td>
+                                                <td>Music</td>
+                                                <td class="text-right">33</td>
                                             </tr>
                                             <tr>
-                                                <td>Germany</td>
-                                                <td class="text-right">$20,366.96</td>
+                                                <td>Art</td>
+                                                <td class="text-right">12</td>
                                             </tr>
                                             <tr>
-                                                <td>France</td>
-                                                <td class="text-right">$10,366.96</td>
+                                                <td>Music</td>
+                                                <td class="text-right">33</td>
                                             </tr>
                                             <tr>
-                                                <td>Australia</td>
-                                                <td class="text-right">$5,366.96</td>
+                                                <td>Art</td>
+                                                <td class="text-right">12</td>
                                             </tr>
                                             <tr>
-                                                <td>Italy</td>
-                                                <td class="text-right">$1639.32</td>
+                                                <td>Music</td>
+                                                <td class="text-right">33</td>
                                             </tr>
                                             </tbody>
                                         </table>

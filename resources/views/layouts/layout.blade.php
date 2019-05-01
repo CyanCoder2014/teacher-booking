@@ -78,10 +78,10 @@ Choose what you want to learn">
 
 
             <li class="nav-item pr-3 letter-s2 pb-3">
-                <a class="nav-link" href="#">Blog</a>
+                <a class="nav-link" href="/blog">Blog</a>
             </li>
             <li class="nav-item pr-3 letter-s2 pb-3">
-                <a class="nav-link" href="#">About us</a>
+                <a class="nav-link" href="/contactus">Contact us</a>
             </li>
 
 

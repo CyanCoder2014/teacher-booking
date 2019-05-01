@@ -80,7 +80,7 @@
                 <hr>
                 -->
                 <form action="">
-                    <h1>Category</h1>
+                    <h4 style="color: #ef5258 ;font-size: 1.6rem">Category</h4>
                     <ul style="list-style: none" class="p-0">
                         <li>
                             <!-- Default unchecked -->
@@ -101,7 +101,7 @@
                         @endforeach
 
                     </ul>
-                    <h1>Types</h1>
+                    <h4 style="color: #ef5258 ;font-size: 1.6rem">Types</h4>
                     <ul style="list-style: none" class="p-0">
                         <li>
                             <!-- Default unchecked -->
@@ -135,7 +135,7 @@
 
 
                     </ul>
-                    <h1>Price Range</h1>
+                    <h4 style="color: #ef5258 ;font-size: 1.6rem">Price Range</h4>
                     <div class="row">
                         <div class="col-6 form-group">
                             <label for="min">Min</label>
@@ -205,57 +205,7 @@
                                     </a>
                                 @endforeach
 
-
-
-
-
-                                <a  href="/user/1"  class="col-md-4 mt-3 mother1">
-                                    <div class="shadow hoverable p-3 bg-white">
-                                        <div class="row">
-                                            <div class="col-md-12 mother2">
-                                                <div class="text-center">
-                                                    <img src="/front/img/avatar-04.jpg" class="rounded-circle w-50" style="max-width: 250px"/>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-12 mother2">
-                                                <h5 class="text-center font-weight-bold mt-3">
-                                                   Sam Smith (test)
-                                                </h5>
-                                                <h6 class="text-center  mt-3">
-                                                    English teacher
-                                                </h6>
-                                            </div>
-                                        </div>
-
-
-                                    </div>
-                                </a>
-
-
-
-                                    <a href="/user/1" class="col-md-4 mt-3 mother1">
-                                        <div class="shadow hoverable p-3 bg-white">
-                                            <div class="row">
-                                                <div class="col-md-12 mother2">
-                                                    <div class="text-center">
-                                                        <img src="/front/img/avatar-02.jpg" class="rounded-circle w-50" style="max-width: 250px"/>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 mother2">
-                                                    <h5 class="text-center font-weight-bold mt-3">
-                                                       Rose Green (test)
-                                                    </h5>
-                                                    <h6 class="text-center  mt-3">
-                                                        Art teacher
-                                                    </h6>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </a>
-
-
+<!--
 
 
                                     <a  href="/user/1"  class="col-md-4 mt-3 mother1">
@@ -281,7 +231,7 @@
                                     </a>
 
 
-
+-->
 
                             </div>
                         </div>
@@ -450,7 +400,7 @@
             @foreach($coursesRequests as $coursesRequest)
             <div class="col-md-4">
                 <div class="card">
-                    <img class="card-img-top p-5 img-fluid" src="/front/img/bgtop.png" alt="Card image cap"/>
+                   <!-- <img class="card-img-top p-5 img-fluid" src="/front/img/bgtop.png" alt="Card image cap"/>-->
 
                     <div class="card-body">
                         <h4 class="card-title"><a>{{$coursesRequest->title}}</a></h4>
