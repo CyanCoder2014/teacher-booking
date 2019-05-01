@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Content;
+use App\ContactUs;
 use Illuminate\Http\Request;
 
-class ContentController extends Controller
+class ContactUsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,7 @@ class ContentController extends Controller
      */
     public function index()
     {
-        $contents = Content::orderBy('id','desc')->paginate(12);
-        return view('blog.list',compact('contents'));
+        return view('contactus.show');
     }
 
     /**
@@ -36,27 +35,34 @@ class ContentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+           'name'=>'required|max:255',
+           'email'=>'required|email|max:255',
+           'subject'=>'required|max:255',
+           'message'=>'required',
+        ]);
+        ContactUs::create($request->except('_token'));
+        return back()->with('message','We Contact You Soon');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Content  $content
+     * @param  \App\ContactUs  $contactUs
      * @return \Illuminate\Http\Response
      */
-    public function show(Content $content)
+    public function show(ContactUs $contactUs)
     {
-        return view('blog.show',compact('content'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Content  $content
+     * @param  \App\ContactUs  $contactUs
      * @return \Illuminate\Http\Response
      */
-    public function edit(Content $content)
+    public function edit(ContactUs $contactUs)
     {
         //
     }
@@ -65,10 +71,10 @@ class ContentController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Content  $content
+     * @param  \App\ContactUs  $contactUs
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Content $content)
+    public function update(Request $request, ContactUs $contactUs)
     {
         //
     }
@@ -76,10 +82,10 @@ class ContentController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Content  $content
+     * @param  \App\ContactUs  $contactUs
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Content $content)
+    public function destroy(ContactUs $contactUs)
     {
         //
     }

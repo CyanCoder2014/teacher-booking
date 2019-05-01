@@ -84,6 +84,10 @@
                         <a href="{{ route('category.index') }}">
                             <i class="fas fa-tags"></i>Category</a>
                     </li>
+                    <li>
+                        <a href="{{ route('contactus.index') }}">
+                            <i class="fas fa-connectdevelop"></i>ContactUs</a>
+                    </li>
                     <li class="has-sub">
                         <a class="js-arrow" href="#">
                             <i class="fas fa-gears"></i>Setting</a>
@@ -210,6 +214,10 @@
                     <li>
                         <a href="{{ route('category.index') }}">
                             <i class="fas fa-tags"></i>Category</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('contactus.index') }}">
+                            <i class="fas fa-connectdevelop"></i>ContactUs</a>
                     </li>
                     <li class="has-sub">
                         <a class="js-arrow" href="#">

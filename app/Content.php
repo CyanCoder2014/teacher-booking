@@ -151,6 +151,6 @@ class Content extends CRUD
 //        return $this->belongsTo(Language::class);
 //    }
     public function link(){
-        return '#';
+        return route('blog.show',['content' => $this->id]);
     }
 }

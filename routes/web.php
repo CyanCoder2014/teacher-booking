@@ -27,6 +27,10 @@ Route::group(['middleware' => 'auth'],function (){
     Route::post('/profile/edit', 'UserProfileController@update')->name('profile.update');
 });
 Route::get('CourseRequest','CourseRequestController@index')->name('CourseRequest');
+Route::get('/blog', 'ContentController@index')->name('blog.index');
+Route::get('/blog/{content}', 'ContentController@show')->name('blog.show');
+Route::get('/contactus', 'ContactUsController@index')->name('contactus');
+Route::post('/contactus', 'ContactUsController@store');
 
 ///////////////////// Admin /////////////////////////
 Route::group(['middleware' => 'admin','prefix' =>'admin'],function (){
@@ -36,6 +40,13 @@ Route::group(['middleware' => 'admin','prefix' =>'admin'],function (){
 //        dd('hello');
         return view('admin.index');
     })->name('admin.index');
+
+    Route::get('/contactus', 'Admin\ContactUsController@index')->name('contactus.index');
+    Route::get('/contactus/getdata', 'Admin\ContactUsController@getdata')->name('contactus.getdata');
+    Route::get('/contactus/{contactUs}', 'Admin\ContactUsController@edit')->name('contactus.edit');
+    Route::post('/contactus/{contactUs}', 'Admin\ContactUsController@update')->name('contactus.update');
+    Route::delete('/contactus/{contactUs}', 'Admin\ContactUsController@destroy')->name('contactus.delete');
+
     Route::group(['middleware' => ['auth'], 'prefix' => '/utility'], function()
     {
         Route::get('/{name}',['as'=>'utility.index','uses'=>'Utility\UtiliyController@index']);

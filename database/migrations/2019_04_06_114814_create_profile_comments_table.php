@@ -18,6 +18,7 @@ class CreateProfileCommentsTable extends Migration
             $table->unsignedBigInteger('user_id')->nullable();
             $table->unsignedBigInteger('profile_id');
             $table->unsignedBigInteger('parent_id')->nullable();
+            $table->mediumText('comment')->nullable();
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->boolean('approved')->nullable();

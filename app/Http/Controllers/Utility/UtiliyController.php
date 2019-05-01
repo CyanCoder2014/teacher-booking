@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Utility;
 use Illuminate\Http\Request;
 use App\Utility;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Artisan;
 
 
 class UtiliyController extends Controller
@@ -103,8 +104,9 @@ class UtiliyController extends Controller
             $about->data = $data;
             $about->save();
 
+            Artisan::call('view:clear');
             return redirect()->route('utility.index',['name' => $type])
-                ->with('success', 'ساخته شد');
+                ->with('success', 'Setting Added');
         }
         return abort(404);
     }
@@ -173,9 +175,9 @@ class UtiliyController extends Controller
             }
             $about->data = $data;
             $about->save();
-
+            Artisan::call('view:clear');
             return redirect()->route('utility.index',['name' => $type])
-                ->with('success', 'به روز رسانی انجام شد');
+                ->with('success', 'Setting Updated');
         }
         return abort(404);
     }
@@ -192,7 +194,7 @@ class UtiliyController extends Controller
         if(in_array($type,$this->types) && $this->is_addable[$type]) {
             Utility::destroy($id);
             return redirect()->route('utility.index',['name' => $type])
-                ->with('success', 'با موفقیت حذف شد');
+                ->with('success', 'Setting Deleted');
         }
         return abort(404);
     }

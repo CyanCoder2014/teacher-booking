@@ -25,7 +25,7 @@
                                             <button class="btn btn-light p-2 m-0 text-black waves-effect waves-light"><i class="fas fa-heart"></i>
                                             </button>
 
-                                            @if(Auth::check())
+                                            @if(Auth::id() == $userProfile->id)
                                             <a href="/myCourses" class="btn btn-danger p-2 text-black waves-effect waves-light text-white"><i class="fas fa-calendar"></i> Add Course</a>
                                             <a href="{{ route('profile') }}" class="btn btn-primary p-2 m-0 text-black waves-effect waves-light  text-white"><i class="fas fa-edit"></i> Edit profile</a>
                                             @endif
@@ -41,24 +41,22 @@
                                         </div>
                                         <div class="container-fluid mt-3">
                                             <div class="row">
-                                                @foreach($userProfile->AcceptedComment as $comment)
                                                 <div class="col-md-3 p-1">
                                                     <div class="bg-gray p-3">
-                                                        <div class="font-13 text-grey text-center">{{ $comment->name }}</div>
+                                                        <div class="font-13 text-grey text-center"></div>
                                                         <div class=" text-center">
                                                             <div class="text-orang" style="font-size: 10px">
-                                                                @for($i=1;$i< $comment->rate;$i++)
+                                                                @for($i=1;$i< $userProfile->AcceptedComment->avg('rate');$i++)
                                                                 <i class="fas fa-star"></i>
                                                                 @endfor
-                                                                @if(($comment->rate/0.5)%2 == 1)
+                                                                @if(($userProfile->AcceptedComment->avg('rate')/0.5)%2 == 1)
                                                                     <i class="fas fa-star-half"></i>
                                                                 @endif
                                                             </div>
-                                                            <span class="font-weight-bold">{{ $comment->rate }}</span>
+                                                            <span class="font-weight-bold">{{ $userProfile->AcceptedComment->avg('rate') }}</span>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                @endforeach
                                             </div>
                                         </div>
                                     </div>
@@ -203,6 +201,26 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="container">
+                                        <div class="row mt-2">
+                                            @foreach($userProfile->AcceptedComment as $comment)
+                                                <div class="col-12 p-1">
+                                                    <div class="bg-gray p-3">
+                                                        <div class="font-13 text-grey">{{ $comment->name }}</div>
+                                                        <div class="">
+                                                            <div class="text-orang" style="font-size: 10px">
+                                                                @for($i=1;$i< $comment->rate;$i++)
+                                                                    <i class="fas fa-star"></i>
+                                                                @endfor
+                                                                @if(($comment->rate/0.5)%2 == 1)
+                                                                    <i class="fas fa-star-half"></i>
+                                                                @endif
+                                                            </div>
+                                                            <span class="font-weight-bold">{{ $comment->comment }}</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                        </div>
                                         <div class="row mt-2">
                                             {!! $form->make() !!}
                                         </div>
