@@ -146,7 +146,7 @@
                             <input type="number" class="form-control" name="max" id="max" value="{{ Request::get('max') }}">
                         </div>
                     </div>
-                    <button class="btn btn-blue" type="submit">Filter</button>
+                    <button class="btn btn-danger nav-link nav-link btn btn-sm orange-border waves-effect waves-light" type="submit">Filter</button>
                 </form>
             </div>
             <div class="col-md-10 text-right ">
@@ -414,31 +414,6 @@
 
 
 
-            <div class="col-md-4">
-                <div class="card">
-                    <img class="card-img-top p-5 img-fluid" src="/front/img/bgtop.png" alt="Card image cap"/>
-
-                    <div class="card-body">
-                        <h4 class="card-title"><a>Course title</a></h4>
-                        <p class="card-text">Some quick example text to build on the Course title and make up the bulk of the
-                            card's content.</p>
-
-                    </div>
-
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card">
-                    <img class="card-img-top p-5 img-fluid" src="/front/img/bgtop.png" alt="Card image cap"/>
-                    <div class="card-body">
-                        <h4 class="card-title"><a>Course title</a></h4>
-                        <p class="card-text">Some quick example text to build on the Course title and make up the bulk of the
-                            card's content.</p>
-
-                    </div>
-
-                </div>
-            </div>
         </div>
 
 

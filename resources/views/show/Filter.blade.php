@@ -15,7 +15,7 @@
                 <hr>
                 -->
                 <form action="">
-                    <h1>Category</h1>
+                    <h4 style="color: #ef5258 ;font-size: 1.6rem">Category</h4>
                     <ul style="list-style: none" class="p-0">
                         <li>
                             <!-- Default unchecked -->
@@ -36,7 +36,7 @@
                         @endforeach
 
                     </ul>
-                    <h1>Types</h1>
+                    <h4 style="color: #ef5258 ;font-size: 1.6rem">Types</h4>
                     <ul style="list-style: none" class="p-0">
                         <li>
                             <!-- Default unchecked -->
@@ -70,7 +70,7 @@
 
 
                     </ul>
-                    <h1>Price Range</h1>
+                    <h4 style="color: #ef5258 ;font-size: 1.6rem">Price Range</h4>
                     <div class="row">
                         <div class="col-6 form-group">
                             <label for="min">Min</label>
@@ -81,7 +81,7 @@
                             <input type="number" class="form-control" name="max" id="max" value="{{ Request::get('max') }}">
                         </div>
                     </div>
-                    <button class="btn btn-blue" type="submit">Filter</button>
+                    <button class="btn btn-danger nav-link nav-link btn btn-sm orange-border waves-effect waves-light" type="submit">Filter</button>
                 </form>
             </div>
             <div class="col-md-10 text-right ">
