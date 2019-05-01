@@ -20,7 +20,7 @@
                                 <div class="overview__inner">
                                     <div class="overview-box clearfix">
                                         <div class="icon">
-                                            <i class="zmdi zmdi-account-o"></i>
+                                            <i class="zmdi zmdi-account-calendar "></i>
                                         </div>
                                         <div class="text">
                                             <h2>10368</h2>
@@ -38,11 +38,11 @@
                                 <div class="overview__inner">
                                     <div class="overview-box clearfix">
                                         <div class="icon">
-                                            <i class="zmdi zmdi-users-o"></i>
+                                            <i class="zmdi zmdi-account-o"></i>
                                         </div>
                                         <div class="text">
                                             <h2>388,688</h2>
-                                            <span>Members </span>
+                                            <span>All users </span>
                                         </div>
                                     </div>
                                     <div class="overview-chart">
@@ -94,7 +94,7 @@
                                 <div class="au-card-title" style="background-image:url('/dashboard/images/bg-title-01.jpg');">
                                     <div class="bg-overlay bg-overlay--blue"></div>
                                     <h3>
-                                        <i class="zmdi zmdi-account-calendar"></i>26 April, 2018</h3>
+                                        <i class="zmdi zmdi-comment-text "></i>New Messages</h3>
                                     <button class="au-btn-plus">
                                         <i class="zmdi zmdi-plus"></i>
                                     </button>
@@ -164,7 +164,7 @@
                                 <div class="au-card-title" style="background-image:url('/dashboard/images/bg-title-02.jpg');">
                                     <div class="bg-overlay bg-overlay--blue"></div>
                                     <h3>
-                                        <i class="zmdi zmdi-comment-text"></i>New Messages</h3>
+                                        <i class="zmdi zmdi-account-o"></i>Top teachers</h3>
                                     <button class="au-btn-plus">
                                         <i class="zmdi zmdi-plus"></i>
                                     </button>
