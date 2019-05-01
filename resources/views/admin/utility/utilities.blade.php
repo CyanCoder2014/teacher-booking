@@ -143,7 +143,7 @@
                             @endforeach
 
                             <div class="col-xs-1 form-group">
-                                <label>فعال</label>
+                                <label>Active</label>
                                 <input type="checkbox"  value="true" name="active">
                             </div>
 
