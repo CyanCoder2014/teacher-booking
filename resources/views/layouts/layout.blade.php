@@ -67,7 +67,7 @@ Choose what you want to learn">
                 <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
 
                    @foreach($categories as $category)
-                    <a class="dropdown-item" href="#">{{$category->title}}</a>
+                    <a  href="{{ $category->link() }}" class="dropdown-item" href="#">{{$category->title}}</a>
                     @endforeach
 
 
