@@ -17,7 +17,7 @@
 
 
                 <div class=" m-auto pt-3 px-4 flex-center">
-                    <div class="input-group mb-4 shadow  flex-center" >
+                    <div class="input-group mb-4 shadow  flex-center d-none d-md-block" >
 
                         @foreach($categories as $category)
                             <a class="nav-link btn  nav-btn-category" href="{{ $category->link() }}"><img style="height: 30px" src="{{$category->image}}"> <h3>{{$category->title}}</h3></a>
