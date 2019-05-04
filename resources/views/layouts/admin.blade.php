@@ -219,6 +219,28 @@
                         <a href="{{ route('contactus.index') }}">
                             <i class="fas fa-connectdevelop"></i>ContactUs</a>
                     </li>
+                    <li>
+                        <a href="{{ route('admin.profile.index') }}">
+                            <i class="fas fa-vcard"></i>Profiles</a>
+                    </li>
+                    <li class="has-sub">
+                        <a class="js-arrow" href="#">
+                            <i class="fas fa-comment"></i>Comments</a>
+                        <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            <li>
+                                <a class="js-arrow" href="{{ route('comment.index',['type' => 'profile']) }}">
+                                    <i class="fas fa-user"></i>profile</a>
+                            </li>
+                            <li>
+                                <a class="js-arrow" href="{{ route('comment.index',['type' => 'content']) }}">
+                                    <i class="fas fa-book"></i>Content</a>
+                            </li>
+                            <li>
+                                <a class="js-arrow" href="{{ route('comment.index',['type' => 'course']) }}">
+                                    <i class="fas fa-train"></i>Course</a>
+                            </li>
+                        </ul>
+                    </li>
                     <li class="has-sub">
                         <a class="js-arrow" href="#">
                             <i class="fas fa-gears"></i>Setting</a>

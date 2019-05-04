@@ -109,8 +109,7 @@ class UserProfileController extends Controller
      */
     public function index()
     {
-        if ( Auth::user()->courses->count() < 1)
-            return redirect(route('myCourses.index'))->with('message','You Must have Course to Edit your Teacher Profile');
+
         $profile = UserProfile::where('user_id',Auth::id())->first();
         $form = new FormMaker($this->form,$profile);
         $form->setUrlForm('');

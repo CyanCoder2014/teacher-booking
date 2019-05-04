@@ -36,16 +36,24 @@ Route::post('/contactus', 'ContactUsController@store');
 Route::group(['middleware' => 'admin','prefix' =>'admin'],function (){
     \App\Content::Route_list();
     \App\Category::Route_list();
-    Route::get('/', function (){
-//        dd('hello');
-        return view('admin.index');
-    })->name('admin.index');
+    Route::get('/', 'Admin\AdminController@index')->name('admin.index');
 
     Route::get('/contactus', 'Admin\ContactUsController@index')->name('contactus.index');
     Route::get('/contactus/getdata', 'Admin\ContactUsController@getdata')->name('contactus.getdata');
     Route::get('/contactus/{contactUs}', 'Admin\ContactUsController@edit')->name('contactus.edit');
     Route::post('/contactus/{contactUs}', 'Admin\ContactUsController@update')->name('contactus.update');
     Route::delete('/contactus/{contactUs}', 'Admin\ContactUsController@destroy')->name('contactus.delete');
+
+    Route::get('/profile', 'Admin\ProfileController@index')->name('admin.profile.index');
+    Route::get('/profile/getdata', 'Admin\ProfileController@getdata')->name('admin.profile.getdata');
+    Route::get('/profile/edit/{userProfile}', 'Admin\ProfileController@edit')->name('admin.profile.edit');
+    Route::post('/profile/edit/{userProfile}', 'Admin\ProfileController@update')->name('admin.profile.update');
+    Route::delete('/profile/edit/{userProfile}', 'Admin\ProfileController@destroy')->name('admin.profile.delete');
+
+    Route::get('/comment/{type}', 'Admin\CommentController@index')->name('comment.index');
+    Route::get('/comment/{type}/getdata', 'Admin\CommentController@getdata')->name('comment.getdata');
+    Route::post('/comment/{type}/{id}', 'Admin\CommentController@update')->name('comment.update');
+    Route::delete('/comment/{type}/{id}', 'Admin\CommentController@destroy')->name('comment.delete');
 
     Route::group(['middleware' => ['auth'], 'prefix' => '/utility'], function()
     {

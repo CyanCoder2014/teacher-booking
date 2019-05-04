@@ -31,6 +31,9 @@ class UserProfile extends Model
     public function state(){
         return $this->belongsTo(Province::class);
     }
+    public function category(){
+        return $this->belongsTo(Category::class);
+    }
     public function gender(){
 
         return $this->genderType[$this->gender]??'unknown';
@@ -42,6 +45,11 @@ class UserProfile extends Model
         return $this->hasMany(ProfileComment::class,'profile_id');
     }
     public function AcceptedComment(){
-        return $this->comment();//->where('approved',1);
+        return $this->comment()->where('approved',1);
     }
+
+    public static function laratablesCustomAction($record){
+        return view('admin.profile.action',['userProfile'=>$record->id])->render();
+    }
+
 }

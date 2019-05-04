@@ -23,7 +23,7 @@
                                             <i class="zmdi zmdi-account-calendar "></i>
                                         </div>
                                         <div class="text">
-                                            <h2>10368</h2>
+                                            <h2>34</h2>
                                             <span>Seen </span>
                                         </div>
                                     </div>
@@ -41,7 +41,7 @@
                                             <i class="zmdi zmdi-account-o"></i>
                                         </div>
                                         <div class="text">
-                                            <h2>388,688</h2>
+                                            <h2>{{ $users->count() }}</h2>
                                             <span>All users </span>
                                         </div>
                                     </div>
@@ -59,7 +59,7 @@
                                             <i class="zmdi zmdi-account-o"></i>
                                         </div>
                                         <div class="text">
-                                            <h2>1,086</h2>
+                                            <h2>{{ $profiles->count() }}</h2>
                                             <span>Teachers</span>
                                         </div>
                                     </div>
@@ -69,24 +69,24 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 col-lg-3">
-                            <div class="overview-item overview-item--c4">
-                                <div class="overview__inner">
-                                    <div class="overview-box clearfix">
-                                        <div class="icon">
-                                            <i class="zmdi zmdi-money"></i>
-                                        </div>
-                                        <div class="text">
-                                            <h2>$1,060,386</h2>
-                                            <span> earnings</span>
-                                        </div>
-                                    </div>
-                                    <div class="overview-chart">
-                                        <canvas id="widgetChart4"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+{{--                        <div class="col-sm-6 col-lg-3">--}}
+{{--                            <div class="overview-item overview-item--c4">--}}
+{{--                                <div class="overview__inner">--}}
+{{--                                    <div class="overview-box clearfix">--}}
+{{--                                        <div class="icon">--}}
+{{--                                            <i class="zmdi zmdi-money"></i>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="text">--}}
+{{--                                            <h2>$1,060,386</h2>--}}
+{{--                                            <span> earnings</span>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="overview-chart">--}}
+{{--                                        <canvas id="widgetChart4"></canvas>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
                     <div class="row">
                         <div class="col-lg-6">
@@ -95,66 +95,68 @@
                                     <div class="bg-overlay bg-overlay--blue"></div>
                                     <h3>
                                         <i class="zmdi zmdi-comment-text "></i>New Messages</h3>
-                                    <button class="au-btn-plus">
-                                        <i class="zmdi zmdi-plus"></i>
-                                    </button>
+{{--                                    <button class="au-btn-plus">--}}
+{{--                                        <i class="zmdi zmdi-plus"></i>--}}
+{{--                                    </button>--}}
                                 </div>
                                 <div class="au-task js-list-load">
-                                    <div class="au-task__title">
-                                        <p>Tasks for John Doe</p>
-                                    </div>
+{{--                                    <div class="au-task__title">--}}
+{{--                                        <p>Tasks for John Doe</p>--}}
+{{--                                    </div>--}}
                                     <div class="au-task-list js-scrollbar3">
-                                        <div class="au-task__item au-task__item--danger">
-                                            <div class="au-task__item-inner">
-                                                <h5 class="task">
-                                                    <a href="#">Meeting about plan for Admin Template 2018</a>
-                                                </h5>
-                                                <span class="time">10:00 AM</span>
-                                            </div>
-                                        </div>
-                                        <div class="au-task__item au-task__item--warning">
-                                            <div class="au-task__item-inner">
-                                                <h5 class="task">
-                                                    <a href="#">Create new task for Dashboard</a>
-                                                </h5>
-                                                <span class="time">11:00 AM</span>
-                                            </div>
-                                        </div>
-                                        <div class="au-task__item au-task__item--primary">
-                                            <div class="au-task__item-inner">
-                                                <h5 class="task">
-                                                    <a href="#">Meeting about plan for Admin Template 2018</a>
-                                                </h5>
-                                                <span class="time">02:00 PM</span>
-                                            </div>
-                                        </div>
+{{--                                        <div class="au-task__item au-task__item--danger">--}}
+{{--                                            <div class="au-task__item-inner">--}}
+{{--                                                <h5 class="task">--}}
+{{--                                                    <a href="#">Meeting about plan for Admin Template 2018</a>--}}
+{{--                                                </h5>--}}
+{{--                                                <span class="time">10:00 AM</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="au-task__item au-task__item--warning">--}}
+{{--                                            <div class="au-task__item-inner">--}}
+{{--                                                <h5 class="task">--}}
+{{--                                                    <a href="#">Create new task for Dashboard</a>--}}
+{{--                                                </h5>--}}
+{{--                                                <span class="time">11:00 AM</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="au-task__item au-task__item--primary">--}}
+{{--                                            <div class="au-task__item-inner">--}}
+{{--                                                <h5 class="task">--}}
+{{--                                                    <a href="#">Meeting about plan for Admin Template 2018</a>--}}
+{{--                                                </h5>--}}
+{{--                                                <span class="time">02:00 PM</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+                                        @foreach($unreadcontact as $contact)
                                         <div class="au-task__item au-task__item--success">
                                             <div class="au-task__item-inner">
                                                 <h5 class="task">
-                                                    <a href="#">Create new task for Dashboard</a>
+                                                    <a href="#">{{ $contact->subject }}</a>
                                                 </h5>
-                                                <span class="time">03:30 PM</span>
+                                                <span class="time">{{ $contact->created_at->format('Y-m-d H:i') }}</span>
                                             </div>
                                         </div>
-                                        <div class="au-task__item au-task__item--danger js-load-item">
-                                            <div class="au-task__item-inner">
-                                                <h5 class="task">
-                                                    <a href="#">Meeting about plan for Admin Template 2018</a>
-                                                </h5>
-                                                <span class="time">10:00 AM</span>
-                                            </div>
-                                        </div>
-                                        <div class="au-task__item au-task__item--warning js-load-item">
-                                            <div class="au-task__item-inner">
-                                                <h5 class="task">
-                                                    <a href="#">Create new task for Dashboard</a>
-                                                </h5>
-                                                <span class="time">11:00 AM</span>
-                                            </div>
-                                        </div>
+                                        @endforeach
+{{--                                        <div class="au-task__item au-task__item--danger js-load-item">--}}
+{{--                                            <div class="au-task__item-inner">--}}
+{{--                                                <h5 class="task">--}}
+{{--                                                    <a href="#">Meeting about plan for Admin Template 2018</a>--}}
+{{--                                                </h5>--}}
+{{--                                                <span class="time">10:00 AM</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="au-task__item au-task__item--warning js-load-item">--}}
+{{--                                            <div class="au-task__item-inner">--}}
+{{--                                                <h5 class="task">--}}
+{{--                                                    <a href="#">Create new task for Dashboard</a>--}}
+{{--                                                </h5>--}}
+{{--                                                <span class="time">11:00 AM</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
                                     </div>
                                     <div class="au-task__footer">
-                                        <button class="au-btn au-btn-load js-load-btn">load more</button>
+{{--                                        <button class="au-btn au-btn-load js-load-btn">load more</button>--}}
                                     </div>
                                 </div>
                             </div>
@@ -165,9 +167,9 @@
                                     <div class="bg-overlay bg-overlay--blue"></div>
                                     <h3>
                                         <i class="zmdi zmdi-account-o"></i>Top teachers</h3>
-                                    <button class="au-btn-plus">
-                                        <i class="zmdi zmdi-plus"></i>
-                                    </button>
+{{--                                    <button class="au-btn-plus">--}}
+{{--                                        <i class="zmdi zmdi-plus"></i>--}}
+{{--                                    </button>--}}
                                 </div>
                                 <div class="au-inbox-wrap js-inbox-wrap">
                                     <div class="au-message js-list-load">
@@ -175,112 +177,112 @@
 
                                         </div>
                                         <div class="au-message-list">
-                                            <div class="au-message__item unread">
-                                                <div class="au-message__item-inner">
-                                                    <div class="au-message__item-text">
-                                                        <div class="avatar-wrap">
-                                                            <div class="avatar">
-                                                                <img src="/dashboard/images/icon/avatar-02.jpg" alt="John Smith">
-                                                            </div>
-                                                        </div>
-                                                        <div class="text">
 
-                                                        </div>
-                                                    </div>
-                                                    <div class="au-message__item-time">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="au-message__item unread">
-                                                <div class="au-message__item-inner">
-                                                    <div class="au-message__item-text">
-                                                        <div class="avatar-wrap online">
-                                                            <div class="avatar">
-                                                                <img src="/dashboard/images/icon/avatar-03.jpg" alt="Nicholas Martinez">
-                                                            </div>
-                                                        </div>
-                                                        <div class="text">
-                                                            <h5 class="name">Nicholas Martinez</h5>
-                                                            <p>Art</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="au-message__item-time">
-                                                        <span>11:00 PM</span>
-                                                    </div>
-                                                </div>
-                                            </div>
+{{--                                            <div class="au-message__item unread">--}}
+{{--                                                <div class="au-message__item-inner">--}}
+{{--                                                    <div class="au-message__item-text">--}}
+{{--                                                        <div class="avatar-wrap">--}}
+{{--                                                            <div class="avatar">--}}
+{{--                                                                <img src="/dashboard/images/icon/avatar-02.jpg" alt="John Smith">--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="text">--}}
+
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                    <div class="au-message__item-time">--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="au-message__item unread">--}}
+{{--                                                <div class="au-message__item-inner">--}}
+{{--                                                    <div class="au-message__item-text">--}}
+{{--                                                        <div class="avatar-wrap online">--}}
+{{--                                                            <div class="avatar">--}}
+{{--                                                                <img src="/dashboard/images/icon/avatar-03.jpg" alt="Nicholas Martinez">--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="text">--}}
+{{--                                                            <h5 class="name">Nicholas Martinez</h5>--}}
+{{--                                                            <p>Art</p>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                    <div class="au-message__item-time">--}}
+{{--                                                        <span>11:00 PM</span>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+                                            @foreach($topProfile as $key => $profile)
                                             <div class="au-message__item">
-                                                <div class="au-message__item-inner">
+                                                <div class="au-message__item-inner @if($key > 5) js-load-item @endif">
                                                     <div class="au-message__item-text">
                                                         <div class="avatar-wrap online">
                                                             <div class="avatar">
-                                                                <img src="/dashboard/images/icon/avatar-04.jpg" alt="Michelle Sims">
+                                                                <img src="{{ $profile->image() }}" alt="{{ $profile->user->name }}">
                                                             </div>
                                                         </div>
                                                         <div class="text">
-                                                            <h5 class="name">Michelle Sims</h5>
-                                                            <p>General</p>
+                                                            <h5 class="name">{{ $profile->user->name }}</h5>
+                                                            <p>{{ $profile->avgrate }}</p>
                                                         </div>
-                                                    </div>
-                                                    <div class="au-message__item-time">
-                                                        <span>Yesterday</span>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="au-message__item">
-                                                <div class="au-message__item-inner">
-                                                    <div class="au-message__item-text">
-                                                        <div class="avatar-wrap">
-                                                            <div class="avatar">
-                                                                <img src="/dashboard/images/icon/avatar-05.jpg" alt="Michelle Sims">
-                                                            </div>
-                                                        </div>
-                                                        <div class="text">
-                                                            <h5 class="name">Michelle Sims</h5>
-                                                            <p>Sport</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="au-message__item-time">
-                                                        <span>Sunday</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="au-message__item js-load-item">
-                                                <div class="au-message__item-inner">
-                                                    <div class="au-message__item-text">
-                                                        <div class="avatar-wrap online">
-                                                            <div class="avatar">
-                                                                <img src="/dashboard/images/icon/avatar-04.jpg" alt="Michelle Sims">
-                                                            </div>
-                                                        </div>
-                                                        <div class="text">
-                                                            <h5 class="name">Michelle Sims</h5>
-                                                            <p>Traffic</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="au-message__item-time">
-                                                        <span>Yesterday</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="au-message__item js-load-item">
-                                                <div class="au-message__item-inner">
-                                                    <div class="au-message__item-text">
-                                                        <div class="avatar-wrap">
-                                                            <div class="avatar">
-                                                                <img src="/dashboard/images/icon/avatar-05.jpg" alt="Michelle Sims">
-                                                            </div>
-                                                        </div>
-                                                        <div class="text">
-                                                            <h5 class="name">Michelle Sims</h5>
-                                                            <p>Study</p>
-                                                        </div>
-                                                    </div>
-                                                    <div class="au-message__item-time">
-                                                        <span>Sunday</span>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
+{{--                                            <div class="au-message__item">--}}
+{{--                                                <div class="au-message__item-inner">--}}
+{{--                                                    <div class="au-message__item-text">--}}
+{{--                                                        <div class="avatar-wrap">--}}
+{{--                                                            <div class="avatar">--}}
+{{--                                                                <img src="/dashboard/images/icon/avatar-05.jpg" alt="Michelle Sims">--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="text">--}}
+{{--                                                            <h5 class="name">Michelle Sims</h5>--}}
+{{--                                                            <p>Sport</p>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                    <div class="au-message__item-time">--}}
+{{--                                                        <span>Sunday</span>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="au-message__item js-load-item">--}}
+{{--                                                <div class="au-message__item-inner">--}}
+{{--                                                    <div class="au-message__item-text">--}}
+{{--                                                        <div class="avatar-wrap online">--}}
+{{--                                                            <div class="avatar">--}}
+{{--                                                                <img src="/dashboard/images/icon/avatar-04.jpg" alt="Michelle Sims">--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="text">--}}
+{{--                                                            <h5 class="name">Michelle Sims</h5>--}}
+{{--                                                            <p>Traffic</p>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                    <div class="au-message__item-time">--}}
+{{--                                                        <span>Yesterday</span>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="au-message__item js-load-item">--}}
+{{--                                                <div class="au-message__item-inner">--}}
+{{--                                                    <div class="au-message__item-text">--}}
+{{--                                                        <div class="avatar-wrap">--}}
+{{--                                                            <div class="avatar">--}}
+{{--                                                                <img src="/dashboard/images/icon/avatar-05.jpg" alt="Michelle Sims">--}}
+{{--                                                            </div>--}}
+{{--                                                        </div>--}}
+{{--                                                        <div class="text">--}}
+{{--                                                            <h5 class="name">Michelle Sims</h5>--}}
+{{--                                                            <p>Study</p>--}}
+{{--                                                        </div>--}}
+{{--                                                    </div>--}}
+{{--                                                    <div class="au-message__item-time">--}}
+{{--                                                        <span>Sunday</span>--}}
+{{--                                                    </div>--}}
+{{--                                                </div>--}}
+{{--                                            </div>--}}
                                         </div>
                                         <div class="au-message__footer">
                                             <button class="au-btn au-btn-load js-load-btn">load more</button>
@@ -405,7 +407,6 @@
                                     <thead>
                                     <tr>
                                         <th>Create date</th>
-                                        <th>order ID</th>
                                         <th>Title</th>
                                         <th class="text-right">Hourly rate</th>
                                         <th class="text-right">Capacity</th>
@@ -413,70 +414,15 @@
                                     </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach($lastCourses as $course)
                                     <tr>
-                                        <td>2018-09-29 05:57</td>
-                                        <td>100398</td>
-                                        <td>lowaefasdf asfdasdf</td>
-                                        <td class="text-right">$999.00</td>
-                                        <td class="text-right">1</td>
-                                        <td class="text-right">$999.00</td>
+                                        <td>{{ $course->created_at->format('Y-m-d H:i') }}</td>
+                                        <td>{{ $course->title }}</td>
+                                        <td class="text-right">{{ $course->hourly_price }}</td>
+                                        <td class="text-right">{{ $course->capacity }}</td>
+                                        <td class="text-right">${{ $course->total_price }}</td>
                                     </tr>
-                                    <tr>
-                                        <td>2018-09-28 01:22</td>
-                                        <td>100397</td>
-                                        <td>jhkfuyu asfdasdf</td>
-                                        <td class="text-right">$756.00</td>
-                                        <td class="text-right">1</td>
-                                        <td class="text-right">$756.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2018-09-27 02:12</td>
-                                        <td>100396</td>
-                                        <td>lowaefasdf asfdasdf</td>
-                                        <td class="text-right">$22.00</td>
-                                        <td class="text-right">2</td>
-                                        <td class="text-right">$44.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2018-09-26 23:06</td>
-                                        <td>100395</td>
-                                        <td>wer 44434</td>
-                                        <td class="text-right">$1199.00</td>
-                                        <td class="text-right">1</td>
-                                        <td class="text-right">$1199.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2018-09-25 19:03</td>
-                                        <td>100393</td>
-                                        <td>lowaefasdf asfdasdf</td>
-                                        <td class="text-right">$10.00</td>
-                                        <td class="text-right">3</td>
-                                        <td class="text-right">$30.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2018-09-29 05:57</td>
-                                        <td>100392</td>
-                                        <td>Smartwatch </td>
-                                        <td class="text-right">$199.00</td>
-                                        <td class="text-right">6</td>
-                                        <td class="text-right">$1494.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2018-09-24 19:10</td>
-                                        <td>100391</td>
-                                        <td>lowaefasdf asfdasdf</td>
-                                        <td class="text-right">$699.00</td>
-                                        <td class="text-right">1</td>
-                                        <td class="text-right">$699.00</td>
-                                    </tr>
-                                    <tr>
-                                        <td>2018-09-22 00:43</td>
-                                        <td>100393</td>
-                                        <td>retert asfdasdf</td>
-                                        <td class="text-right">$10.00</td>
-                                        <td class="text-right">3</td>
-                                        <td class="text-right">$30.00</td>
-                                    </tr>
+                                    @endforeach
                                     </tbody>
                                 </table>
                             </div>
@@ -488,38 +434,12 @@
                                     <div class="table-responsive">
                                         <table class="table table-top-countries">
                                             <tbody>
+                                            @foreach($categories as $category)
                                             <tr>
-                                                <td>Art</td>
-                                                <td class="text-right">12</td>
+                                                <td>{{ $category->title }}</td>
+                                                <td class="text-right">{{ $category->total }}</td>
                                             </tr>
-                                            <tr>
-                                                <td>Music</td>
-                                                <td class="text-right">33</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Art</td>
-                                                <td class="text-right">12</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Music</td>
-                                                <td class="text-right">33</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Art</td>
-                                                <td class="text-right">12</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Music</td>
-                                                <td class="text-right">33</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Art</td>
-                                                <td class="text-right">12</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Music</td>
-                                                <td class="text-right">33</td>
-                                            </tr>
+                                            @endforeach
                                             </tbody>
                                         </table>
                                     </div>

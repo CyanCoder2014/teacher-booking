@@ -20,6 +20,7 @@ class CreateContentCommentsTable extends Migration
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->string('name')->nullable();
             $table->string('email')->nullable();
+            $table->mediumText('comment')->nullable();
             $table->boolean('approved')->nullable();
             $table->boolean('ban')->nullable();
             $table->timestamps();
