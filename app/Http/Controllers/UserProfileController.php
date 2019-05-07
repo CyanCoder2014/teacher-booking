@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\FormMaker\FormMaker;
+use App\Mail\ProfileVerify;
+use App\Mail\VerifyMail;
 use App\ProfileComment;
 use App\UserProfile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 
 class UserProfileController extends Controller
 {
@@ -39,7 +43,7 @@ class UserProfileController extends Controller
         ],
         [
             'name' => 'city_id',
-            'type' => 'select',
+            'type' => 'text',
             'slug' => 'City',
             'values' => 'App\City,id,name',
 //            'condition' => 'state_id,',
@@ -282,12 +286,17 @@ class UserProfileController extends Controller
         }
 
 
-
+        $user = Auth::user();
         $profile->fill($request->except('_token'));
         $profile->fill($files);
-//        if (!isset($profile->user_id))
-//        dd($profile);
         $profile->save();
+
+        if (!isset($user->verify_at)){
+            Mail::to($user->email)->send(new VerifyMail($user));
+            return back()->with('message','profile Edited Succesfuly. But you sould Verify your Email. Email sended');
+
+        }
+//        dd($profile);
         return back()->with('message','profile Edited Succesfuly');
 
     }

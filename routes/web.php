@@ -16,6 +16,7 @@
 //});
 
 Auth::routes();
+Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser')->name('email.verify');
 
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/filter', 'HomeController@filter')->name('filter');
