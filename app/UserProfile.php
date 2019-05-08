@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class UserProfile extends Model
 {
-    protected $fillable=['gender','education','intro','type','category_id','state_id','city_id','address','tell','hourly_rate','skills','image','intro_video','birth','lat','lng'];
-//    protected $casts=[
-//
-//    ]
+    protected $fillable=['subject','education','intro','type','category_id','state_id','city','tell','image','intro_video','availablity','languages','lat','lng'];
+    protected $casts=[
+        'type' => 'array',
+        'languages' => 'array',
+    ];
 
     protected $genderType = [
         'man','woman'

@@ -7,6 +7,7 @@ use App\Mail\ProfileVerify;
 use App\Mail\VerifyMail;
 use App\ProfileComment;
 use App\UserProfile;
+use App\VerifyUser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
@@ -16,10 +17,22 @@ class UserProfileController extends Controller
 {
     protected $form = [
         [
-            'name' => 'gender',
+            'name' => 'category_id',
             'type' => 'select',
-            'slug' => 'Gender',
-            'values' =>['Man','Women'],
+            'slug' => 'Category',
+            'values' => 'App\Category,id,title',
+            'validation' => 'required',
+        ],
+        [
+            'name' => 'subject',
+            'type' => 'text',
+            'slug' => 'Subject',
+            'validation' => 'required',
+        ],
+        [
+            'name' => 'intro',
+            'type' => 'ckeditor',
+            'slug' => 'About me',
             'validation' => 'required',
         ],
         [
@@ -29,20 +42,14 @@ class UserProfileController extends Controller
             'validation' => 'required',
         ],
         [
-            'name' => 'intro',
-            'type' => 'ckeditor',
-            'slug' => 'Introduction',
-            'validation' => 'required',
-        ],
-        [
             'name' => 'state_id',
             'type' => 'select',
-            'slug' => 'State',
+            'slug' => 'Contry',
             'values' => 'App\Province,id,name',
             'validation' => 'required',
         ],
         [
-            'name' => 'city_id',
+            'name' => 'city',
             'type' => 'text',
             'slug' => 'City',
             'values' => 'App\City,id,name',
@@ -50,9 +57,10 @@ class UserProfileController extends Controller
             'validation' => 'required',
         ],
         [
-            'name' => 'address',
-            'type' => 'textarea',
-            'slug' => 'Address',
+            'name' => 'location',
+            'type' => 'map',
+            'slug' => 'Location',
+            'values' => ['lat' => 59.334591,'lng' =>18.063240],
             'validation' => 'required',
         ],
         [
@@ -61,37 +69,37 @@ class UserProfileController extends Controller
             'slug' => 'Phone#',
             'validation' => 'required',
         ],
-        [
-            'name' => 'hourly_rate',
-            'type' => 'number',
-            'slug' => 'hourly Rate',
-            'validation' => 'required',
-        ],
-        [
-            'name' => 'skills',
-            'type' => 'textarea',
-            'slug' => 'Skills',
-            'validation' => 'required',
-        ],
-        [
-            'name' => 'birth',
-            'type' => 'date',
-            'slug' => 'birth',
-            'validation' => 'required',
-        ],
+//        [
+//            'name' => 'hourly_rate',
+//            'type' => 'number',
+//            'slug' => 'hourly Rate',
+//            'validation' => 'required',
+//        ],
+//        [
+//            'name' => 'skills',
+//            'type' => 'textarea',
+//            'slug' => 'Skills',
+//            'validation' => 'required',
+//        ],
+//        [
+//            'name' => 'birth',
+//            'type' => 'date',
+//            'slug' => 'birth',
+//            'validation' => 'required',
+//        ],
         [
             'name' => 'type',
-            'type' => 'select',
+            'type' => 'checkboxes',
             'slug' => 'Teaching Type',
-            'values' => ['private','group','online'],
+            'values' => ['online','at student place','at teacher place','another place','teaching for alone','teaching for group'],
             'validation' => 'required',
         ],
         [
-            'name' => 'category_id',
-            'type' => 'select',
-            'slug' => 'Category',
-            'values' => 'App\Category,id,title',
-            'validation' => 'required',
+            'name' => 'languages',
+            'type' => 'tags',
+            'slug' => 'Languages',
+            'values' => 'App\Language,id,name',
+            'validation' => '',
         ],
         [
             'name' => 'image',
@@ -101,8 +109,14 @@ class UserProfileController extends Controller
         ],
         [
             'name' => 'intro_video',
-            'type' => 'file',
-            'slug' => 'Introduction Video',
+            'type' => 'text',
+            'slug' => 'Introduction Video (link)',
+            'validation' => '',
+        ],
+        [
+            'name' => 'avaliablity',
+            'type' => 'textarea',
+            'slug' => 'Availablity',
             'validation' => '',
         ],
     ];
@@ -289,9 +303,23 @@ class UserProfileController extends Controller
         $user = Auth::user();
         $profile->fill($request->except('_token'));
         $profile->fill($files);
+        if(isset($request->location)){
+            $profile->lat = $request->location['lat'];
+            $profile->lng = $request->location['lng'];
+
+        }
         $profile->save();
 
         if (!isset($user->verify_at)){
+            if(!$user->verifyUser){
+                $user->verifyUser = VerifyUser::create(
+                  [
+                      'user_id' => $user->id,
+                      'token' => Str::random(40),
+                  ]
+                );
+
+                }
             Mail::to($user->email)->send(new VerifyMail($user));
             return back()->with('message','profile Edited Succesfuly. But you sould Verify your Email. Email sended');
 

@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CourseRequest extends CRUD
 {
-    protected $fillable = ['lang_id','user_id','category_id','title','intro','approved','type','status','created_by','updated_by'];
+    protected $fillable = ['lang_id','user_id','category_id','title','intro','approved','type','status','city','state_id','deadline','created_by','updated_by'];
     protected static $name='Course Reques';
     protected static $layout='layout';
     protected static $tablefields=[
@@ -94,6 +94,27 @@ class CourseRequest extends CRUD
             'type' => 'select',
             'slug' => 'Type',
             'values' => [1 => 'type1',2 =>'type2',3 =>'type3'],
+            'validation' => 'required',
+        ],
+        [
+            'name' => 'state_id',
+            'type' => 'select',
+            'slug' => 'Contry',
+            'values' => 'App\Province,id,name',
+            'validation' => 'required',
+        ],
+        [
+            'name' => 'city',
+            'type' => 'text',
+            'slug' => 'City',
+            'values' => 'App\City,id,name',
+//            'condition' => 'state_id,',
+            'validation' => 'required',
+        ],
+        [
+            'name' => 'deadline',
+            'type' => 'date',
+            'slug' => 'Deadline',
             'validation' => 'required',
         ],
     ];

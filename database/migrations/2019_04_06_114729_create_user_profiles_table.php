@@ -16,20 +16,18 @@ class CreateUserProfilesTable extends Migration
         Schema::create('user_profiles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->string('hourly_rate',100);
-            $table->unsignedSmallInteger('gender');
-            $table->unsignedSmallInteger('type')->nullable();
+            $table->string('subject');
+            $table->string('type')->nullable();
             $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('state_id')->nullable();
-            $table->unsignedBigInteger('city_id')->nullable();
-            $table->string('address')->nullable();
+            $table->string('city')->nullable();
             $table->string('image')->nullable();
             $table->string('intro_video')->nullable();
             $table->string('tell');
-            $table->text('intro');
-            $table->text('skills')->nullable();
+            $table->text('intro')->nullable();;
+            $table->text('availablity')->nullable();;
             $table->string('education')->nullable();
-            $table->date('birth');
+            $table->string('languages')->nullable();
             $table->decimal('lat',11,8)->nullable();
             $table->decimal('lng',11,8)->nullable();
             $table->timestamps();
