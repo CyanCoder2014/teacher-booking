@@ -16,6 +16,9 @@
 //});
 
 Auth::routes();
+
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser')->name('email.verify');
 
 Route::get('/', 'HomeController@index')->name('index');

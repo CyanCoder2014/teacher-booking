@@ -57,8 +57,14 @@ Choose what you want to learn">
                    aria-expanded="false">Courses</a>
             </li>
              -->
+            <li class="nav-item dropdown pr-3 letter-s2 pb-0 mb-0 mt-1 ">
 
+            <form class="form-inline active-purple-3 active-purple-4">
+                <input class="form-control form-control-sm mx-2  " type="text" placeholder="Search" aria-label="Search">
+                <button type="submit" class="btn m-0 p-0 mr-1" style="background:none;color: black!important;box-shadow: none"> <i class="fas fa-search" aria-hidden="true"></i> </button>
 
+            </form>
+            </li>
 
             <li class="nav-item dropdown pr-3 letter-s2 pb-3">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown"
@@ -78,17 +84,17 @@ Choose what you want to learn">
 
 
             <li class="nav-item pr-3 letter-s2 pb-3">
-                <a class="nav-link" href="/blog">Blog</a>
+                <a class="nav-link" href="/blog">News</a>
             </li>
             <li class="nav-item pr-3 letter-s2 pb-3">
-                <a class="nav-link" href="/contactus">Contact us</a>
+                <a class="nav-link" href="/contactus">Info</a>
             </li>
 
 
 
 
           <li class="nav-item position-relative nav-li-line pl-4 mr-3">
-              <a class="nav-link nav-link btn btn-sm orange-border" href="{{ route('profile') }}">Register as teacher</a>
+              <a class="nav-link nav-link btn btn-sm " href="{{ route('profile') }}">Register as teacher</a>
 
 
           </li>
@@ -101,8 +107,29 @@ Choose what you want to learn">
             <li class="nav-item pr-3 letter-s2 pb-3">
 
                 @if(!Auth::check())
-                   <a class="nav-link btn nav-btn nav-btn-line " href="{{ route('login') }}">Login</a>
+
+                        <button class=" dropdown-toggle mr-4 nav-link btn nav-btn nav-btn-line " type="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i></button>
+
+                        <div class="dropdown-menu" style=" " >
+                            <a class="dropdown-item" href="{{ route('login') }}">Login</a>
+                            <a class="dropdown-item" href="{{ route('register') }}"> Register</a>
+
+                        </div>
+
+
                     @else
+
+                    <button class=" dropdown-toggle mr-4 nav-link btn nav-btn nav-btn-line " type="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i></button>
+
+                    <div class="dropdown-menu" style=" " >
+                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="#">Edit info</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
+                    </div>
+
                     <a class="nav-link btn nav-btn nav-btn-line " href="/user/{{Auth::user()->id}}"> {{Auth::user()->name}} Profile</a>
                 @endif
 
