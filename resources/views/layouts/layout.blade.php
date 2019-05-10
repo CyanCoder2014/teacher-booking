@@ -60,7 +60,7 @@ Choose what you want to learn">
             <li class="nav-item dropdown pr-3 letter-s2 pb-0 mb-0 mt-1 ">
 
             <form class="form-inline active-purple-3 active-purple-4">
-                <input class="form-control form-control-sm mx-2  " type="text" placeholder="Search" aria-label="Search">
+                <input name="title" class="form-control form-control-sm mx-2  " type="text" placeholder="Search" aria-label="Search">
                 <button type="submit" class="btn m-0 p-0 mr-1" style="background:none;color: black!important;box-shadow: none"> <i class="fas fa-search" aria-hidden="true"></i> </button>
 
             </form>
@@ -87,7 +87,7 @@ Choose what you want to learn">
                 <a class="nav-link" href="/blog">News</a>
             </li>
             <li class="nav-item pr-3 letter-s2 pb-3">
-                <a class="nav-link" href="/contactus">Info</a>
+                <a class="nav-link" href="/info">Info</a>
             </li>
 
 
@@ -112,7 +112,7 @@ Choose what you want to learn">
                                 aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i></button>
 
                         <div class="dropdown-menu" style=" " >
-                            <a class="dropdown-item" href="{{ route('login') }}">Login</a>
+                            <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalContactForm">Login</a>
                             <a class="dropdown-item" href="{{ route('register') }}"> Register</a>
 
                         </div>
@@ -240,6 +240,97 @@ Choose what you want to learn">
 
 </footer>
 <!-- Footer -->
+
+
+
+
+
+
+
+<div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title w-100 font-weight-bold"> Login to Teacher.nu  </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body mx-1">
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
+
+                    <div class="form-group row">
+                        <label for="email" class="col-md-12 col-form-label ">{{ __('E-Mail Address') }}</label>
+
+                        <div class="col-md-12">
+                            <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+
+                            @if ($errors->has('email'))
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="password" class="col-md-12 col-form-label ">{{ __('Password') }}</label>
+
+                        <div class="col-md-12">
+                            <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+
+                            @if ($errors->has('password'))
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-md-12 ">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                <label class="form-check-label" for="remember">
+                                    {{ __('Remember Me') }}
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row mb-0">
+                        <div class="col-md-12 ">
+                            <button type="submit" class="btn btn-primary">
+                                {{ __('Login') }}
+                            </button>
+
+                            @if (Route::has('password.request'))
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    {{ __('Forgot Your Password?') }}
+                                </a>
+                            @endif
+                        </div>
+                    </div>
+                </form>
+
+
+            </div>
+            <div class="modal-footer d-flex ">
+                or
+                <a class="btn orange-color" href="{{ route('register') }}">
+                    Register
+                </a>
+                if you are new
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 
 <script src="/front/js/popper.min.js"></script>

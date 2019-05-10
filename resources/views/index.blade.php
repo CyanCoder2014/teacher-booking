@@ -10,33 +10,14 @@
             <div class="row ">
 
 
-                <div class="col-md-12 text-center mt-2 "><h1 class="font-weight-bold">Start learning</h1></div>
-                <div class="col-md-12 text-center white-text" ><h4>  Choose what you want to learn  </h4></div>
+                <div class="col-md-12 text-center mt-0 "><h1 class="font-weight-bold">Start learning  </h1></div>
+                <div class="col-md-12 text-center text-white" ><h4>
+                        Or do you want to work as a private teacher?
+                    </h4></div>
 
 
 
 
-                <div class=" m-auto pt-3 px-4 flex-center  d-none d-md-block">
-                    <div class="input-group mb-4 shadow  flex-center" >
-
-                        @foreach($categories as $category)
-                            <a class="nav-link btn  nav-btn-category" href="{{ $category->link() }}"><img style="height: 30px" src="{{$category->image}}"> <h3>{{$category->title}}</h3></a>
-                        @endforeach
-
-
-
-                        <!--
-                        <div class="input-group md-form form-sm form-2 pl-0">
-                            <input class="form-control my-0 py-1 red-border bg-white" type="text" placeholder="Search" aria-label="Search">
-                            <div class="input-group-append">
-                                <span class="input-group-text red lighten-1 red-border" id="basic-text1"><i class="fas fa-search text-grey" aria-hidden="true"></i></span>
-                            </div>
-                        </div>
-                        -->
-                    </div>
-
-
-                </div>
                 <!--<div class="col-md-12 m-auto text-center my-5 pb-5" style="top: 8px">
                     <a  class="btn  btn-outline-deep-orange">I'm student</a>
                     <a  class="btn  btn-outline-white  ">I'm teacher</a>
@@ -255,6 +236,41 @@
 
 
 
+
+    <div class="row justify-content-center row-color">
+
+    <div class="container pt-menu ">
+
+
+        <div class="row justify-content-center py-3 mb-5 ">
+            <div class="col-md-12 pb-5 mt-0 ">
+                <h3 class="text-center pb-3"> Choose what you want to learn</h3>
+            </div>
+
+
+
+            @foreach($categories as $category)
+                <div class="col-md-4 mb-4">
+                    <a href="{{ $category->link() }}" class="card">
+                        <img class="card-img-top p-5 img-fluid" src="{{$category->image}}" alt="Card image cap"/>
+
+                        <div class="card-body text-center">
+                            <h4 class="card-title text-center"><a>{{$category->title}}</a></h4>
+
+                        </div>
+
+                    </a>
+                </div>
+            @endforeach
+
+
+
+        </div>
+
+
+    </div>
+
+    </div>
 
 
 
