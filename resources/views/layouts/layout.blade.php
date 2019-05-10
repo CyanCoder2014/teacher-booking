@@ -60,7 +60,7 @@ Choose what you want to learn">
             <li class="nav-item dropdown pr-3 letter-s2 pb-0 mb-0 mt-1 ">
 
             <form class="form-inline active-purple-3 active-purple-4">
-                <input name="title" class="form-control form-control-sm mx-2  " type="text" placeholder="Search" aria-label="Search">
+                <input name="title" class="form-control form-control-sm mx-2  " type="text" placeholder="@if(App::getLocale() == 'en')Search @else Sök @endif" aria-label="Search">
                 <button type="submit" class="btn m-0 p-0 mr-1" style="background:none;color: black!important;box-shadow: none"> <i class="fas fa-search" aria-hidden="true"></i> </button>
 
             </form>
@@ -69,7 +69,13 @@ Choose what you want to learn">
             <li class="nav-item dropdown pr-3 letter-s2 pb-3">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" data-toggle="dropdown"
                    aria-haspopup="true"
-                   aria-expanded="false">Categories</a>
+                   aria-expanded="false">
+                    @if(App::getLocale() == 'en')
+                        Categories
+                    @else
+                        kategorier
+                    @endif
+                </a>
                 <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
 
                    @foreach($categories as $category)
@@ -84,25 +90,80 @@ Choose what you want to learn">
 
 
             <li class="nav-item pr-3 letter-s2 pb-3">
-                <a class="nav-link" href="/blog">News</a>
+                <a class="nav-link" href="/blog">
+                    @if(App::getLocale() == 'en')
+                     News
+                    @else
+                    Nyheter
+                    @endif
+
+                </a>
             </li>
             <li class="nav-item pr-3 letter-s2 pb-3">
-                <a class="nav-link" href="/info">Info</a>
+                <a class="nav-link" href="/info">
+                    @if(App::getLocale() == 'en')
+                        Info
+                    @else
+                        Info
+                    @endif
+                </a>
             </li>
 
 
 
 
           <li class="nav-item position-relative nav-li-line pl-4 mr-3">
-              <a class="nav-link nav-link btn btn-sm " href="{{ route('profile') }}">Register as teacher</a>
+              <a class="nav-link nav-link btn btn-sm " href="{{ route('profile') }}">
+                  @if(App::getLocale() == 'en')
+                      Register as teacher
+                  @else
+                      Registrera som lärare
+
+                  @endif
+              </a>
 
 
           </li>
 
             <li class="nav-item pb-3 ">
-                <a class="nav-link nav-link btn btn-sm" href="/myCourseRequests/create">Request a course or teacher</a>
+                <a class="nav-link nav-link btn btn-sm" href="/myCourseRequests/create">
+                    @if(App::getLocale() == 'en')
+                        Request a course or teacher
+                    @else
+                        Begär en kurs eller lärare
+                    @endif
+                </a>
 
             </li>
+
+
+
+            <?php
+                if (Request::segment(1) == 'en' || Request::segment(1) == 'sw'){
+                    $path = Request::segment(2) . '/' . Request::segment(3) . '/' . Request::segment(4). '/' . Request::segment(5);
+
+                }else{
+                    $path = Request::segment(1) . '/' . Request::segment(2) . '/' . Request::segment(3). '/' . Request::segment(4);
+
+                }
+            ?>
+
+
+
+            <li class="nav-item pb-3 ml-3 mt-2">
+
+                @if(App::getLocale() == 'en')
+                <a class="" >EN  / </a>
+                <a class="" href="<?= Url('/sw/' . $path) ?>" style="color: #ef5258!important;">SW</a>
+                @else
+                <a class=""  href="<?= Url('/en/' . $path) ?>" style="color: #ef5258!important;" >EN </a>
+                <a class=""> / SW</a>
+                @endif
+
+
+            </li>
+
+
 
             <li class="nav-item pr-3 letter-s2 pb-3">
 
@@ -124,7 +185,7 @@ Choose what you want to learn">
                             aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i></button>
 
                     <div class="dropdown-menu" style=" " >
-                        <a class="dropdown-item" href="#">Profile</a>
+                        <a class="dropdown-item" href="#">{{Auth::user()->name}} Profile </a>
                         <a class="dropdown-item" href="#">Edit info</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>

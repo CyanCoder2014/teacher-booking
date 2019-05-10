@@ -10,9 +10,20 @@
             <div class="row ">
 
 
-                <div class="col-md-12 text-center mt-0 "><h1 class="font-weight-bold">Start learning  </h1></div>
+                <div class="col-md-12 text-center mt-0 "><h1 class="font-weight-bold">
+                        @if(App::getLocale() == 'en')
+                            Start learning
+                        @else
+                            Börja lära sig
+                        @endif
+                    </h1></div>
                 <div class="col-md-12 text-center text-white" ><h4>
-                        Or do you want to work as a private teacher?
+
+                        @if(App::getLocale() == 'en')
+                            Or do you want to work as a private teacher?
+                        @else
+                            Eller vill du arbeta som privatlärare?
+                        @endif
                     </h4></div>
 
 
@@ -171,16 +182,42 @@
                                                         <img src="{{ asset($course->image()) }}" class="rounded-circle w-50" style="max-width: 250px"/>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-12 mother2">
-                                                    <h5 class="text-center font-weight-bold mt-3">
-                                                       {{$course->title}}
+                                                <div class="col-md-12 mother2 " style="height: 300px;overflow: hidden">
+                                                    <h5 class="text-center font-weight-bold mt-3 text-grey ">
+                                                       {{$course->category->title }}
                                                     </h5>
 
-                                                    <h5 class="text-center font-weight-bold mt-3">
-                                                        {{$course->title}}
+                                                    <h5 class="text-center  mt-2 orange-text ">
+                                                        {{$course->subject}}
                                                     </h5>
-                                                    <h6 class="text-center  mt-3">
-                                                        {!! \Illuminate\Support\Str::words($course->intro , $words = 8, $end = '...') !!}
+
+                                                    <h6 class="text-center  mt-2 text-black ">
+                                                        {{ $course->city}}, {{ $course->state->name }}
+                                                    </h6>
+                                                    <div class=" text-center">
+                                                        <div class="text-orang" style="font-size: 10px">
+                                                            @for($i=1;$i< $course->AcceptedComment->avg('rate');$i++)
+                                                                <i class="fas fa-star"></i>
+                                                            @endfor
+                                                            @if(($course->AcceptedComment->avg('rate')/0.5)%2 == 1)
+                                                                <i class="fas fa-star-half"></i>
+                                                            @endif
+                                                        </div>
+                                                        <span class="font-weight-bold">{{ $course->AcceptedComment->avg('rate') }}</span>
+                                                    </div>
+
+                                                    <h6 class="text-center  mt-2 orange-text">
+
+                                                    <span class="text-grey font-weight-bold">Hourly rate:
+                                                </span>
+                                                    <span class=" font-weight-bold">
+                                                    {{ $course->hourly_rate }}$
+                                                    </span>
+                                                    </h6>
+
+
+                                                    <h6 class="text-center  mt-2 text-grey ">
+                                                        {!! \Illuminate\Support\Str::words($course->intro , $words = 6, $end = '...') !!}
                                                     </h6>
                                                 </div>
                                             </div>

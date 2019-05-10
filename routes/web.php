@@ -1,4 +1,18 @@
 <?php
+
+
+
+
+if (in_array(Request::segment(1), Config::get('app.alt_langs'))) {
+
+    App::setLocale(Request::segment(1));
+    Config::set('app.locale_prefix', Request::segment(1));
+}
+
+Route::group(array('prefix' => Config::get('app.locale_prefix')), function () {
+
+
+
 \App\Providers\UserLogProvider::initiate();
 /*
 |--------------------------------------------------------------------------
@@ -73,3 +87,4 @@ Route::group(['middleware' => 'admin','prefix' =>'admin'],function (){
 Route::get('user/{userProfile}','UserProfileController@show')->name('profile.show');
 Route::post('user/{userProfile}','UserProfileController@postComment')->name('profile.comment');
 
+});
