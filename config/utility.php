@@ -102,14 +102,14 @@ return [
     'addable' => [
 
 
-        'setting' => true,
-        'banner'=> true,
-        'contact' => true,
-        'intro' => true,
-        'footer_title' => true,
+        'setting' => false,
+        'banner'=> false,
+        'contact' => false,
+        'intro' => false,
+        'footer_title' => false,
         'footer_1' => true,
         'footer_2' => true,
-        'about_us' => true,
+        'about_us' => false,
 
     ]
 

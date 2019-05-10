@@ -257,7 +257,7 @@
                 <div class="col-md-4 mb-4">
                     <a href="{{ $category->link() }}" class="card">
                         <div style="height: 200px;overflow: hidden">
-                            <img class="card-img-top p-5 img-fluid h-100" src="{{$category->image}}" alt="{{$category->title}}"/>
+                            <img class="card-img-top img-fluid h-100" src="{{$category->image}}" alt="{{$category->title}}"/>
                         </div>
 
                         <div class="card-body text-center">
