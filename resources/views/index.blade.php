@@ -175,6 +175,10 @@
                                                     <h5 class="text-center font-weight-bold mt-3">
                                                        {{$course->title}}
                                                     </h5>
+
+                                                    <h5 class="text-center font-weight-bold mt-3">
+                                                        {{$course->title}}
+                                                    </h5>
                                                     <h6 class="text-center  mt-3">
                                                         {!! \Illuminate\Support\Str::words($course->intro , $words = 8, $end = '...') !!}
                                                     </h6>
@@ -252,7 +256,9 @@
             @foreach($categories as $category)
                 <div class="col-md-4 mb-4">
                     <a href="{{ $category->link() }}" class="card">
-                        <img class="card-img-top p-5 img-fluid" src="{{$category->image}}" alt="Card image cap"/>
+                        <div style="height: 200px;overflow: hidden">
+                            <img class="card-img-top p-5 img-fluid h-100" src="{{$category->image}}" alt="{{$category->title}}"/>
+                        </div>
 
                         <div class="card-body text-center">
                             <h4 class="card-title text-center"><a>{{$category->title}}</a></h4>

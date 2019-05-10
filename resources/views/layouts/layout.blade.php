@@ -130,7 +130,6 @@ Choose what you want to learn">
                         <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                     </div>
 
-                    <a class="nav-link btn nav-btn nav-btn-line " href="/user/{{Auth::user()->id}}"> {{Auth::user()->name}} Profile</a>
                 @endif
 
 

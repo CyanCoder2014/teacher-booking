@@ -31,7 +31,7 @@
                                             @endif
 
                                         </div>
-                                        <div class="text-grey font-13"> {{ $userProfile->gender() }}</div>
+                                        <div class="text-grey font-13"> {{ $userProfile->tell }}</div>
                                         <div class=" font-13 py-3">
                                             <span class="text-info pr-3">{{ $userProfile->tell }}  <i class="fa fa-phone"></i></span>
                                             <span>From {{ $userProfile->city->name }}, {{ $userProfile->state->name }}</span>
