@@ -15,7 +15,7 @@
                         <div class="mt-3">
                             <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-md-3">
+                                    <div class="col-md-4">
                                         <img src="{{ $userProfile->image() }}" class="w-100">
                                         <div class="text-grey text-center mt-2"></div>
 
@@ -24,7 +24,7 @@
                                         <a href="mailto:{{ $userProfile->user->email}}" class="btn btn-light btn-block  text-black waves-effect waves-light mt-2">{{$userProfile->user->email}}</a>
 
                                     </div>
-                                    <div class="col-md-9">
+                                    <div class="col-md-8">
                                         <h1 class="d-inline-block ">{{ $userProfile->user->name }}</h1>
                                         <div class="float-right">
 

@@ -179,10 +179,10 @@
                                             <div class="row">
                                                 <div class="col-md-12 mother2">
                                                     <div class="text-center">
-                                                        <img src="{{ asset($course->image()) }}" class="rounded-circle w-50" style="max-width: 250px"/>
+                                                        <img src="{{ asset($course->image()) }}" class="rounded-circle w-50" style="height: 250px"/>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-12 mother2 " style="height: 300px;overflow: hidden">
+                                                <div class="col-md-12 mother2 " style="height: 280px;overflow: hidden">
                                                     <h5 class="text-center font-weight-bold mt-3 text-grey ">
                                                        {{$course->category->title }}
                                                     </h5>
@@ -206,7 +206,7 @@
                                                         <span class="font-weight-bold">{{ $course->AcceptedComment->avg('rate') }}</span>
                                                     </div>
 
-                                                    <h6 class="text-center  mt-2 orange-text">
+                                                    <h6 class="text-center  mt-3 orange-text">
 
                                                     <span class="text-grey font-weight-bold">Hourly rate:
                                                 </span>
