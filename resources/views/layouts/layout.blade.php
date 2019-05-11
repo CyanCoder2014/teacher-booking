@@ -180,7 +180,7 @@ Choose what you want to learn">
                     <button class=" dropdown-toggle mr-4 nav-link btn nav-btn nav-btn-line " type="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i></button>
                     <div class="dropdown-menu" style="" >
-                        <a class="dropdown-item" href="/user/{{Auth::user()->name}}">{{Auth::user()->name}} Profile </a>
+                        <a class="dropdown-item" href="/user/{{Auth::user()->id}}">{{Auth::user()->name}} Profile </a>
                         <a class="dropdown-item" href="{{ route('profile') }}">Edit info</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
