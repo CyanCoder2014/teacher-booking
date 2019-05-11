@@ -62,7 +62,7 @@
 
     <div class="    container ">
         <div class="row mt-5 mb-5">
-            <div class="col-md-2 bg-white p-3" style="margin-top: 4.5rem">
+            <div class="col-md-3 bg-white p-3" style="margin-top: 4.5rem">
                 <!--
                 <ul style="list-style: none" class="p-0">
                     <li class="font-weight-bold"><a href="#" class="text-black" id="all">all</a></li>
@@ -165,7 +165,7 @@
                     <button class="btn btn-danger nav-link nav-link btn btn-sm orange-border waves-effect waves-light" type="submit">Filter</button>
                 </form>
             </div>
-            <div class="col-md-10 text-right ">
+            <div class="col-md-9 text-right ">
                 <ul class="nav nav-tabs justify-content-end filterUl" id="myTab" role="tablist">
                     <li class="nav-item" >
                         <a class="nav-link active p-0"  data-toggle="tab" href="#home" role="tab"

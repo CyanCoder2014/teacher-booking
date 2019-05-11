@@ -93,7 +93,7 @@ class CourseRequest extends CRUD
             'name' => 'type',
             'type' => 'select',
             'slug' => 'Type',
-            'values' => [1 => 'type1',2 =>'type2',3 =>'type3'],
+            'values' => [1 => 'Show email to contact',2 =>'Hide email to contact'],
             'validation' => 'required',
         ],
         [

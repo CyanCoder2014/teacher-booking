@@ -5,7 +5,7 @@
     <div class="bg-gray pt-menu pb-5 mt-3">
     <div class="container ">
         <div class="row mt-5 mb-5">
-            <div class="col-md-2 bg-white p-3" style="margin-top: 4.5rem">
+            <div class="col-md-3 bg-white p-3" style="margin-top: 4.5rem">
                 <!--
                 <ul style="list-style: none" class="p-0">
                     <li class="font-weight-bold"><a href="#" class="text-black" id="all">all</a></li>
@@ -36,7 +36,7 @@
                         @endforeach
 
                     </ul>
-                    <h4 style="color: #ef5258 ;font-size: 1.6rem">Types</h4>
+                    <h4 style="color: #ef5258 ;font-size: 1.6rem">Teach options</h4>
                     <ul style="list-style: none" class="p-0">
                         <li>
                             <!-- Default unchecked -->
@@ -49,28 +49,52 @@
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
                                 <input @if(is_array(Request::get('types')) and in_array(0,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input" id="type1" name="types[]" value="0">
-                                <label class="custom-control-label" for="type1">private</label>
+                                <label class="custom-control-label" for="type1">Online</label>
                             </div>
                         </li>
                         <li>
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
                                 <input @if(is_array(Request::get('types')) and in_array(1,Request::get('types'))) checked @endif  type="checkbox" class="custom-control-input" id="type2" name="types[]" value="1">
-                                <label class="custom-control-label" for="type2">group</label>
+                                <label class="custom-control-label" for="type2"> At student place</label>
                             </div>
                         </li>
                         <li>
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
                                 <input @if(is_array(Request::get('types')) and in_array(2,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input" id="type3" name="types[]" value="2">
-                                <label class="custom-control-label" for="type3">online</label>
+                                <label class="custom-control-label" for="type3"> At teacher place</label>
+                            </div>
+                        </li>
+
+                        <li>
+                            <!-- Default unchecked -->
+                            <div class="custom-control custom-checkbox">
+                                <input @if(is_array(Request::get('types')) and in_array(3,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input" id="type3" name="types[]" value="2">
+                                <label class="custom-control-label" for="type3"> Another place</label>
+                            </div>
+                        </li>
+
+                        <li>
+                            <!-- Default unchecked -->
+                            <div class="custom-control custom-checkbox">
+                                <input @if(is_array(Request::get('types')) and in_array(4,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input" id="type3" name="types[]" value="2">
+                                <label class="custom-control-label" for="type3">Teaching for alone</label>
+                            </div>
+                        </li>
+
+                        <li>
+                            <!-- Default unchecked -->
+                            <div class="custom-control custom-checkbox">
+                                <input @if(is_array(Request::get('types')) and in_array(5,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input" id="type3" name="types[]" value="2">
+                                <label class="custom-control-label" for="type3">Teaching for group</label>
                             </div>
                         </li>
 
 
 
                     </ul>
-                    <h4 style="color: #ef5258 ;font-size: 1.6rem">Price Range</h4>
+                    <h4 style="color: #ef5258 ;font-size: 1.6rem">Hourly rate</h4>
                     <div class="row">
                         <div class="col-6 form-group">
                             <label for="min">Min</label>
@@ -84,7 +108,7 @@
                     <button class="btn btn-danger nav-link nav-link btn btn-sm orange-border waves-effect waves-light" type="submit">Filter</button>
                 </form>
             </div>
-            <div class="col-md-10 text-right ">
+            <div class="col-md-9 text-right ">
                 <ul class="nav nav-tabs justify-content-end filterUl" id="myTab" role="tablist">
                     <li class="nav-item" >
                         <a class="nav-link active p-0"  data-toggle="tab" href="#home" role="tab"
@@ -121,16 +145,46 @@
                                         <div class="shadow hoverable p-3 bg-white">
                                             <div class="row">
                                                 <div class="col-md-12 mother2">
-                                                    <div class="text-center">
-                                                        <img src="{{ asset($course->image()) }}" class="rounded-circle w-50" style="max-width: 250px"/>
+                                                    <div class="text-center" style="height: 200px">
+                                                        <img src="{{ asset($course->image()) }}" class="rounded-circle w-75" />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-12 mother2">
-                                                    <h5 class="text-center font-weight-bold mt-3">
-                                                        {{$course->title}}
+                                                <div class="col-md-12 mother2 " style="height: 230px;overflow: hidden">
+                                                    <h5 class="text-center font-weight-bold mt-3 text-grey ">
+                                                        {{$course->category->title }}
                                                     </h5>
-                                                    <h6 class="text-center  mt-3">
-                                                        {!! \Illuminate\Support\Str::words($course->intro , $words = 8, $end = '...') !!}
+
+                                                    <h5 class="text-center  mt-2 orange-text">
+                                                        {{$course->subject}}
+                                                    </h5>
+
+                                                    <h6 class="text-center  mt-2 text-black ">
+                                                        {{ $course->city}}, {{ $course->state->name }}
+                                                    </h6>
+                                                    <div class=" text-center">
+                                                        <div class="text-orang" style="font-size: 10px">
+                                                            @for($i=1;$i< $course->AcceptedComment->avg('rate');$i++)
+                                                                <i class="fas fa-star"></i>
+                                                            @endfor
+                                                            @if(($course->AcceptedComment->avg('rate')/0.5)%2 == 1)
+                                                                <i class="fas fa-star-half"></i>
+                                                            @endif
+                                                        </div>
+                                                        <span class="font-weight-bold">{{ $course->AcceptedComment->avg('rate') }}</span>
+                                                    </div>
+
+                                                    <h6 class="text-center  mt-3 orange-text">
+
+                                                    <span class="text-grey font-weight-bold">Hourly rate:
+                                                </span>
+                                                        <span class=" font-weight-bold">
+                                                    {{ $course->hourly_rate }}$
+                                                    </span>
+                                                    </h6>
+
+
+                                                    <h6 class="text-center  mt-2 text-grey ">
+                                                        {!! \Illuminate\Support\Str::words($course->intro , $words = 6, $end = '...') !!}
                                                     </h6>
                                                 </div>
                                             </div>
@@ -139,8 +193,6 @@
                                         </div>
                                     </a>
                                 @endforeach
-
-
 
                             </div>
                         </div>
