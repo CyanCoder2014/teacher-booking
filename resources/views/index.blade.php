@@ -328,12 +328,16 @@
 
 
 
-                        @foreach($courses as $course)
+                        @foreach($courses as $key => $course)
 
 
 
 
-                            <div class="carousel-item active">
+                            <div class="carousel-item
+                            @if($key == 0)
+                            active
+                            @endif
+                                    ">
                                 <div class="section">
                                     <div class="container">
                                         <div class="columns">
