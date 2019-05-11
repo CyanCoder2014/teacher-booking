@@ -21,7 +21,7 @@
                 <!--<div class="col-md-12 m-auto text-center my-5 pb-5" style="top: 8px">
                     <a  class="btn  btn-outline-deep-orange">I'm student</a>
                     <a  class="btn  btn-outline-white  ">I'm teacher</a>
-                </div>-->
+                </div> -->
 
             </div>
         </div>
