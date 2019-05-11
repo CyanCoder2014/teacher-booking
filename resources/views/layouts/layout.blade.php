@@ -24,11 +24,11 @@ Choose what you want to learn">
 
 </head>
 
-<body>
+<body style=" overflow-x: hidden!important;;width: 100%!important;">
 <!--Navbar-->
 
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-transparent pt-3 pb-0 zIndex100 scrolling-navbar "
-     style="background-color: white!important;">
+     style="background-color: white!important; ">
 
     <!-- Navbar brand -->
     <a class="navbar-brand  pt-0" href="/">
@@ -60,7 +60,7 @@ Choose what you want to learn">
             <li class="nav-item dropdown pr-3 letter-s2 pb-0 mb-0 mt-1 ">
 
             <form class="form-inline active-purple-3 active-purple-4">
-                <input name="title" class="form-control form-control-sm mx-2  " type="text" placeholder="@if(App::getLocale() == 'en')Search @else Sök @endif" aria-label="Search">
+                <input name="subject" class="form-control form-control-sm mx-2  " type="text" placeholder="@if(App::getLocale() == 'en')Search @else Sök @endif" aria-label="Search">
                 <button type="submit" class="btn m-0 p-0 mr-1" style="background:none;color: black!important;box-shadow: none"> <i class="fas fa-search" aria-hidden="true"></i> </button>
 
             </form>
@@ -171,22 +171,17 @@ Choose what you want to learn">
 
                         <button class=" dropdown-toggle mr-4 nav-link btn nav-btn nav-btn-line " type="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i></button>
-
                         <div class="dropdown-menu" style=" " >
                             <a class="dropdown-item" href="" data-toggle="modal" data-target="#modalContactForm">Login</a>
                             <a class="dropdown-item" href="{{ route('register') }}"> Register</a>
-
                         </div>
-
-
-                    @else
+                @else
 
                     <button class=" dropdown-toggle mr-4 nav-link btn nav-btn nav-btn-line " type="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false"><i class="fa fa-user"></i></button>
-
-                    <div class="dropdown-menu" style=" " >
-                        <a class="dropdown-item" href="#">{{Auth::user()->name}} Profile </a>
-                        <a class="dropdown-item" href="#">Edit info</a>
+                    <div class="dropdown-menu" style="" >
+                        <a class="dropdown-item" href="/user/{{Auth::user()->name}}">{{Auth::user()->name}} Profile </a>
+                        <a class="dropdown-item" href="{{ route('profile') }}">Edit info</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}">Logout</a>
                     </div>
@@ -309,7 +304,7 @@ Choose what you want to learn">
 
 <div class="modal fade" id="modalContactForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
      aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header text-center">
                 <h4 class="modal-title w-100 font-weight-bold"> Login to Teacher.nu  </h4>
