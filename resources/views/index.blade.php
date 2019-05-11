@@ -178,8 +178,8 @@
                                         <div class="shadow hoverable p-3 bg-white">
                                             <div class="row">
                                                 <div class="col-md-12 mother2">
-                                                    <div class="text-center" style="height: 250px">
-                                                        <img src="{{ asset($course->image()) }}" class="rounded-circle w-50" />
+                                                    <div class="text-center" style="height: 180px">
+                                                        <img src="{{ asset($course->image()) }}" class="rounded-circle w-75" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 mother2 " style="height: 280px;overflow: hidden">
@@ -187,7 +187,7 @@
                                                        {{$course->category->title }}
                                                     </h5>
 
-                                                    <h5 class="text-center  mt-2 orange-text ">
+                                                    <h5 class="text-center  mt-2 orange-text">
                                                         {{$course->subject}}
                                                     </h5>
 
