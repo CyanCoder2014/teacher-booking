@@ -321,7 +321,7 @@
                     <strong> Perfect learning on your subject. Find your teacher with us and learn what you want </strong>
                 </div>
                 <h3 class="text-center py-3 mt-5">Most recommended Teachers</h3>
-                <div id="carouselExampleControls" class="carousel slide my-5" data-ride="carousel">
+                <div id="carouselExampleControls" class="carousel slide my-5 mb-0" data-ride="carousel">
 
                     <div class="carousel-inner over-vis" role="listbox">
 
@@ -336,7 +336,7 @@
                             active
                             @endif
                                     ">
-                                <div class="section">
+                                <div class="section mb-0 pb-0">
                                     <div class="container">
                                         <div class="columns">
                                             <div class="column is-4 is-offset-4">
