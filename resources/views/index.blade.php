@@ -178,8 +178,8 @@
                                         <div class="shadow hoverable p-3 bg-white">
                                             <div class="row">
                                                 <div class="col-md-12 mother2">
-                                                    <div class="text-center">
-                                                        <img src="{{ asset($course->image()) }}" class="rounded-circle w-50" style="height: 250px"/>
+                                                    <div class="text-center" style="height: 250px">
+                                                        <img src="{{ asset($course->image()) }}" class="rounded-circle w-50" />
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 mother2 " style="height: 280px;overflow: hidden">
