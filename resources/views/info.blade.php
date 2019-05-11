@@ -18,11 +18,11 @@
                                     <nav>
                                         <div class="nav nav-tabs md-tabs" id="nav-tab" role="tablist">
                                             <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
-                                               aria-controls="nav-home" aria-selected="true">About us</a>
+                                               aria-controls="nav-home" aria-selected="true"> <i class="fa fa-info"></i> About us</a>
                                             <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
-                                               aria-controls="nav-profile" aria-selected="false">Term of use</a>
+                                               aria-controls="nav-profile" aria-selected="false">  <i class="fa fa-file"></i>  Term of use</a>
                                             <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
-                                               aria-controls="nav-contact" aria-selected="false">Contact us</a>
+                                               aria-controls="nav-contact" aria-selected="false"> <i class="fa fa-fax"></i> Contact us</a>
                                         </div>
                                     </nav>
                                     <div class="tab-content pt-5" id="nav-tabContent">
