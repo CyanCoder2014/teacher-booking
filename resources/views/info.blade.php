@@ -1,32 +1,9 @@
 @extends('layouts.layout')
-
 @section('content')
-
-
-
-
-    <div class="mt-menu bg-image">
-        <div class="container py-5 ">
+    <div class="bg-gray pt-menu pb-5 ">
+        <div class="container pt-3 ">
             <div class="row ">
-
-
-                <div class="col-md-12 text-center mt-0 "><h1 class="font-weight-bold">Start learning  </h1></div>
-                <div class="col-md-12 text-center text-white" ><h4>
-                        Or do you want to work as a private teacher?
-                    </h4></div>
-
-
-
-
-                <!--<div class="col-md-12 m-auto text-center my-5 pb-5" style="top: 8px">
-                    <a  class="btn  btn-outline-deep-orange">I'm student</a>
-                    <a  class="btn  btn-outline-white  ">I'm teacher</a>
-                </div> -->
-
-            </div>
-        </div>
-
-    </div>
+                <div class="col-md-12 ">
 
 
 
@@ -34,183 +11,161 @@
 
 
 
+                    <div class="bg-white p-3 mt-3">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <nav>
+                                        <div class="nav nav-tabs md-tabs" id="nav-tab" role="tablist">
+                                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                                               aria-controls="nav-home" aria-selected="true">About us</a>
+                                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                                               aria-controls="nav-profile" aria-selected="false">Term of use</a>
+                                            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab"
+                                               aria-controls="nav-contact" aria-selected="false">Contact us</a>
+                                        </div>
+                                    </nav>
+                                    <div class="tab-content pt-5" id="nav-tabContent">
+
+
+                                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+
+                                            <h1 class="font-weight-bold mt-3">
+                                                About us
+                                            </h1>
+                                            <p>Et et consectetur ipsum labore excepteur est proident excepteur ad velit occaecat qui minim occaecat
+                                                veniam. Fugiat veniam incididunt anim aliqua enim pariatur veniam sunt est aute sit dolor anim. Velit non
+                                                irure adipisicing aliqua ullamco irure incididunt irure non esse consectetur nostrud minim non minim
+                                                occaecat. Amet duis do nisi duis veniam non est eiusmod tempor incididunt tempor dolor ipsum in qui sit.
+                                                Exercitation mollit sit culpa nisi culpa non adipisicing reprehenderit do dolore. Duis reprehenderit
+                                                occaecat anim ullamco ad duis occaecat ex.</p>
+                                        </div>
+                                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                            <h1 class="font-weight-bold mt-3">
+                                                Term of use
+                                            </h1>
+                                            <p>Nulla est ullamco ut irure incididunt nulla Lorem Lorem minim irure officia enim reprehenderit. Magna
+                                                duis labore cillum sint adipisicing exercitation ipsum. Nostrud ut anim non exercitation velit laboris
+                                                fugiat cupidatat. Commodo esse dolore fugiat sint velit ullamco magna consequat voluptate minim amet
+                                                aliquip ipsum aute laboris nisi. Labore labore veniam irure irure ipsum pariatur mollit magna in
+                                                cupidatat dolore magna irure esse tempor ad mollit. Dolore commodo nulla minim amet ipsum officia
+                                                consectetur amet ullamco voluptate nisi commodo ea sit eu.</p>
+                                        </div>
 
 
 
 
+                                        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
 
+                                            <!--Section heading-->
+                                            <h2 class="h1-responsive font-weight-bold text-center my-4">Contact us</h2>
+                                            <!--Section description-->
+                                            <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly. Our team will come back to you within
+                                                a matter of hours to help you.</p>
 
+                                            <div class="row">
 
+                                                <!--Grid column-->
+                                                <div class="col-md-9 mb-md-0 mb-5">
+                                                    <form id="contact-form" name="contact-form" action="" method="POST">
+                                                    {{ csrf_field() }}
+                                                    <!--Grid row-->
+                                                        <div class="row">
 
+                                                            <!--Grid column-->
+                                                            <div class="col-md-6">
+                                                                <div class="md-form mb-0">
+                                                                    <input type="text" id="name" name="name" class="form-control">
+                                                                    <label for="name" class="">Your name</label>
+                                                                </div>
+                                                            </div>
+                                                            <!--Grid column-->
 
+                                                            <!--Grid column-->
+                                                            <div class="col-md-6">
+                                                                <div class="md-form mb-0">
+                                                                    <input type="text" id="email" name="email" class="form-control">
+                                                                    <label for="email" class="">Your email</label>
+                                                                </div>
+                                                            </div>
+                                                            <!--Grid column-->
 
+                                                        </div>
+                                                        <!--Grid row-->
 
+                                                        <!--Grid row-->
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="md-form mb-0">
+                                                                    <input type="text" id="subject" name="subject" class="form-control">
+                                                                    <label for="subject" class="">Subject</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <!--Grid row-->
 
+                                                        <!--Grid row-->
+                                                        <div class="row">
 
-    <div class="row justify-content-center row-color">
+                                                            <!--Grid column-->
+                                                            <div class="col-md-12">
 
-    <div class="container pt-menu ">
+                                                                <div class="md-form">
+                                                                    <textarea type="text" id="message" name="message" rows="2" class="form-control md-textarea"></textarea>
+                                                                    <label for="message">Your message</label>
+                                                                </div>
 
+                                                            </div>
+                                                        </div>
+                                                        <!--Grid row-->
 
-        <div class="row justify-content-center py-3 mb-5 ">
-            <div class="col-md-12 pb-5 mt-0 ">
-                <h3 class="text-center pb-3"> Choose what you want to learn</h3>
-            </div>
+                                                    </form>
 
-
-
-            @foreach($categories as $category)
-                <div class="col-md-4 mb-4">
-                    <a href="{{ $category->link() }}" class="card">
-                        <img class="card-img-top p-5 img-fluid" src="{{$category->image}}" alt="Card image cap"/>
-
-                        <div class="card-body text-center">
-                            <h4 class="card-title text-center"><a>{{$category->title}}</a></h4>
-
-                        </div>
-
-                    </a>
-                </div>
-            @endforeach
-
-
-
-        </div>
-
-
-    </div>
-
-    </div>
-
-
-
-    <div class=" pt-menu pt-flow" style="padding-top: 0">
-
-        <div class="row justify-content-center row-color">
-            <div class="col-md-12 p-0 m-0">
-                <div class="card-header white-text text-center py-4 orange-color">
-                    <strong>ipsum dolor sit amet, eu qui choro equideHabeo suscipit euripidis sit ea. Regione tibique n </strong>
-                </div>
-                <h3 class="text-center py-3 mt-5">Best Teachers</h3>
-                <div id="carouselExampleControls" class="carousel slide my-5" data-ride="carousel">
-
-                    <div class="carousel-inner over-vis" role="listbox">
-
-
-
-
-
-                        <div class="carousel-item active">
-                            <div class="section">
-                                <div class="container">
-                                    <div class="columns">
-                                        <div class="column is-4 is-offset-4">
-                                            <div class="card my-2">
-                                                <div class="header">
-                                                    <div class="avatar">
-                                                        <img src="/front/img/avatar-05.jpg" alt="">
+                                                    <div class="text-center text-md-left">
+                                                        <a class="btn btn-primary waves-effect waves-light" onclick="document.getElementById('contact-form').submit();">Send</a>
                                                     </div>
+                                                    <div class="status"></div>
                                                 </div>
-                                                <div class="card-body">
-                                                    <div class="user-meta has-text-centered">
-                                                        <h3 class="username">Josef Nash (test) </h3>
-                                                        <h5 class="position">Art teacher</h5>
-                                                    </div>
-                                                    <div class="user-bio has-text-centered">
-                                                        <p>Josef Nash is an accountant at the Acme Inc comany. She
-                                                            works very hard.</p>
-                                                    </div>
-                                                    <div class="action has-text-centered">
-                                                        <a  href="/user/1"  class="button is-small">View profile</a>
-                                                    </div>
+                                                <!--Grid column-->
+                                                <!--Grid column-->
+                                                <div class="col-md-3 text-center">
+                                                    <ul class="list-unstyled mb-0">
+                                                        <li><i class="fas fa-map-marker-alt fa-2x"></i>
+                                                            <p>@if(App::getLocale() == 'sw') @utility("contact","address_sw") @else @utility("contact","address_en") @endif</p>
+                                                        </li>
+
+                                                        <li><i class="fas fa-phone mt-4 fa-2x"></i>
+                                                            <p>@utility("contact","phone")</p>
+                                                        </li>
+
+                                                        <li><i class="fas fa-envelope mt-4 fa-2x"></i>
+                                                            <p>@utility("contact","email")</p>
+                                                        </li>
+                                                    </ul>
                                                 </div>
+                                                <!--Grid column-->
+
                                             </div>
                                         </div>
 
 
+
+
                                     </div>
+
+
+
                                 </div>
                             </div>
                         </div>
-
-                        <div class="carousel-item">
-                            <div class="section">
-                                <div class="container">
-                                    <div class="columns">
-                                        <div class="column is-4 is-offset-4">
-                                            <div class="card my-2">
-                                                <div class="header">
-                                                    <div class="avatar">
-                                                        <img src="https://image.ibb.co/fa2YRF/dounia.jpg" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="user-meta has-text-centered">
-                                                        <h3 class="username">Helen Miller (test)</h3>
-                                                        <h5 class="position">Computer teacher</h5>
-                                                    </div>
-                                                    <div class="user-bio has-text-centered">
-                                                        <p>Helen Miller is an accountant at the Acme Inc comany. She
-                                                            works very hard.</p>
-                                                    </div>
-                                                    <div class="action has-text-centered">
-                                                        <a  href="/user/1"  class="button is-small">View profile</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="carousel-item">
-                            <div class="section">
-                                <div class="container">
-                                    <div class="columns">
-                                        <div class="column is-4 is-offset-4">
-                                            <div class="card my-2">
-                                                <div class="header">
-                                                    <div class="avatar">
-                                                        <img src="/front/img/avatar.jpg" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="user-meta has-text-centered">
-                                                        <h3 class="username">Sara Gordon (test)</h3>
-                                                        <h5 class="position">Sport teacher</h5>
-                                                    </div>
-                                                    <div class="user-bio has-text-centered">
-                                                        <p>Sara Gordon is an accountant at the Acme Inc comany. She
-                                                            works very hard.</p>
-                                                    </div>
-                                                    <div class="action has-text-centered">
-                                                        <a  href="/user/1"  class="button is-small">View profile</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
                     </div>
 
-                    <a class="arrow carousel-control-prev" href="#carouselExampleControls" role="button"
-                       data-slide="prev">
-                        <img src="/front/img/arrow-left.png" height="128" width="128" class="position-absolute img-fluid prev-img"/>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="arrow carousel-control-next" href="#carouselExampleControls" role="button"
-                       data-slide="next">
-                        <img src="/front/img/arrow-right.png" height="128" width="128" class="position-absolute img-fluid next-img" />
-                        <span class="sr-only">Next</span>
-                    </a>
-
                 </div>
+
+
+
             </div>
         </div>
     </div>
-
 @endsection
