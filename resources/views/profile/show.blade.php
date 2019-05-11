@@ -21,7 +21,7 @@
 
 
                                         <a href="tel:{{ $userProfile->tell }}" class="btn btn-danger btn-block waves-effect waves-light mt-3">Contact to: {{$userProfile->tell}}</a>
-                                        <a href="mailto:{{ $userProfile->user->email}}" class="btn btn-light btn-block  text-black waves-effect waves-light mt-2">{{$userProfile->user->email}}</a>
+                                        <a href="mailto:{{$userProfile->user->email}}" class="btn btn-light btn-block  text-black waves-effect waves-light mt-2">{{$userProfile->user->email}}</a>
 
                                     </div>
                                     <div class="col-md-8">
@@ -69,10 +69,8 @@
                                             @foreach($userProfile->languages as $language)
                                                 @if($language == '1')
                                                     English,
-
                                                 @else
                                                     Sweden
-
                                                 @endif
                                              @endforeach
                                         </div>
@@ -198,9 +196,12 @@
                                         @foreach($userProfile->courses as $course)
                                             <div class="row mt-4">
                                             <div class="col-md-6">
-                                                <div class="font-13">{{ $course->title }}</div>
+                                                <div class="font-13">{{ $course->title }} <span class="badge badge-danger"> New</span></div>
+
+                                                <!--
                                                 <div class="text-grey "><span class="font-13">{{ $course->registered }} registered lesson(s)</span>
                                                     <span class="badge badge-danger">New</span></div>
+                                                -->
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="text-right font-13">
@@ -208,10 +209,10 @@
                                                     <span class="text-grey">USD per hour</span>
                                                 </div>
                                                 <div class="text-right">
-                                                    <a href="{{ $course->link() }}">
+                                                   <!-- <a href="{{ $course->link() }}">
                                                         <button type="button" class="btn btn-light py-1 px-2 m-0 text-black waves-effect waves-light"> more
                                                         </button>
-                                                    </a>
+                                                    </a>-->
 
                                                 </div>
                                             </div>

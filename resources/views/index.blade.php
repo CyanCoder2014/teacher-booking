@@ -5,7 +5,7 @@
 
 
 
-    <div class="mt-menu bg-image">
+    <div class="row mt-menu bg-image">
         <div class="container py-5 ">
             <div class="row ">
 
@@ -60,7 +60,7 @@
 
 
 
-    <div class="container ">
+    <div class="    container ">
         <div class="row mt-5 mb-5">
             <div class="col-md-2 bg-white p-3" style="margin-top: 4.5rem">
                 <!--
@@ -93,7 +93,7 @@
                         @endforeach
 
                     </ul>
-                    <h4 style="color: #ef5258 ;font-size: 1.6rem">Types</h4>
+                    <h4 style="color: #ef5258 ;font-size: 1.6rem">Teach options</h4>
                     <ul style="list-style: none" class="p-0">
                         <li>
                             <!-- Default unchecked -->
@@ -106,28 +106,52 @@
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
                                 <input @if(is_array(Request::get('types')) and in_array(0,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input" id="type1" name="types[]" value="0">
-                                <label class="custom-control-label" for="type1">private</label>
+                                <label class="custom-control-label" for="type1">Online</label>
                             </div>
                         </li>
                         <li>
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
                                 <input @if(is_array(Request::get('types')) and in_array(1,Request::get('types'))) checked @endif  type="checkbox" class="custom-control-input" id="type2" name="types[]" value="1">
-                                <label class="custom-control-label" for="type2">group</label>
+                                <label class="custom-control-label" for="type2"> At student place</label>
                             </div>
                         </li>
                         <li>
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
                                 <input @if(is_array(Request::get('types')) and in_array(2,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input" id="type3" name="types[]" value="2">
-                                <label class="custom-control-label" for="type3">online</label>
+                                <label class="custom-control-label" for="type3"> At teacher place</label>
+                            </div>
+                        </li>
+
+                        <li>
+                            <!-- Default unchecked -->
+                            <div class="custom-control custom-checkbox">
+                                <input @if(is_array(Request::get('types')) and in_array(3,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input" id="type3" name="types[]" value="2">
+                                <label class="custom-control-label" for="type3"> Another place</label>
+                            </div>
+                        </li>
+
+                        <li>
+                            <!-- Default unchecked -->
+                            <div class="custom-control custom-checkbox">
+                                <input @if(is_array(Request::get('types')) and in_array(4,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input" id="type3" name="types[]" value="2">
+                                <label class="custom-control-label" for="type3">Teaching for alone</label>
+                            </div>
+                        </li>
+
+                        <li>
+                            <!-- Default unchecked -->
+                            <div class="custom-control custom-checkbox">
+                                <input @if(is_array(Request::get('types')) and in_array(5,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input" id="type3" name="types[]" value="2">
+                                <label class="custom-control-label" for="type3">Teaching for group</label>
                             </div>
                         </li>
 
 
 
                     </ul>
-                    <h4 style="color: #ef5258 ;font-size: 1.6rem">Price Range</h4>
+                    <h4 style="color: #ef5258 ;font-size: 1.6rem">Hourly rate</h4>
                     <div class="row">
                         <div class="col-6 form-group">
                             <label for="min">Min</label>
@@ -182,7 +206,7 @@
                                                         <img src="{{ asset($course->image()) }}" class="rounded-circle w-75" />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-12 mother2 " style="height: 280px;overflow: hidden">
+                                                <div class="col-md-12 mother2 " style="height: 230px;overflow: hidden">
                                                     <h5 class="text-center font-weight-bold mt-3 text-grey ">
                                                        {{$course->category->title }}
                                                     </h5>
@@ -226,34 +250,6 @@
                                         </div>
                                     </a>
                                 @endforeach
-
-<!--
-
-
-                                    <a  href="/user/1"  class="col-md-4 mt-3 mother1">
-                                        <div class="shadow hoverable p-3 bg-white">
-                                            <div class="row">
-                                                <div class="col-md-12 mother2">
-                                                    <div class="text-center">
-                                                        <img src="/front/img/avatar-03.jpg" class="rounded-circle w-50" style="max-width: 250px"/>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 mother2">
-                                                    <h5 class="text-center font-weight-bold mt-3">
-                                                        Sam Smith (test)
-                                                    </h5>
-                                                    <h6 class="text-center  mt-3">
-                                                        Traffic teacher
-                                                    </h6>
-                                                </div>
-                                            </div>
-
-
-                                        </div>
-                                    </a>
-
-
--->
 
                             </div>
                         </div>
@@ -322,9 +318,9 @@
         <div class="row justify-content-center row-color">
             <div class="col-md-12 p-0 m-0">
                 <div class="card-header white-text text-center py-4 orange-color">
-                    <strong>ipsum dolor sit amet, eu qui choro equideHabeo suscipit euripidis sit ea. Regione tibique n </strong>
+                    <strong> Perfect learning on your subject. Find your teacher with us and learn what you want </strong>
                 </div>
-                <h3 class="text-center py-3 mt-5">Best Teachers</h3>
+                <h3 class="text-center py-3 mt-5">Most recommended Teachers</h3>
                 <div id="carouselExampleControls" class="carousel slide my-5" data-ride="carousel">
 
                     <div class="carousel-inner over-vis" role="listbox">
@@ -332,101 +328,74 @@
 
 
 
-
-                        <div class="carousel-item active">
-                            <div class="section">
-                                <div class="container">
-                                    <div class="columns">
-                                        <div class="column is-4 is-offset-4">
-                                            <div class="card my-2">
-                                                <div class="header">
-                                                    <div class="avatar">
-                                                        <img src="/front/img/avatar-05.jpg" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="user-meta has-text-centered">
-                                                        <h3 class="username">Josef Nash (test) </h3>
-                                                        <h5 class="position">Art teacher</h5>
-                                                    </div>
-                                                    <div class="user-bio has-text-centered">
-                                                        <p>Josef Nash is an accountant at the Acme Inc comany. She
-                                                            works very hard.</p>
-                                                    </div>
-                                                    <div class="action has-text-centered">
-                                                        <a  href="/user/1"  class="button is-small">View profile</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                        @foreach($courses as $key => $course)
 
 
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="carousel-item">
-                            <div class="section">
-                                <div class="container">
-                                    <div class="columns">
-                                        <div class="column is-4 is-offset-4">
-                                            <div class="card my-2">
-                                                <div class="header">
-                                                    <div class="avatar">
-                                                        <img src="https://image.ibb.co/fa2YRF/dounia.jpg" alt="">
+
+                            <div class="carousel-item
+                            @if($key == 0)
+                            active
+                            @endif
+                                    ">
+                                <div class="section">
+                                    <div class="container">
+                                        <div class="columns">
+                                            <div class="column is-4 is-offset-4">
+                                                <div class="card my-2">
+                                                    <div class="header">
+                                                        <div class="avatar">
+                                                            <img src="{{ asset($course->image()) }}" alt="">
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="user-meta has-text-centered">
-                                                        <h3 class="username">Helen Miller (test)</h3>
-                                                        <h5 class="position">Computer teacher</h5>
-                                                    </div>
-                                                    <div class="user-bio has-text-centered">
-                                                        <p>Helen Miller is an accountant at the Acme Inc comany. She
-                                                            works very hard.</p>
-                                                    </div>
-                                                    <div class="action has-text-centered">
-                                                        <a  href="/user/1"  class="button is-small">View profile</a>
+                                                    <div class="text-center card-body">
+                                                        <div class=" text-center user-meta has-text-centered">
+                                                            <h3 class="username">{{$course->user->name}} </h3>
+                                                            <h5 class="position">  {{$course->category->title }} - {{$course->subject}}</h5>
+                                                        </div>
+                                                        <div class=" text-center">
+                                                            <div class="text-orang" style="font-size: 10px">
+                                                                @for($i=1;$i< $course->AcceptedComment->avg('rate');$i++)
+                                                                    <i class="fas fa-star"></i>
+                                                                @endfor
+                                                                @if(($course->AcceptedComment->avg('rate')/0.5)%2 == 1)
+                                                                    <i class="fas fa-star-half"></i>
+                                                                @endif
+                                                            </div>
+                                                            <span class="font-weight-bold">{{ $course->AcceptedComment->avg('rate') }}</span>
+                                                        </div>
+                                                        <div class="user-bio has-text-centered">
+                                                            <p> {!! \Illuminate\Support\Str::words($course->intro , $words = 6, $end = '...') !!}</p>
+                                                        </div>
+                                                        <h6 class="text-center  mt-3 orange-text">
+
+                                                    <span class="text-grey font-weight-bold">Hourly rate:
+                                                </span>
+                                                            <span class=" font-weight-bold">
+                                                    {{ $course->hourly_rate }}$
+                                                    </span>
+                                                        </h6>
+
+                                                        <div class=" text-center action has-text-centered">
+                                                            <a  href="/user/{{$course->id}}"  class="button is-small">View profile</a>
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>
+
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="carousel-item">
-                            <div class="section">
-                                <div class="container">
-                                    <div class="columns">
-                                        <div class="column is-4 is-offset-4">
-                                            <div class="card my-2">
-                                                <div class="header">
-                                                    <div class="avatar">
-                                                        <img src="/front/img/avatar.jpg" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="user-meta has-text-centered">
-                                                        <h3 class="username">Sara Gordon (test)</h3>
-                                                        <h5 class="position">Sport teacher</h5>
-                                                    </div>
-                                                    <div class="user-bio has-text-centered">
-                                                        <p>Sara Gordon is an accountant at the Acme Inc comany. She
-                                                            works very hard.</p>
-                                                    </div>
-                                                    <div class="action has-text-centered">
-                                                        <a  href="/user/1"  class="button is-small">View profile</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+
+
+                        @endforeach
+
+
+
 
                     </div>
 
@@ -457,18 +426,83 @@
 
 
             @foreach($coursesRequests as $coursesRequest)
-            <div class="col-md-4">
+            <div class="col-md-12 mb-4">
                 <div class="card">
                    <!-- <img class="card-img-top p-5 img-fluid" src="/front/img/bgtop.png" alt="Card image cap"/>-->
 
                     <div class="card-body">
-                        <h4 class="card-title"><a>{{$coursesRequest->title}}</a></h4>
-                        <p class="card-text">{!! $coursesRequest->intro !!}</p>
+<div class="row">
+                        <div class="col-md-8 pr-4">
+                            <h4  class="card-title ">{{$coursesRequest->title}} <span class="badge badge-primary">{{$coursesRequest->category->title }}</span></h4>
 
-                    </div>
+                        <h4 class="card-title"><a></a></h4>
+                        <p class="card-text">
+                            {!! \Illuminate\Support\Str::words($coursesRequest->intro , $words = 30, $end = '...') !!}
+                        </p>
+                        </div>
 
-                </div>
+                         <div class="col-md-2">
+
+                             <h6 class="card-title"><a>{{$coursesRequest->deadline}}</a></h6>
+                             <p class="card-text">{!! $coursesRequest->city !!}</p>
+
+
+                             @if(Auth::check())
+                             <a data-toggle="modal" data-target="#coursesRequest{{$coursesRequest->id}}"  class="btn btn-light btn-sm text-black ">Contact info</a>
+                                @else
+                                 <a data-toggle="modal" data-target="#modalContactForm"  class="btn btn-light btn-sm text-black ">Contact info</a>
+                             @endif
+                         </div>
+</div>
+
+                     </div>
+               </div>
             </div>
+
+
+                @if(Auth::check())
+                <div class="modal fade" id="coursesRequest{{$coursesRequest->id}}" tabindex="-1" role="dialog" aria-labelledby="{{$coursesRequest->title}}"
+                     aria-hidden="true">
+
+                    <!-- Add .modal-dialog-centered to .modal-dialog to vertically center the modal -->
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+
+
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">{{$coursesRequest->title}}</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+
+
+                            <div class="modal-body">
+
+
+                                <h4  class="card-title ">{{$coursesRequest->user->name}} </h4>
+                                <h6  class="card-title ">{{$coursesRequest->user->email}} </h6>
+
+                                <hr>
+
+                                <h5  class="card-title ">{{$coursesRequest->title}} <span class="badge badge-light">{{$coursesRequest->category->title }}</span></h5>
+
+                                <p class="card-text">
+                                    {!! $coursesRequest->intro !!}
+                                </p>
+
+                            </div>
+                            <div class="modal-footer">
+                                <button  class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <a href="mailto:{{$coursesRequest->user->email}}"  class="btn btn-primary">Email to: {{$coursesRequest->user->email}}</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endif
+
+
             @endforeach
 
 
