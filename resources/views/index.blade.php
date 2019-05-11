@@ -178,7 +178,7 @@
                                         <div class="shadow hoverable p-3 bg-white">
                                             <div class="row">
                                                 <div class="col-md-12 mother2">
-                                                    <div class="text-center" style="height: 180px">
+                                                    <div class="text-center" style="height: 200px">
                                                         <img src="{{ asset($course->image()) }}" class="rounded-circle w-75" />
                                                     </div>
                                                 </div>
