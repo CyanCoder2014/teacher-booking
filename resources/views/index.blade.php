@@ -442,8 +442,12 @@
                              <h6 class="card-title"><a>{{$coursesRequest->deadline}}</a></h6>
                              <p class="card-text">{!! $coursesRequest->city !!}</p>
 
-                             <a data-toggle="modal" data-target="#coursesRequest{{$coursesRequest->id}}"  class="btn btn-light btn-sm text-black ">Contact info</a>
 
+                             @if(Auth::check())
+                             <a data-toggle="modal" data-target="#coursesRequest{{$coursesRequest->id}}"  class="btn btn-light btn-sm text-black ">Contact info</a>
+                                @else
+                                 <a data-toggle="modal" data-target="#modalContactForm"  class="btn btn-light btn-sm text-black ">Contact info</a>
+                             @endif
                          </div>
 </div>
 
@@ -452,7 +456,7 @@
             </div>
 
 
-
+                @if(Auth::check())
                 <div class="modal fade" id="coursesRequest{{$coursesRequest->id}}" tabindex="-1" role="dialog" aria-labelledby="{{$coursesRequest->title}}"
                      aria-hidden="true">
 
@@ -467,6 +471,9 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
+
+
+
                             <div class="modal-body">
 
 
@@ -489,6 +496,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
 
 
             @endforeach
