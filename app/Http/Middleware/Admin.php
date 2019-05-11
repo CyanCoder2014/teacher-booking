@@ -18,6 +18,8 @@ class Admin
         if(auth()->check() && auth()->user()->isAdmin()){
             return $next($request);
         }
-        return redirect(route('login'))->with('error','You must be loging in');
+        if(auth()->check())
+            return redirect(route('login'))->with('error','You must be loging in');
+        return back()->with('error','you dont have a permission');
     }
 }

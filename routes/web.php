@@ -56,6 +56,8 @@ Route::group(['middleware' => 'admin','prefix' =>'admin'],function (){
     \App\Category::Route_list();
     Route::get('/', 'Admin\AdminController@index')->name('admin.index');
 
+    Route::get('/Course/requests', 'Admin\CourseRequestController@index')->name('course.requests.index');
+    Route::delete('/Course/requests/{courseRequest}', 'Admin\CourseRequestController@destroy')->name('course.requests.delete');
     Route::get('/contactus', 'Admin\ContactUsController@index')->name('contactus.index');
     Route::get('/contactus/getdata', 'Admin\ContactUsController@getdata')->name('contactus.getdata');
     Route::get('/contactus/{contactUs}', 'Admin\ContactUsController@edit')->name('contactus.edit');

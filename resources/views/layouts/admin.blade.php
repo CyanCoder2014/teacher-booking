@@ -88,6 +88,10 @@
                         <a href="{{ route('contactus.index') }}">
                             <i class="fas fa-connectdevelop"></i>ContactUs</a>
                     </li>
+                    <li>
+                        <a href="{{ route('course.requests.index') }}">
+                            <i class="fas fa-connectdevelop"></i>Course Requests</a>
+                    </li>
                     <li class="has-sub">
                         <a class="js-arrow" href="#">
                             <i class="fas fa-gears"></i>Setting</a>
@@ -222,6 +226,10 @@
                     <li>
                         <a href="{{ route('admin.profile.index') }}">
                             <i class="fas fa-vcard"></i>Profiles</a>
+                    </li>
+                    <li>
+                        <a href="{{ route('course.requests.index') }}">
+                            <i class="fas fa-address-card"></i>Course Request</a>
                     </li>
                     <li class="has-sub">
                         <a class="js-arrow" href="#">

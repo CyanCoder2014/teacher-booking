@@ -164,11 +164,19 @@ class CourseRequest extends CRUD
     public function category(){
         return $this->belongsTo(Category::class);
     }
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+    public function state(){
+        return $this->belongsTo(Province::class);
+    }
     public function LaratablesType(){
         return $this->type();
     }
     public function link(){
         return '#';
     }
+
+
 
 }
