@@ -58,38 +58,43 @@
                                                 <thead>
                                                 <tr>
                                                         <th>#</th>
-                                                        <th>User Name</th>
-                                                        <th>Title</th>
-                                                        <th>Type</th>
-                                                        <th>Category</th>
-                                                        <th>Country</th>
+                                                        <th>Name</th>
+                                                        <th>Email</th>
+                                                        <th>Status</th>
+                                                        <th>Verified At</th>
                                                         <th>Action</th>
                                                 </tr>
                                                 </thead>
                                                 <tbody>
-                                                @foreach($requests as $request)
+                                                @foreach($users as $user)
                                                     <tr>
-                                                        <td>{{ $request->id }}</td>
-                                                        <td>{{ $request->user->name }}</td>
-                                                        <td>{{ $request->title }}</td>
-                                                        <td>{{ $request->type() }}</td>
-                                                        <td>{{ $request->category->title }}</td>
-                                                        <td>{{ $request->state->name }}</td>
+                                                        <td>{{ $user->id }}</td>
+                                                        <td>{{ $user->name }}</td>
+                                                        <td>{{ $user->email }}</td>
+                                                        <td>{{ $user->type() }}</td>
+                                                        <td>{{ $user->verified_at??'not verified' }}</td>
                                                         <td>
-                                                            <form method="POST" action="{{ route('course.requests.delete',['courseRequest' =>$request->id]) }}">
-                                                                {{ csrf_field() }}
-                                                                {{ method_field('DELETE') }}
-
-
-                                                                <button type="submit" class="btn btn-danger delete-user"  onclick="return confirm('are you sure?');">Delete</button>
-                                                            </form>
+                                                            @if($user->type == 2)
+                                                            <a href="{{ route('admin.user.ban',['user' => $user->id]) }}">
+                                                                <button type="submit" class="btn btn-warning delete-user"  onclick="return confirm('are you sure?');">Ban</button>
+                                                            </a>
+                                                            @else
+                                                                <a href="{{ route('admin.user.unban',['user' => $user->id]) }}">
+                                                                    <button type="submit" class="btn btn-success delete-user"  >unBan</button>
+                                                                </a>
+                                                            @endif
+                                                                <form method="POST" action="{{ route('admin.user.delete',['user' => $user->id]) }}">
+                                                                    {{ csrf_field() }}
+                                                                    {{ method_field('DELETE') }}
+                                                                    <button type="submit" class="btn btn-danger delete-user"  onclick="return confirm('are you sure?');">Delete</button>
+                                                                </form>
                                                         </td>
                                                     </tr>
                                                 @endforeach
                                                 </tbody>
 
                                             </table>
-                                            {!! $requests->links() !!}
+                                            {!! $users->links() !!}
                                         </div>
 
                                     </div>

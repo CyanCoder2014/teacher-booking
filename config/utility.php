@@ -56,7 +56,8 @@ return [
             'address_sw' => ['type'=>'text','label'=>'Address','class'=>null,'style'=>null,'values' => array()],
             'twitter_link' => ['type'=>'text','label'=>' twitter','class'=>null,'style'=>null,'values' => array()],
             'linkedin_link' => ['type'=>'text','label'=>' linkedin','class'=>null,'style'=>null,'values' => array()],
-            'instagram_link' => ['type'=>'text','label'=>'Instagram ','class'=>null,'style'=>null,'values' => array()]
+            'instagram_link' => ['type'=>'text','label'=>'Instagram ','class'=>null,'style'=>null,'values' => array()],
+            'Telegram_link' => ['type'=>'text','label'=>'Telegram ','class'=>null,'style'=>null,'values' => array()]
         ],
 
 

@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\User;
 use App\UserLog;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Str;
@@ -50,8 +52,13 @@ class LoginController extends Controller
         }
         return view('auth.login');
     }
-    protected function authenticated(Request $request, $user)
+    protected function authenticated(Request $request,$user)
     {
+        if ($user->type = 0)
+        {
+            Auth::logout();
+            return back()->with('message','you Baned from Admin use contact us to send message');
+        }
         $user_log= UserLog::User();
         if(!isset($user_log) or // cookie not exist or corrupted
             (isset($user_log->user_id) and $user_log->user_id != $user->id) // another user logged in with same cookie

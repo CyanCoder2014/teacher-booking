@@ -69,12 +69,12 @@ class UserProfileController extends Controller
             'slug' => 'Phone#',
             'validation' => 'required',
         ],
-//        [
-//            'name' => 'hourly_rate',
-//            'type' => 'number',
-//            'slug' => 'hourly Rate',
-//            'validation' => 'required',
-//        ],
+        [
+            'name' => 'hourly_rate',
+            'type' => 'number',
+            'slug' => 'hourly Rate',
+            'validation' => 'required',
+        ],
 //        [
 //            'name' => 'skills',
 //            'type' => 'textarea',

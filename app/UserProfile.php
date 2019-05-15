@@ -53,4 +53,12 @@ class UserProfile extends Model
         return view('admin.profile.action',['userProfile'=>$record->id])->render();
     }
 
+    public function getLocationAttribute()
+    {
+        return [
+            'lat' => $this->lat,
+            'lng' => $this->lng,
+        ];
+    }
+
 }

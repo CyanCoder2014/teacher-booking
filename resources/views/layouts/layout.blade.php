@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Teacher.nu | learn every thing</title>
+    <title>@if(App::getLocale() == 'sw') @utility("setting","title_sw") @else @utility("setting","title_en") @endif | @yield('title')</title>
 
     <meta name="description"
           content="Start learning |
@@ -221,13 +221,37 @@ Choose what you want to learn">
                 <h6 class="light-purple-color footer-line pb-1">Contact us</h6>
                 <ul class="list-unstyled">
                     <li>
-                        <i class="fas fa-envelope fa-1x pr-1 "></i> <a href="#!">info@domaun.com</a>
+                        <i class="fas fa-envelope fa-1x pr-1 "></i> <a href="#!">@utility("contact","email")</a>
                     </li>
                     <li>
                         <i class="fab fa-telegram-plane fa-1x pr-1"></i> <a href="#!">telegram.id</a>
                     </li>
                     <li>
-                        <i class="fas fa-phone fa-1x pr-1"></i><a href="#!">2222112</a>
+                        <i class="fas fa-phone fa-1x pr-1"></i><a href="#!">@utility("contact","phone")</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+            <!-- Grid column -->
+            <div class="col-md-3 mt-md-0 mt-3  px-5">
+
+                <!-- Content -->
+                <h6 class="light-purple-color footer-line pb-1">@if(App::getLocale() == 'sw') @utility("setting","title_1_sw") @else @utility("setting","title_1_en") @endif</h6>
+                <ul class="list-unstyled">
+                    <li>
+                        <i class="fas fa-envelope fa-1x pr-1 "></i> <a href="#!"></a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="col-md-3 mt-md-0 mt-3  px-5">
+
+                <!-- Content -->
+                <h6 class="light-purple-color footer-line pb-1">@if(App::getLocale() == 'sw') @utility("footer_title","title_2_sw") @else @utility("footer_title","title_2_en") @endif</h6>
+                <ul class="list-unstyled">
+                    <li>
+                        <i class="fas fa-envelope fa-1x pr-1 "></i> <a href="#!"></a>
                     </li>
                 </ul>
 
@@ -242,22 +266,22 @@ Choose what you want to learn">
                 <!-- Links -->
                 <h6 class="light-purple-color footer-line pb-1">About us</h6>
 
-                <p>Learnn more about us Learnn more about us Learnn more about us Learnn more us</p>
+                <p>@if(App::getLocale() == 'sw') @utility("setting","about_us_sw") @else @utility("setting","about_us_en") @endif</p>
             </div>
             <!-- Grid column -->
 
             <!-- Grid column -->
             <div class="col-md-3 mb-md-0 mb-3 text-center">
                 <div class="mt-5">
-                    <a href="#">
+                    <a href=" @utility("contact","linkedin_link")">
                         <span class="p-2 footer-sotial-span mr-1"><i class="fab fa-linkedin-in purple-color"></i></span>
                     </a>
-                    <a href="#">
+                    <a href="@utility("contact","twitter_link")">
                         <span class="p-2 footer-sotial-span mr-1"><i
-                                    class="fab fa-google-plus-g purple-color"></i></span>
+                                    class="fab fa-twitter purple-color"></i></span>
                     </a>
-                    <a href="#">
-                        <span class="p-2 footer-sotial-span mr-1"><i class="fab fa-facebook-f purple-color"></i></span>
+                    <a href="@utility("contact","instagram_link")">
+                        <span class="p-2 footer-sotial-span mr-1"><i class="fab fa-instagram purple-color"></i></span>
                     </a>
                 </div>
             </div>

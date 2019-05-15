@@ -52,4 +52,11 @@ class User extends Authenticatable
     {
         return $this->hasOne('App\VerifyUser');
     }
+    public function type(){
+        switch ($this->type){
+            case 0: return 'Baned';
+            case 1: return 'Admin';
+            case 2: return 'User';
+        }
+    }
 }

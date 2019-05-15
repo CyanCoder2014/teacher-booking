@@ -1,29 +1,24 @@
 @extends('layouts.layout')
-
+@section('title')
+    learn every thing
+@endsection
 @section('content')
 
 
 
 
-    <div class="row mt-menu bg-image">
+    <div class="row mt-menu bg-image" style="background-image: url("/@utility("banner","image")")">
         <div class="container py-5 ">
             <div class="row ">
 
 
                 <div class="col-md-12 text-center mt-0 "><h1 class="font-weight-bold">
-                        @if(App::getLocale() == 'en')
-                            Start learning
-                        @else
-                            Börja lära sig
-                        @endif
+                        @if(App::getLocale() == 'sw') @utility("banner","title_sw") @else @utility("banner","title_en") @endif
                     </h1></div>
                 <div class="col-md-12 text-center text-white" ><h4>
 
-                        @if(App::getLocale() == 'en')
-                            Or do you want to work as a private teacher?
-                        @else
-                            Eller vill du arbeta som privatlärare?
-                        @endif
+                        @if(App::getLocale() == 'sw') @utility("banner","description_sw") @else @utility("banner","description_en") @endif
+
                     </h4></div>
 
 
@@ -71,7 +66,7 @@
                 </ul>
                 <hr>
                 -->
-                <form action="">
+                <form action="" id="filterform">
                     <h4 style="color: #ef5258 ;font-size: 1.6rem">Category</h4>
                     <ul style="list-style: none" class="p-0">
                         <li>
@@ -189,7 +184,7 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <div class="container">
-                            <div class="row">
+                            <div class="row" id="coursecontainer">
 
 
 
@@ -511,4 +506,50 @@
 
 
     </div>
+@endsection
+@section('script')
+    <script>
+        $('#filterform').on('change', function(){
+            $.ajax({
+                url: "{{ route('ajaxfilter') }}",
+                data: $('#filterform').serialize(),
+                cache: false,
+                processData: false,
+                contentType: false,
+                type: 'get',
+                dataType: "json",
+                success: function (results) {
+                    $('#coursecontainer').html('');
+                    $.each(results,function (key,value) {
+                        $('#coursecontainer').append('<a href="/user/'+value.id+'" class="col-md-4 mt-3 mother1">' +
+                            '                                        <div class="shadow hoverable p-3 bg-white">' +
+                            '                                            <div class="row">' +
+                            '                                                <div class="col-md-12 mother2">' +
+                            '                                                    <div class="text-center" style="height: 200px">' +
+                            '                                                        <img src="'+value.image+'" class="rounded-circle w-75" />' +
+                            '                                                    </div>' +
+                            '                                                </div>' +
+                            '                                                <div class="col-md-12 mother2 " style="height: 230px;overflow: hidden">' +
+                            '                                                    <h5 class="text-center font-weight-bold mt-3 text-grey ">'+value.category+'</h5>' +
+                            '                                                    <h5 class="text-center  mt-2 orange-text">'+value.subject+'</h5>' +
+                            '                                                    <h6 class="text-center  mt-2 text-black ">'+value.city+','+value.state+'</h6>' +
+                            '                                                    <div class=" text-center">' +
+                            '                                                        <div class="text-orang" style="font-size: 10px"></div>' +
+                            '                                                        <span class="font-weight-bold">'+value.rate+'</span>' +
+                            '                                                    </div>' +
+                            '                                                    <h6 class="text-center  mt-3 orange-text">' +
+                            '                                                    <span class="text-grey font-weight-bold">Hourly rate:' +
+                            '                                                </span>' +
+                            '                                                    <span class=" font-weight-bold">'+value.hourly_rate+'</span>' +
+                            '                                                    </h6>' +
+                            '                                                    <h6 class="text-center  mt-2 text-grey ">'+value.intro+'</h6>' +
+                            '                                                </div>' +
+                            '                                            </div>' +
+                            '                                        </div>' +
+                            '                                    </a>');
+                    });
+                }
+            });
+        });
+    </script>
 @endsection
