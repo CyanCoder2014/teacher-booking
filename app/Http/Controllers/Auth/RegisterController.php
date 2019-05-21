@@ -7,6 +7,8 @@ use App\User;
 use App\Http\Controllers\Controller;
 use App\VerifyUser;
 use Carbon\Carbon;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
@@ -74,12 +76,6 @@ class RegisterController extends Controller
             'type' => 2,
             'password' => Hash::make($data['password']),
         ]);
-        $verifyUser = VerifyUser::create([
-            'user_id' => $user->id,
-            'token' => str_random(40)
-        ]);
-
-        Mail::to($user->email)->send(new VerifyMail($user));
 
         return $user;
     }
@@ -98,9 +94,26 @@ class RegisterController extends Controller
         }else{
             return redirect('/login')->with('warning', "Sorry your email cannot be identified.");
         }
-        if (Auth::check())
-            return redirect('/profile')->with('message', $status);
-        else
-            return redirect('/login')->with('message', $status);
+
+        return redirect('/profile/edit')->with('message', $status);
+
+    }
+    public function register(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+
+        return view('auth.teacher');
+    }
+    public function send(){
+        $verifyUser = VerifyUser::create([
+            'user_id' => Auth::user()->id,
+            'token' => str_random(40)
+        ]);
+        Mail::to(Auth::user()->email)->send(new VerifyMail(Auth::user()));
+        return view('auth.verify');
     }
 }

@@ -31,6 +31,7 @@ Route::group(array('prefix' => Config::get('app.locale_prefix')), function () {
 
 Auth::routes();
 
+Route::post('/sendverify', 'Auth\RegisterController@send')->name('verifyuser');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser')->name('email.verify');
