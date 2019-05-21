@@ -31,14 +31,12 @@ Route::group(array('prefix' => Config::get('app.locale_prefix')), function () {
 
 Auth::routes();
 
-Route::post('/sendverify', 'Auth\RegisterController@send')->name('verifyuser');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser')->name('email.verify');
 
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/filter', 'HomeController@filter')->name('filter');
-Route::get('/filtering', 'HomeController@ajaxfilter')->name('ajaxfilter');
 
 Route::group(['middleware' => 'auth'],function (){
     \App\CourseRequest::Route_list();
@@ -58,10 +56,6 @@ Route::group(['middleware' => 'admin','prefix' =>'admin'],function (){
     \App\Category::Route_list();
     Route::get('/', 'Admin\AdminController@index')->name('admin.index');
 
-    Route::get('/users/', 'Admin\UserController@index')->name('admin.user.index');
-    Route::get('/users/ban/{user}', 'Admin\UserController@ban')->name('admin.user.ban');
-    Route::get('/users/unban/{user}', 'Admin\UserController@unban')->name('admin.user.unban');
-    Route::delete('/users/{user}', 'Admin\UserController@destroy')->name('admin.user.delete');
     Route::get('/Course/requests', 'Admin\CourseRequestController@index')->name('course.requests.index');
     Route::delete('/Course/requests/{courseRequest}', 'Admin\CourseRequestController@destroy')->name('course.requests.delete');
     Route::get('/contactus', 'Admin\ContactUsController@index')->name('contactus.index');

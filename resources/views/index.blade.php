@@ -57,7 +57,7 @@
 
     <div class="    container ">
         <div class="row mt-5 mb-5">
-            <div class="col-md-2 bg-white p-3" style="margin-top: 4.5rem">
+            <div class="col-md-3 bg-white p-3" style="margin-top: 4.5rem">
                 <!--
                 <ul style="list-style: none" class="p-0">
                     <li class="font-weight-bold"><a href="#" class="text-black" id="all">all</a></li>
@@ -160,7 +160,7 @@
                     <button class="btn btn-danger nav-link nav-link btn btn-sm orange-border waves-effect waves-light" type="submit">Filter</button>
                 </form>
             </div>
-            <div class="col-md-10 text-right ">
+            <div class="col-md-9 text-right ">
                 <ul class="nav nav-tabs justify-content-end filterUl" id="myTab" role="tablist">
                     <li class="nav-item" >
                         <a class="nav-link active p-0"  data-toggle="tab" href="#home" role="tab"
@@ -316,7 +316,7 @@
                     <strong> Perfect learning on your subject. Find your teacher with us and learn what you want </strong>
                 </div>
                 <h3 class="text-center py-3 mt-5">Most recommended Teachers</h3>
-                <div id="carouselExampleControls" class="carousel slide my-5" data-ride="carousel">
+                <div id="carouselExampleControls" class="carousel slide my-5 mb-0" data-ride="carousel">
 
                     <div class="carousel-inner over-vis" role="listbox">
 
@@ -326,14 +326,12 @@
                         @foreach($courses as $key => $course)
 
 
-
-
                             <div class="carousel-item
                             @if($key == 0)
                             active
                             @endif
                                     ">
-                                <div class="section">
+                                <div class="section mb-0 pb-0">
                                     <div class="container">
                                         <div class="columns">
                                             <div class="column is-4 is-offset-4">

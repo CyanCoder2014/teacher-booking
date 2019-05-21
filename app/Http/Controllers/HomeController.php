@@ -106,4 +106,15 @@ class HomeController extends Controller
 
         ));
     }
+
+
+    public function info()
+    {
+        $courses = Course::where('type',"slider")->orderBy('id', 'desc')->paginate(6);
+
+        return view('info', compact(
+            'courses'
+
+        ));
+    }
 }

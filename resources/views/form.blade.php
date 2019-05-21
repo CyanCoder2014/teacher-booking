@@ -12,7 +12,7 @@
 
                                     <div class="font-13 py-3">
 
-                                        <!--Section: Contact v.2-->
+                                        <!--Section: Contact v.2 -->
                                         <section class="mb-4">
 
                                             <!--Section heading-->
