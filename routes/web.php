@@ -33,7 +33,8 @@ Auth::routes();
 
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser')->name('email.verify');
+    Route::post('/userverify', 'Auth\TeacherController@send')->name('verifyuser');
+    Route::get('/user/verify/{token}', 'Auth\TeacherController@verifyUser')->name('email.verify');
 
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/filter', 'HomeController@filter')->name('filter');

@@ -59,4 +59,8 @@ class User extends Authenticatable
             case 2: return 'User';
         }
     }
+    public function routeNotificationForMail($notification)
+    {
+        return $this->email;
+    }
 }

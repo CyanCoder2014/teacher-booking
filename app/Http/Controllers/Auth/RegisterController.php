@@ -79,25 +79,7 @@ class RegisterController extends Controller
 
         return $user;
     }
-    public function verifyUser($token)
-    {
-        $verifyUser = VerifyUser::where('token', $token)->first();
-        if(isset($verifyUser) ){
-            $user = $verifyUser->user;
-            if(!$user->verify_at) {
-                $verifyUser->user->verify_at = Carbon::now();
-                $verifyUser->user->save();
-                $status = "Your e-mail is verified.";
-            }else{
-                $status = "Your e-mail is already verified.";
-            }
-        }else{
-            return redirect('/login')->with('warning', "Sorry your email cannot be identified.");
-        }
 
-        return redirect('/profile/edit')->with('message', $status);
-
-    }
     public function register(Request $request)
     {
         $this->validator($request->all())->validate();
@@ -108,12 +90,5 @@ class RegisterController extends Controller
 
         return view('auth.teacher');
     }
-    public function send(){
-        $verifyUser = VerifyUser::create([
-            'user_id' => Auth::user()->id,
-            'token' => str_random(40)
-        ]);
-        Mail::to(Auth::user()->email)->send(new VerifyMail(Auth::user()));
-        return view('auth.verify');
-    }
+
 }

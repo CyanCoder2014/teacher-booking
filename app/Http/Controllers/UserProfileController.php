@@ -127,6 +127,9 @@ class UserProfileController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
+        if (!isset($user->verify_at))
+            return view('auth.needverify');
 
         $profile = UserProfile::where('user_id',Auth::id())->first();
         $form = new FormMaker($this->form,$profile);
