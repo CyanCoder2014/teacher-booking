@@ -37,6 +37,7 @@ Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser')->name('
 
 Route::get('/', 'HomeController@index')->name('index');
 Route::get('/filter', 'HomeController@filter')->name('filter');
+Route::get('/filtering', 'HomeController@ajaxfilter')->name('ajaxfilter');
 
 Route::group(['middleware' => 'auth'],function (){
     \App\CourseRequest::Route_list();
