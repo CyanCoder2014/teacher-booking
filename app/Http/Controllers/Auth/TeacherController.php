@@ -17,7 +17,7 @@ class TeacherController extends Controller
 
         $user = Auth::user();
         if(!isset($user->verifyUser))
-            $verifyUser = VerifyUser::create([
+            $user->verifyUser = VerifyUser::create([
                 'user_id' => $user->id,
                 'token' => str_random(40)
             ]);
