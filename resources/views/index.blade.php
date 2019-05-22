@@ -72,8 +72,8 @@
                         <li>
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
-                                <input @if(!is_array(Request::get('categories')))checked @endif type="checkbox" class="custom-control-input" id="defaultUnchecked">
-                                <label class="custom-control-label" for="defaultUnchecked">All Categories</label>
+                                <input @if(!is_array(Request::get('categories')))checked @endif type="checkbox" class="custom-control-input" id="all-catgegory">
+                                <label class="custom-control-label"  for="defaultUnchecked">All Categories</label>
                             </div>
                         </li>
 
@@ -81,7 +81,7 @@
                             <li>
                                 <!-- Default unchecked -->
                                 <div class="custom-control custom-checkbox">
-                                    <input @if(is_array(Request::get('categories')) and in_array($category->id,Request::get('categories'))) checked @endif type="checkbox" class="custom-control-input" id="{{$category->title}}" name="categories[]" value="{{$category->id}}">
+                                    <input @if(is_array(Request::get('categories')) and in_array($category->id,Request::get('categories'))) checked @endif type="checkbox" class="custom-control-input category" id="{{$category->title}}" name="categories[]" value="{{$category->id}}">
                                     <label class="custom-control-label" for="{{$category->title}}">{{$category->title}}</label>
                                 </div>
                             </li>
@@ -93,53 +93,53 @@
                         <li>
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
-                                <input @if(!is_array(Request::get('types')))checked @endif type="checkbox" class="custom-control-input" id="defaultUnchecked1">
-                                <label class="custom-control-label" for="defaultUnchecked1">All Types</label>
+                                <input @if(!is_array(Request::get('types')))checked @endif type="checkbox" class="custom-control-input" id="all-type">
+                                <label class="custom-control-label"  for="defaultUnchecked1">All Types</label>
                             </div>
                         </li>
                         <li>
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
-                                <input @if(is_array(Request::get('types')) and in_array(0,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input" id="type1" name="types[]" value="0">
-                                <label class="custom-control-label" for="type1">Online</label>
+                                <input @if(is_array(Request::get('types')) and in_array(0,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input type" id="type1" name="types[]" value="0">
+                                <label class="custom-control-label type" for="type1">Online</label>
                             </div>
                         </li>
                         <li>
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
-                                <input @if(is_array(Request::get('types')) and in_array(1,Request::get('types'))) checked @endif  type="checkbox" class="custom-control-input" id="type2" name="types[]" value="1">
-                                <label class="custom-control-label" for="type2"> At student place</label>
+                                <input @if(is_array(Request::get('types')) and in_array(1,Request::get('types'))) checked @endif  type="checkbox" class="custom-control-input type" id="type2" name="types[]" value="1">
+                                <label class="custom-control-label type" for="type2"> At student place</label>
                             </div>
                         </li>
                         <li>
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
-                                <input @if(is_array(Request::get('types')) and in_array(2,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input" id="type3" name="types[]" value="2">
-                                <label class="custom-control-label" for="type3"> At teacher place</label>
-                            </div>
-                        </li>
-
-                        <li>
-                            <!-- Default unchecked -->
-                            <div class="custom-control custom-checkbox">
-                                <input @if(is_array(Request::get('types')) and in_array(3,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input" id="type3" name="types[]" value="2">
-                                <label class="custom-control-label" for="type3"> Another place</label>
+                                <input @if(is_array(Request::get('types')) and in_array(2,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input type" id="type3" name="types[]" value="2">
+                                <label class="custom-control-label type" for="type3"> At teacher place</label>
                             </div>
                         </li>
 
                         <li>
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
-                                <input @if(is_array(Request::get('types')) and in_array(4,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input" id="type3" name="types[]" value="2">
-                                <label class="custom-control-label" for="type3">Teaching for alone</label>
+                                <input @if(is_array(Request::get('types')) and in_array(3,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input type" id="type4" name="types[]" value="2">
+                                <label class="custom-control-label type" for="type4"> Another place</label>
                             </div>
                         </li>
 
                         <li>
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
-                                <input @if(is_array(Request::get('types')) and in_array(5,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input" id="type3" name="types[]" value="2">
-                                <label class="custom-control-label" for="type3">Teaching for group</label>
+                                <input @if(is_array(Request::get('types')) and in_array(4,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input type" id="type5" name="types[]" value="2">
+                                <label class="custom-control-label type" for="type5">Teaching for alone</label>
+                            </div>
+                        </li>
+
+                        <li>
+                            <!-- Default unchecked -->
+                            <div class="custom-control custom-checkbox">
+                                <input @if(is_array(Request::get('types')) and in_array(5,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input type" id="type6" name="types[]" value="2">
+                                <label class="custom-control-label" for="type6">Teaching for group</label>
                             </div>
                         </li>
 
@@ -215,14 +215,14 @@
                                                     </h6>
                                                     <div class=" text-center">
                                                         <div class="text-orang" style="font-size: 10px">
-                                                            @for($i=1;$i< $course->AcceptedComment->avg('rate');$i++)
+                                                            @for($i=1;$i< $course->AVGrate();$i++)
                                                                 <i class="fas fa-star"></i>
                                                             @endfor
-                                                            @if(($course->AcceptedComment->avg('rate')/0.5)%2 == 1)
+                                                            @if(($course->AVGrate()/0.5)%2 == 1)
                                                                 <i class="fas fa-star-half"></i>
                                                             @endif
                                                         </div>
-                                                        <span class="font-weight-bold">{{ $course->AcceptedComment->avg('rate') }}</span>
+                                                        <span class="font-weight-bold">{{ $course->AVGrate() }}</span>
                                                     </div>
 
                                                     <h6 class="text-center  mt-3 orange-text">
@@ -548,6 +548,21 @@
                     });
                 }
             });
+        });
+        $(document).ready(function(){
+
+            $(".category").click(function(){
+
+                $("#all-catgegory").prop("checked", false);
+
+            });
+
+            $(".type").click(function(){
+
+                $("#all-type").prop("checked", false);
+
+            });
+
         });
     </script>
 @endsection

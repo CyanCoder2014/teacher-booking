@@ -61,6 +61,17 @@
                                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                                     </div>
                                 </div>
+                                <div class="form-group row">
+
+                                    <div class="col-md-4">
+                                    </div>
+                                    <input type="checkbox" name="terms" value="check" id="agree" >
+
+                                    <label for="password-confirm" class="col-md-7 col-form-label text-md-left">I have read and agree to the
+                                        <a href="">Terms and Conditions and Privacy Policy</a></label>
+
+                                </div>
+
 
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">

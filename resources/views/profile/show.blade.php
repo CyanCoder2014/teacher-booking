@@ -39,14 +39,14 @@
                                                 <div class="font-13 text-grey text-center"></div>
                                                 <div class=" text-center">
                                                     <div class="text-orang" style="font-size: 10px">
-                                                        @for($i=1;$i< $userProfile->AcceptedComment->avg('rate');$i++)
+                                                        @for($i=1;$i< $$userProfile->AVGrate();$i++)
                                                             <i class="fas fa-star"></i>
                                                         @endfor
-                                                        @if(($userProfile->AcceptedComment->avg('rate')/0.5)%2 == 1)
+                                                        @if(($userProfile->AVGrate()/0.5)%2 == 1)
                                                             <i class="fas fa-star-half"></i>
                                                         @endif
                                                     </div>
-                                                    <span class="font-weight-bold">{{ round($userProfile->AcceptedComment->avg('rate'),1) }}</span>
+                                                    <span class="font-weight-bold">{{ $userProfile->AVGrate() }}</span>
                                                 </div>
                                             </div>
 

@@ -267,6 +267,8 @@ class UserProfileController extends Controller
                 ],
             ];
 
+        if (Auth::check() && Auth::id() == $userProfile->user->id)
+            return back()->with('message','You Can\'t make Comment for Your own profile');
         $form = new FormMaker($comment);
         $form->validate($request);
         if (!isset($userProfile->id))

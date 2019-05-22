@@ -45,6 +45,9 @@ class UserProfile extends Model
 
         return $this->genderType[$this->gender]??'unknown';
     }
+    public function AVGrate(){
+        round($this->AcceptedComment->avg('rate'),1);
+    }
     public function courses(){
         return $this->hasMany(Course::class,'user_id','user_id');
     }
@@ -52,7 +55,7 @@ class UserProfile extends Model
         return $this->hasMany(ProfileComment::class,'profile_id');
     }
     public function AcceptedComment(){
-        return $this->comment()->where('approved',1);
+        return $this->comment();//->where('approved',1);
     }
 
     public static function laratablesCustomAction($record){
