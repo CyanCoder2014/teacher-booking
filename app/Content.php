@@ -141,7 +141,9 @@ class Content extends CRUD
 //    }
 
     public function category(){
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class)->withDefault(function ($instance) {
+            return new \stdClass;
+        });
     }
     public function LaratablesType(){
         return $this->type();

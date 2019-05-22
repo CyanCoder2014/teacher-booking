@@ -46,7 +46,7 @@
                                                             <i class="fas fa-star-half"></i>
                                                         @endif
                                                     </div>
-                                                    <span class="font-weight-bold">{{ $userProfile->AcceptedComment->avg('rate') }}</span>
+                                                    <span class="font-weight-bold">{{ round($userProfile->AcceptedComment->avg('rate'),1) }}</span>
                                                 </div>
                                             </div>
 

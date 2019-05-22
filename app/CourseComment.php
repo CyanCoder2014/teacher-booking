@@ -15,10 +15,14 @@ class CourseComment extends Model
     }
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withDefault(function ($instance) {
+            return new User();
+        });
     }
     public function course(){
-        return $this->belongsTo(Course::class);
+        return $this->belongsTo(Course::class)->withDefault(function ($instance) {
+            return new Course();
+        });
     }
 
     public static function laratablesCustomAction($record){

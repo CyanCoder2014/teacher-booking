@@ -27,13 +27,19 @@ class UserProfile extends Model
         return asset('/user.png');
     }
     public function city(){
-        return $this->belongsTo(City::class);
+        return $this->belongsTo(City::class)->withDefault(function ($instance) {
+            return new City();
+        });
     }
     public function state(){
-        return $this->belongsTo(Province::class);
+        return $this->belongsTo(Province::class)->withDefault(function ($instance) {
+            return new Province();
+        });
     }
     public function category(){
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class)->withDefault(function ($instance) {
+            return new Category();
+        });
     }
     public function gender(){
 

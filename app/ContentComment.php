@@ -15,10 +15,14 @@ class ContentComment extends Model
     }
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withDefault(function ($instance) {
+            return new \stdClass;
+        });
     }
     public function content(){
-        return $this->belongsTo(Content::class);
+        return $this->belongsTo(Content::class)->withDefault(function ($instance) {
+            return new \stdClass;
+        });
     }
 
     public static function laratablesCustomAction($record){

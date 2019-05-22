@@ -15,10 +15,14 @@ class ProfileComment extends Model
     }
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withDefault(function ($instance) {
+            return new User();
+        });
     }
     public function profile(){
-        return $this->belongsTo(UserProfile::class);
+        return $this->belongsTo(UserProfile::class)->withDefault(function ($instance) {
+            return new UserProfile();
+        });
     }
 
     public static function laratablesCustomAction($record){

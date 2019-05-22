@@ -106,9 +106,9 @@ class Category extends CRUD
 //        return $query->where('user_id', Auth::id());
 //    }
 
-    public function category(){
-        return $this->belongsTo(Category::class);
-    }
+//    public function category(){
+//        return $this->belongsTo(Category::class);
+//    }
     public static function LaratablesCustomCategory($record){
         if($record->category)
             return $record->category->title;

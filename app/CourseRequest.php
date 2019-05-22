@@ -162,13 +162,19 @@ class CourseRequest extends CRUD
     }
 
     public function category(){
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Category::class)->withDefault(function ($instance) {
+            return new Category();
+        });
     }
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withDefault(function ($instance) {
+            return new User();
+        });
     }
     public function state(){
-        return $this->belongsTo(Province::class);
+        return $this->belongsTo(Province::class)->withDefault(function ($instance) {
+            return new Province();
+        });
     }
     public function LaratablesType(){
         return $this->type();
