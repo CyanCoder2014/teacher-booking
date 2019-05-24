@@ -39,7 +39,7 @@
                                                 <div class="font-13 text-grey text-center"></div>
                                                 <div class=" text-center">
                                                     <div class="text-orang" style="font-size: 10px">
-                                                        @for($i=1;$i< $$userProfile->AVGrate();$i++)
+                                                        @for($i=1;$i< $userProfile->AVGrate();$i++)
                                                             <i class="fas fa-star"></i>
                                                         @endfor
                                                         @if(($userProfile->AVGrate()/0.5)%2 == 1)
