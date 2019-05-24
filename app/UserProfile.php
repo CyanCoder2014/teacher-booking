@@ -50,7 +50,8 @@ class UserProfile extends Model
 //        if ($this->AcceptedComment->avg('rate') != null)
 //            round($this->AcceptedComment->avg('rate'),1);
 //        else
-        $this->AcceptedComment->avg('rate');
+//        $this->AcceptedComment->avg('rate');
+        return 5; //for test
 
     }
     public function courses(){
