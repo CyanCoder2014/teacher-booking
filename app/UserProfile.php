@@ -47,9 +47,9 @@ class UserProfile extends Model
     }
     public function AVGrate(){
 
-        if ($this->AcceptedComment->avg('rate') != null)
-            round($this->AcceptedComment->avg('rate'),1);
-        else
+//        if ($this->AcceptedComment->avg('rate') != null)
+//            round($this->AcceptedComment->avg('rate'),1);
+//        else
         $this->AcceptedComment->avg('rate');
 
     }
