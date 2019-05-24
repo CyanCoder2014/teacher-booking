@@ -46,7 +46,12 @@ class UserProfile extends Model
         return $this->genderType[$this->gender]??'unknown';
     }
     public function AVGrate(){
-        round($this->AcceptedComment->avg('rate'),1);
+
+        if ($this->AcceptedComment->avg('rate') != null)
+            round($this->AcceptedComment->avg('rate'),1);
+        else
+        $this->AcceptedComment->avg('rate');
+
     }
     public function courses(){
         return $this->hasMany(Course::class,'user_id','user_id');
