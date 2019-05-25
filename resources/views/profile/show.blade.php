@@ -1,5 +1,12 @@
 @extends('layouts.layout')
-
+@section('head')
+    <style>
+        #map {
+        height: 300px;
+        width: 600px;
+    }
+    </style>
+@endsection
 @section('content')
     <div class="bg-gray pt-menu pb-5 mt-3">
         <div class="container pt-3 ">
@@ -237,7 +244,28 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="container">
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d227.06111301747853!2d13.263634618843813!3d61.16082719417561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4667d90f946ad8a7%3A0x3034506de8c8a90!2sDalarna+County%2C+Sweden!5e0!3m2!1sen!2sfr!4v1557507883290!5m2!1sen!2sfr"  height="350" frameborder="0" style="border:0;width: 100%" allowfullscreen></iframe>
+                                        @if(isset($userProfile->lat))
+                                            <div id="map" style="width: 100%"></div>
+                                        @endif
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-white p-3 mt-3">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="font-weight-bold">
+                                        Availablity
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="container">
+                                        <p>
+                                            {{$userProfile->availablity}}
+                                        </p>
                                     </div>
                                 </div>
 
@@ -292,4 +320,34 @@
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+    @if(isset($userProfile->lat))
+
+        <script type="text/javascript">
+            var map;
+
+            function initMap() {
+                var latitude = {{$userProfile->lat}}; // YOUR LATITUDE VALUE
+                var longitude = {{$userProfile->lat}}; // YOUR LONGITUDE VALUE
+
+                var myLatLng = {lat: latitude, lng: longitude};
+
+
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: myLatLng,
+                    zoom: 14,
+                    disableDoubleClickZoom: true, // disable the default map zoom on double click
+                });
+                var marker = new google.maps.Marker(
+                    {
+                        position: {lat: latitude, lng: longitude  },
+                        map: map,
+                        title: 'pin'
+                    });
+                            }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFSYJ_OsdkmQWzRM8XYtbs3TllwYdHE1Y&callback=initMap"
+                async defer></script>
+    @endif
 @endsection

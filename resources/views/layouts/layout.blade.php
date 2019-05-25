@@ -20,6 +20,8 @@ Choose what you want to learn">
     <link rel="stylesheet" href="/front/css/style.css">
     <link rel="stylesheet" href="/front/css/fam.css">
     <script src="/front/js/jquery.min.js"></script>
+    <link rel="stylesheet" href="/semantic/semantic.min.css">
+    <script src="script.js"></script>
     @yield('head')
 
 </head>
@@ -58,12 +60,13 @@ Choose what you want to learn">
             </li>
              -->
             <li class="nav-item dropdown pr-3 letter-s2 pb-0 mb-0 mt-1 ">
-
-            <form class="form-inline active-purple-3 active-purple-4">
-                <input name="subject" class="form-control form-control-sm mx-2  " type="text" placeholder="@if(App::getLocale() == 'en')Search @else Sök @endif" aria-label="Search">
-                <button type="submit" class="btn m-0 p-0 mr-1" style="background:none;color: black!important;box-shadow: none"> <i class="fas fa-search" aria-hidden="true"></i> </button>
-
-            </form>
+                <div class="ui category search">
+                    <div class="ui icon input">
+                        <input name="subject" class="form-control form-control-sm mx-2 prompt" type="text" placeholder="@if(App::getLocale() == 'en')Search @else Sök @endif" aria-label="Search">
+                        <button type="submit" class="btn m-0 p-0 mr-1" style="background:none;color: black!important;box-shadow: none"> <i class="fas fa-search" aria-hidden="true"></i> </button>
+                    </div>
+                    <div class="results"></div>
+                </div>
             </li>
 
             <li class="nav-item dropdown pr-3 letter-s2 pb-3">
@@ -416,6 +419,48 @@ Choose what you want to learn">
 <script src="/front/js/bootstrap.min.js"></script>
 <script src="/front/js/mdb.min.js"></script>
 <script src="/front/js/fam.js"></script>
+<script src="/semantic/semantic.min.js"></script>
+<script>
+    $('.ui.search')
+        .search({
+            type          : 'category',
+            minCharacters : 2,
+            apiSettings   : {
+                onResponse: function(siteResponse) {
+                    var
+                        response = {
+                            results : {}
+                        }
+                    ;
+                    $.each(siteResponse, function(index, item) {
+                        var
+                            language   = item.category || 'Unknown',
+                            maxResults = 8
+                        ;
+                        if(index >= maxResults) {
+                            return false;
+                        }
+                        // create new language category
+                        if(response.results[language] === undefined) {
+                            response.results[language] = {
+                                name    : language,
+                                results : []
+                            };
+                        }
+                        // add result to category
+                        response.results[language].results.push({
+                            title   : item.name,
+                            image   : item.image,
+                            url     : item.link
+                        });
+                    });
+                    return response;
+                },
+                url: '{{ route('search.teacher') }}?q={query}'
+            }
+        })
+    ;
+</script>
 <!--<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>-->
 <!--<script src="/front/js/navbar.js"></script>-->
 @yield('script')

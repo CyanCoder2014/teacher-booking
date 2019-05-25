@@ -3,10 +3,38 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Nicolaslopezj\Searchable\SearchableTrait;
 
 class UserProfile extends Model
 {
-    protected $fillable=['subject','education','intro','type','category_id','state_id','city','tell','image','intro_video','availablity','languages','lat','lng'];
+    use SearchableTrait;
+
+    /**
+     * Searchable rules.
+     *
+     * @var array
+     */
+    protected $searchable = [
+        /**
+         * Columns and their priority in search results.
+         * Columns with higher values are more important.
+         * Columns with equal values have equal importance.
+         *
+         * @var array
+         */
+        'columns' => [
+            'subject' => 10,
+            'categories.title' => 8,
+            'city' => 5,
+            'countries.name' => 2,
+
+        ],
+        'joins' => [
+            'categories' => ['categories.id','category_id'],
+            'countries' => ['countries.id','state_id'],
+        ],
+    ];
+    protected $fillable=['subject','education','hourly_rate','intro','type','category_id','state_id','city','tell','image','intro_video','availablity','languages','lat','lng'];
     protected $casts=[
         'type' => 'array',
         'languages' => 'array',
@@ -32,7 +60,7 @@ class UserProfile extends Model
         });
     }
     public function state(){
-        return $this->belongsTo(Province::class)->withDefault(function ($instance) {
+        return $this->belongsTo(Country::class)->withDefault(function ($instance) {
             return new Province();
         });
     }
@@ -46,12 +74,7 @@ class UserProfile extends Model
         return $this->genderType[$this->gender]??'unknown';
     }
     public function AVGrate(){
-
-//        if ($this->AcceptedComment->avg('rate') != null)
-//            round($this->AcceptedComment->avg('rate'),1);
-//        else
-        $this->AcceptedComment->avg('rate');
-
+        return round($this->AcceptedComment->avg('rate'),1);
     }
     public function courses(){
         return $this->hasMany(Course::class,'user_id','user_id');

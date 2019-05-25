@@ -13,6 +13,7 @@
         "freshbitsweb/laratables": "^1.1",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
+        "nicolaslopezj/searchable": "^1.10",
         "unisharp/laravel-ckeditor": "^4.7",
         "unisharp/laravel-filemanager": "^1.9"
     },

@@ -45,7 +45,7 @@ class UserProfileController extends Controller
             'name' => 'state_id',
             'type' => 'select',
             'slug' => 'Contry',
-            'values' => 'App\Province,id,name',
+            'values' => 'App\Country,id,name',
             'validation' => 'required',
         ],
         [
@@ -114,7 +114,7 @@ class UserProfileController extends Controller
             'validation' => '',
         ],
         [
-            'name' => 'avaliablity',
+            'name' => 'availablity',
             'type' => 'textarea',
             'slug' => 'Availablity',
             'validation' => '',
@@ -315,6 +315,7 @@ class UserProfileController extends Controller
         }
         $profile->save();
 
+        return redirect(route('profile.show',['userProfile' => $profile->id]));
         if (!isset($user->verify_at)){
             if(!$user->verifyUser){
                 $user->verifyUser = VerifyUser::create(

@@ -88,6 +88,7 @@ Route::group(['middleware' => 'admin','prefix' =>'admin'],function (){
 });
 
 /////////////////////// end /////////////////////////
+Route::get('search/teacher','SearchController@teacher')->name('search.teacher');
 Route::get('user/{userProfile}','UserProfileController@show')->name('profile.show');
 Route::post('user/{userProfile}','UserProfileController@postComment')->name('profile.comment');
 

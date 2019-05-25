@@ -89,6 +89,7 @@ class ComposerStaticIniteed7075909bf4e31a2e45acb62aba236
         'N' => 
         array (
             'NunoMaduro\\Collision\\' => 21,
+            'Nicolaslopezj\\Searchable\\' => 25,
         ),
         'M' => 
         array (
@@ -284,6 +285,10 @@ class ComposerStaticIniteed7075909bf4e31a2e45acb62aba236
         array (
             0 => __DIR__ . '/..' . '/nunomaduro/collision/src',
         ),
+        'Nicolaslopezj\\Searchable\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nicolaslopezj/searchable/src',
+        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
@@ -407,6 +412,7 @@ class ComposerStaticIniteed7075909bf4e31a2e45acb62aba236
         'App\\ContactUs' => __DIR__ . '/../..' . '/app/ContactUs.php',
         'App\\Content' => __DIR__ . '/../..' . '/app/Content.php',
         'App\\ContentComment' => __DIR__ . '/../..' . '/app/ContentComment.php',
+        'App\\Country' => __DIR__ . '/../..' . '/app/Country.php',
         'App\\Course' => __DIR__ . '/../..' . '/app/Course.php',
         'App\\CourseComment' => __DIR__ . '/../..' . '/app/CourseComment.php',
         'App\\CourseRequest' => __DIR__ . '/../..' . '/app/CourseRequest.php',
@@ -416,11 +422,14 @@ class ComposerStaticIniteed7075909bf4e31a2e45acb62aba236
         'App\\Http\\Controllers\\Admin\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminController.php',
         'App\\Http\\Controllers\\Admin\\CommentController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CommentController.php',
         'App\\Http\\Controllers\\Admin\\ContactUsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ContactUsController.php',
+        'App\\Http\\Controllers\\Admin\\CourseRequestController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CourseRequestController.php',
         'App\\Http\\Controllers\\Admin\\ProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ProfileController.php',
+        'App\\Http\\Controllers\\Admin\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/UserController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
+        'App\\Http\\Controllers\\Auth\\TeacherController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/TeacherController.php',
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\CRUDController' => __DIR__ . '/../..' . '/app/Http/Controllers/CRUDController.php',
         'App\\Http\\Controllers\\CategoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/CategoryController.php',
@@ -438,6 +447,7 @@ class ComposerStaticIniteed7075909bf4e31a2e45acb62aba236
         'App\\Http\\Controllers\\UserLogController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserLogController.php',
         'App\\Http\\Controllers\\UserProfileController' => __DIR__ . '/../..' . '/app/Http/Controllers/UserProfileController.php',
         'App\\Http\\Controllers\\Utility\\UtiliyController' => __DIR__ . '/../..' . '/app/Http/Controllers/Utility/UtiliyController.php',
+        'App\\Http\\Controllers\\VerifyUserController' => __DIR__ . '/../..' . '/app/Http/Controllers/VerifyUserController.php',
         'App\\Http\\Controllers\\ViewController' => __DIR__ . '/../..' . '/app/Http/Controllers/ViewController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Admin' => __DIR__ . '/../..' . '/app/Http/Middleware/Admin.php',
@@ -450,7 +460,9 @@ class ComposerStaticIniteed7075909bf4e31a2e45acb62aba236
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Language' => __DIR__ . '/../..' . '/app/Language.php',
         'App\\Like' => __DIR__ . '/../..' . '/app/Like.php',
-        'App\\Mail\\ProfileVerify' => __DIR__ . '/../..' . '/app/Mail/ProfileVerify.php',
+        'App\\Mail\\VerifyMail' => __DIR__ . '/../..' . '/app/Mail/VerifyMail.php',
+        'App\\Notifications\\InvoicePaid' => __DIR__ . '/../..' . '/app/Notifications/InvoicePaid.php',
+        'App\\Notifications\\VerifyEmail' => __DIR__ . '/../..' . '/app/Notifications/VerifyEmail.php',
         'App\\Notifications\\contactU' => __DIR__ . '/../..' . '/app/Notifications/contactU.php',
         'App\\ProfileComment' => __DIR__ . '/../..' . '/app/ProfileComment.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
@@ -2350,6 +2362,7 @@ class ComposerStaticIniteed7075909bf4e31a2e45acb62aba236
         'Monolog\\ResettableInterface' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/ResettableInterface.php',
         'Monolog\\SignalHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/SignalHandler.php',
         'Monolog\\Utils' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Utils.php',
+        'Nicolaslopezj\\Searchable\\SearchableTrait' => __DIR__ . '/..' . '/nicolaslopezj/searchable/src/SearchableTrait.php',
         'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider' => __DIR__ . '/..' . '/nunomaduro/collision/src/Adapters/Laravel/CollisionServiceProvider.php',
         'NunoMaduro\\Collision\\Adapters\\Laravel\\ExceptionHandler' => __DIR__ . '/..' . '/nunomaduro/collision/src/Adapters/Laravel/ExceptionHandler.php',
         'NunoMaduro\\Collision\\Adapters\\Laravel\\Inspector' => __DIR__ . '/..' . '/nunomaduro/collision/src/Adapters/Laravel/Inspector.php',
