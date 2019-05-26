@@ -33,7 +33,7 @@
                                     </div>
                                     <div class="col-md-8">
                                         <h1 class="d-inline-block ">{{ $userProfile->user->name }}</h1>
-                                        <div class="float-right">
+                                        <div class="float-right m-3">
 
 
                                             @if(Auth::id() == $userProfile->id)
@@ -129,7 +129,7 @@
                                     <div class="col-md-12">
                                         <span class="font-weight-bold">Teaching options:</span>
                                         <div class="d-inline-block">
-                                            <ul class="navbar-nav flex-row">
+                                            <ul class="navbar-nav flex-row flex-xs-column">
 
 
                                                 @foreach($userProfile->type as $item)

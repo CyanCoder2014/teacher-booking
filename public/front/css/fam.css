@@ -240,3 +240,11 @@
         margin-top: 20px;
     }
 }
+@media only screen and (max-width: 560px) {
+    .flex-xs-column{
+        flex-direction: column!important;
+    }
+    .mt-xs-3{
+        margin-top: 2rem;
+    }
+}

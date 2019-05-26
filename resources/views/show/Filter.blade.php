@@ -108,7 +108,7 @@
                     <button class="btn btn-danger nav-link nav-link btn btn-sm orange-border waves-effect waves-light" type="submit">Filter</button>
                 </form>
             </div>
-            <div class="col-md-9 text-right ">
+            <div class="col-md-9 text-right mt-xs-3">
                 <ul class="nav nav-tabs justify-content-end filterUl" id="myTab" role="tablist">
                     <li class="nav-item" >
                         <a class="nav-link active p-0"  data-toggle="tab" href="#home" role="tab"

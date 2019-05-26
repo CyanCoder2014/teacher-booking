@@ -7,7 +7,8 @@
 
 
 
-    <div class="row mt-menu bg-image" style="background-image: url("/@utility("banner","image")")">
+    <div class=" mt-menu bg-image" >
+       {{-- style="background-image: url("/@utility("banner","image")")"--}}
         <div class="container py-5 ">
             <div class="row ">
 
@@ -67,13 +68,13 @@
                 <hr>
                 -->
                 <form action="" id="filterform">
-                    <h4 style="color: #ef5258 ;font-size: 1.6rem">Category</h4>
+                    <h4 style="color: #ef5258 ;font-size: 1.6rem">@lang('message.Category')</h4>
                     <ul style="list-style: none" class="p-0">
                         <li>
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
                                 <input @if(!is_array(Request::get('categories')))checked @endif type="checkbox" class="custom-control-input" id="all-catgegory">
-                                <label class="custom-control-label"  for="defaultUnchecked">All Categories</label>
+                                <label class="custom-control-label"  for="defaultUnchecked">@lang('All Categories')</label>
                             </div>
                         </li>
 
@@ -88,34 +89,34 @@
                         @endforeach
 
                     </ul>
-                    <h4 style="color: #ef5258 ;font-size: 1.6rem">Teach options</h4>
+                    <h4 style="color: #ef5258 ;font-size: 1.6rem">@lang('message.Teaching options')</h4>
                     <ul style="list-style: none" class="p-0">
                         <li>
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
                                 <input @if(!is_array(Request::get('types')))checked @endif type="checkbox" class="custom-control-input" id="all-type">
-                                <label class="custom-control-label"  for="defaultUnchecked1">All Types</label>
+                                <label class="custom-control-label"  for="defaultUnchecked1">@lang('All Types')</label>
                             </div>
                         </li>
                         <li>
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
                                 <input @if(is_array(Request::get('types')) and in_array(0,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input type" id="type1" name="types[]" value="0">
-                                <label class="custom-control-label type" for="type1">Online</label>
+                                <label class="custom-control-label type" for="type1">@lang('message.Online')</label>
                             </div>
                         </li>
                         <li>
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
                                 <input @if(is_array(Request::get('types')) and in_array(1,Request::get('types'))) checked @endif  type="checkbox" class="custom-control-input type" id="type2" name="types[]" value="1">
-                                <label class="custom-control-label type" for="type2"> At student place</label>
+                                <label class="custom-control-label type" for="type2"> @lang('message.At student’s place')</label>
                             </div>
                         </li>
                         <li>
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
                                 <input @if(is_array(Request::get('types')) and in_array(2,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input type" id="type3" name="types[]" value="2">
-                                <label class="custom-control-label type" for="type3"> At teacher place</label>
+                                <label class="custom-control-label type" for="type3">@lang('message.At teacher’s place')</label>
                             </div>
                         </li>
 
@@ -123,7 +124,7 @@
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
                                 <input @if(is_array(Request::get('types')) and in_array(3,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input type" id="type4" name="types[]" value="2">
-                                <label class="custom-control-label type" for="type4"> Another place</label>
+                                <label class="custom-control-label type" for="type4"> @lang('message.Another place')</label>
                             </div>
                         </li>
 
@@ -131,7 +132,7 @@
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
                                 <input @if(is_array(Request::get('types')) and in_array(4,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input type" id="type5" name="types[]" value="2">
-                                <label class="custom-control-label type" for="type5">Teaching for alone</label>
+                                <label class="custom-control-label type" for="type5">@lang('message.Teaching alone')</label>
                             </div>
                         </li>
 
@@ -139,25 +140,27 @@
                             <!-- Default unchecked -->
                             <div class="custom-control custom-checkbox">
                                 <input @if(is_array(Request::get('types')) and in_array(5,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input type" id="type6" name="types[]" value="2">
-                                <label class="custom-control-label" for="type6">Teaching for group</label>
+                                <label class="custom-control-label" for="type6">@lang('message.Teaching for group')</label>
                             </div>
                         </li>
 
 
 
                     </ul>
-                    <h4 style="color: #ef5258 ;font-size: 1.6rem">Hourly rate</h4>
-                    <div class="row">
-                        <div class="col-6 form-group">
-                            <label for="min">Min</label>
-                            <input type="number" class="form-control" name="min" id="min" value="{{ Request::get('min') }}">
-                        </div>
-                        <div class="col-6 form-group">
-                            <label for="max">Max</label>
-                            <input type="number" class="form-control" name="max" id="max" value="{{ Request::get('max') }}">
+                    <h4 style="color: #ef5258 ;font-size: 1.6rem">@lang('Hourly rate')</h4>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6 form-group">
+                                <label for="min">Min</label>
+                                <input type="number" class="form-control" name="min" id="min" value="{{ Request::get('min') }}">
+                            </div>
+                            <div class="col-6 form-group">
+                                <label for="max">Max</label>
+                                <input type="number" class="form-control" name="max" id="max" value="{{ Request::get('max') }}">
+                            </div>
                         </div>
                     </div>
-                    <button class="btn btn-danger nav-link nav-link btn btn-sm orange-border waves-effect waves-light" type="submit">Filter</button>
+                    <button class="btn btn-danger nav-link nav-link btn btn-sm orange-border waves-effect waves-light" type="submit">@lang('message.Filter')</button>
                 </form>
             </div>
             <div class="col-md-9 text-right ">
@@ -269,7 +272,7 @@
 
 
 
-    <div class="row justify-content-center row-color">
+    <div class=" justify-content-center row-color">
 
     <div class="container pt-menu ">
 
