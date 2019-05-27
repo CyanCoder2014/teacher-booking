@@ -293,8 +293,8 @@
                             <img class="card-img-top img-fluid h-100" src="{{$category->image}}" alt="{{$category->title}}"/>
                         </div>
 
-                        <div class="card-body text-center">
-                            <h4 class="card-title text-center"><a>{{$category->title}}</a></h4>
+                        <div class="card-body text-center mt-0">
+                            <h4 class="card-title text-center mt-0"><a>{{$category->title}}</a></h4>
 
                         </div>
 
