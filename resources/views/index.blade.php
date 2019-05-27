@@ -215,10 +215,10 @@
                                                         {{$course->subject}}
                                                     </h5>
 
-                                                    <h6 class="text-center  mt-2 text-black ">
+                                                    <h6 class="text-center  mt-2 text-black ds-changeable">
                                                         {{ $course->city}}, {{ $course->state->name }}
                                                     </h6>
-                                                    <div class=" text-center">
+                                                    <div class=" text-center ds-changeable">
                                                         <div class="text-orang" style="font-size: 10px">
                                                             @for($i=1;$i< $course->AVGrate();$i++)
                                                                 <i class="fas fa-star"></i>
@@ -230,7 +230,7 @@
                                                         <span class="font-weight-bold">{{ $course->AVGrate() }}</span>
                                                     </div>
 
-                                                    <h6 class="text-center  mt-1 orange-text">
+                                                    <h6 class="text-center  mt-1 orange-text ds-changeable">
 
                                                     <span class="text-grey font-weight-bold">Hourly rate:
                                                 </span>
@@ -240,7 +240,7 @@
                                                     </h6>
 
 
-                                                    <h6 class="text-center  mt-1 text-grey ">
+                                                    <h6 class="text-center  mt-1 text-grey ds-changeable-n ds-none">
                                                         {!! \Illuminate\Support\Str::words($course->intro , $words = 6, $end = '...') !!}
                                                     </h6>
                                                 </div>
@@ -340,7 +340,7 @@
                                     <div class="container">
                                         <div class="columns">
                                             <div class="column is-4 is-offset-4">
-                                                <div class="card my-2">
+                                                <div class="card my-2" style="height: 480px!important;">
                                                     <div class="header">
                                                         <div class="avatar">
                                                             <img src="{{ asset($course->image()) }}" alt="">

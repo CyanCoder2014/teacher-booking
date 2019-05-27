@@ -27,12 +27,16 @@ $(document).ready(function () {
         console.log('lll')
         $( ".mother1" ).removeClass( "col-md-4" ).addClass( "col-md-12" );
         $( ".mother2" ).removeClass( "col-md-12" ).addClass( "col-md-6" );
+        $( ".ds-changeable-n" ).removeClass( "ds-none" );
+        $( ".ds-changeable" ).addClass( "ds-none" );
 
     });
     $( "#grid-tab" ).click(function() {
         console.log('lll')
         $( ".mother1" ).removeClass( "col-md-12" ).addClass( "col-md-4" );
         $( ".mother2" ).removeClass( "col-md-6" ).addClass( "col-md-12" );
+        $( ".ds-changeable-n" ).addClass( "ds-none" );
+        $( ".ds-changeable" ).removeClass( "ds-none" );
 
     });
 

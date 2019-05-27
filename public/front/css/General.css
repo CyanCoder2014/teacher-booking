@@ -323,3 +323,9 @@ body{
     }
 
 }
+
+
+
+.ds-none{
+    display: none!important;
+}
