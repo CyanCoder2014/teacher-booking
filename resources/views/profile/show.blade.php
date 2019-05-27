@@ -88,11 +88,7 @@
                                             <hr>
                                             <span class="font-weight-bold">Category:</span>
                                             <div class="d-inline-block">
-                                                {{--                                            <ul class="navbar-nav flex-row">--}}
-                                                {{--                                                <li class="nav-item p-2">Sweden</li>--}}
-                                                {{--                                                <li class="nav-item p-2">Sweden</li>--}}
 
-                                                {{--                                            </ul>--}}
                                                 <p>{!!  $userProfile->category->title  !!}</p>
                                             </div>
                                         </div>
@@ -252,7 +248,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="font-weight-bold">
-                                        Write a Comment
+                                        Comments
                                     </div>
                                 </div>
                                 <div class="col-md-12">
