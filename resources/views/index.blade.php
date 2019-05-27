@@ -199,9 +199,9 @@
                                     <a href="/user/{{$course->id}}" class="col-md-4 mt-3 mother1">
                                         <div class="shadow hoverable p-3 bg-white">
                                             <div class="row">
-                                                <div class="col-md-12 mother2 text-center">
-                                                    <div class="text-center rounded-circle w-75" style="height: 140px;width: 140px;overflow: hidden">
-                                                        <img src="{{ asset($course->image()) }}"  style="height: 141px;"/>
+                                                <div class="col-md-12 mother2 text-center flex-center">
+                                                    <div class="text-center rounded-circle w-75 mb-2" style="height: 158px;width: 158px;overflow: hidden">
+                                                        <img src="{{ asset($course->image()) }}"  style="height: 160px;"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 mother2 " style="height: 230px;overflow: hidden">
