@@ -40,7 +40,7 @@ Route::get('/', 'HomeController@index')->name('index');
 Route::get('/filter', 'HomeController@filter')->name('filter');
 Route::get('/filtering', 'HomeController@ajaxfilter')->name('ajaxfilter');
 
-    Route::post('info','HomeController@info')->name('info');
+    Route::get('info','HomeController@info')->name('info');
 
 
 Route::group(['middleware' => 'auth'],function (){
