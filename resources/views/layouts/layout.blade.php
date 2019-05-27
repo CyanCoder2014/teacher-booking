@@ -26,7 +26,7 @@ Choose what you want to learn">
 
 </head>
 
-<body style=" overflow-x: hidden!important;;width: 100%!important;">
+<body   style="background-color: #f2f2f2!important;overflow-x: hidden!important;;width: 100%!important;">
 <!--Navbar-->
 
 <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-transparent pt-3 pb-0 zIndex100 scrolling-navbar "
