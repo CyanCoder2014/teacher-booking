@@ -32,6 +32,8 @@
 
                                     </div>
                                     <div class="col-md-8">
+                                        <div class="col-md-12 ">
+
                                         <h1 class="d-inline-block ">{{ $userProfile->user->name }}</h1>
                                         <div class="float-right m-3">
 
@@ -94,7 +96,7 @@
                                                 <p>{!!  $userProfile->category->title  !!}</p>
                                             </div>
                                         </div>
-
+                                        </div>
                                         <div class="col-md-12">
                                             <span class="font-weight-bold">Subject:</span>
                                             <div class="d-inline-block">
@@ -240,25 +242,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="bg-white p-3 mt-3">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="font-weight-bold">
-                                        Availablity
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="container">
-                                        <p>
-                                            {{$userProfile->availablity}}
-                                        </p>
-                                    </div>
-                                </div>
 
-                            </div>
-                        </div>
-                    </div>
 
 
 
