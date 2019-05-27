@@ -6,6 +6,7 @@ use App\Category;
 use App\Course;
 use App\CourseRequest;
 use App\UserProfile;
+use App\Utility;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -111,9 +112,10 @@ class HomeController extends Controller
     public function info()
     {
         $courses = Course::where('type',"slider")->orderBy('id', 'desc')->paginate(6);
+        $info = Utility::where('type',"info")->orderBy('id', 'desc')->paginate(6);
 
         return view('info', compact(
-            'courses'
+            'courses', 'info'
 
         ));
     }

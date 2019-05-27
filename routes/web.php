@@ -40,6 +40,9 @@ Route::get('/', 'HomeController@index')->name('index');
 Route::get('/filter', 'HomeController@filter')->name('filter');
 Route::get('/filtering', 'HomeController@ajaxfilter')->name('ajaxfilter');
 
+    Route::post('info','HomeController@info')->name('info');
+
+
 Route::group(['middleware' => 'auth'],function (){
     \App\CourseRequest::Route_list();
     \App\Course::Route_list();
@@ -91,5 +94,8 @@ Route::group(['middleware' => 'admin','prefix' =>'admin'],function (){
 Route::get('search/teacher','SearchController@teacher')->name('search.teacher');
 Route::get('user/{userProfile}','UserProfileController@show')->name('profile.show');
 Route::post('user/{userProfile}','UserProfileController@postComment')->name('profile.comment');
+
+
+
 
 });

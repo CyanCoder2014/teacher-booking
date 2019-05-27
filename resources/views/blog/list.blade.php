@@ -5,7 +5,7 @@
 
         <div class="row justify-content-center py-3 mb-5">
             <div class="col-md-12 pb-5 mt-0 ">
-                <h3 class="text-center pb-3">Blog</h3>
+                <h3 class="text-center pb-3">News</h3>
             </div>
 
 

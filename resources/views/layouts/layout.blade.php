@@ -157,10 +157,10 @@ Choose what you want to learn">
 
                 @if(App::getLocale() == 'en')
                 <a class="" >EN  / </a>
-                <a class="" href="<?= Url('/sw/' . $path) ?>" style="color: #ef5258!important;">SW</a>
+                <a class="" href="<?= Url('/sw/' . $path) ?>" style="color: #ef5258!important;">SV</a>
                 @else
                 <a class=""  href="<?= Url('/en/' . $path) ?>" style="color: #ef5258!important;" >EN </a>
-                <a class=""> / SW</a>
+                <a class=""> / SV</a>
                 @endif
 
 
