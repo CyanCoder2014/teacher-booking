@@ -34,8 +34,8 @@
                                     <div class="col-md-8">
                                         <div class="col-md-12 ">
 
-                                        <h1 class="d-inline-block ">{{ $userProfile->user->name }}</h1>
-                                        <div class="float-right m-3">
+                                            <h1 class="d-inline-block ">{{ $userProfile->user->name }}</h1>
+                                            <div class="float-right m-3">
 
 
                                             @if(Auth::id() == $userProfile->id)
@@ -66,14 +66,14 @@
                                                 </span>
 
                                         </div>
-                                        <div class="text-grey ">Education: {{ $userProfile->education }}$</div>
+                                            <div class="text-grey ">Education: {{ $userProfile->education }}$</div>
 
 
-                                        <div class=" font-13 py-3">
+                                            <div class=" font-13 py-3">
                                             <span class="text-info pr-3">{{ $userProfile->tell }}  <i class="fa fa-phone"></i></span>
                                             <span>From {{ $userProfile->city}}, {{ $userProfile->state->name }}</span>
                                         </div>
-                                        <div class="font-weight-bold">
+                                            <div class="font-weight-bold">
 
                                             @foreach($userProfile->languages as $language)
                                                 @if($language == '1')
@@ -83,6 +83,7 @@
                                                 @endif
                                              @endforeach
                                         </div>
+                                        </div>
 
                                         <div class="col-md-12 mt-2">
                                             <hr>
@@ -91,7 +92,6 @@
 
                                                 <p>{!!  $userProfile->category->title  !!}</p>
                                             </div>
-                                        </div>
                                         </div>
                                         <div class="col-md-12">
                                             <span class="font-weight-bold">Subject:</span>
