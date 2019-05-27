@@ -205,7 +205,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12 mother2 " style="height: 230px;overflow: hidden">
-                                                    <h3 class="username">{{$course->user->name}} </h3>
+                                                    <h3 class="text-center  mt-2 text-black">{{$course->user->name}} </h3>
 
                                                     <h5 class="text-center font-weight-bold mt-3 text-grey ">
                                                        {{$course->category->title }}
