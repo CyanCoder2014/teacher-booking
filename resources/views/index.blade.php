@@ -56,7 +56,7 @@
 
 
 
-    <div class="    container ">
+    <div class="    container " style="background-color: #f2f2f2!important;">
         <div class="row mt-5 mb-5">
             <div class="col-md-3 bg-white p-3" style="margin-top: 4.5rem">
                 <!--
@@ -411,7 +411,7 @@
         </div>
     </div>
 
-    <div class="container pt-menu">
+    <div class="container pt-menu"  style="background-color: #f2f2f2!important;">
 
 
         <div class="row justify-content-center py-3 mb-5">
