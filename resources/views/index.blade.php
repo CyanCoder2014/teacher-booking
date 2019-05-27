@@ -241,7 +241,7 @@
 
 
                                                     <h6 class="text-center  mt-1 text-grey ds-changeable-n ds-none">
-                                                        {!! \Illuminate\Support\Str::words($course->intro , $words = 6, $end = '...') !!}
+                                                        {!! \Illuminate\Support\Str::words($course->intro , $words = 30, $end = '...') !!}
                                                     </h6>
                                                 </div>
                                             </div>
