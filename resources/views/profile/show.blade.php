@@ -82,94 +82,81 @@
                                              @endforeach
                                         </div>
 
+                                        <div class="col-md-12 mt-2">
+                                            <hr>
+                                            <span class="font-weight-bold">Category:</span>
+                                            <div class="d-inline-block">
+                                                {{--                                            <ul class="navbar-nav flex-row">--}}
+                                                {{--                                                <li class="nav-item p-2">Sweden</li>--}}
+                                                {{--                                                <li class="nav-item p-2">Sweden</li>--}}
+
+                                                {{--                                            </ul>--}}
+                                                <p>{!!  $userProfile->category->title  !!}</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <span class="font-weight-bold">Subject:</span>
+                                            <div class="d-inline-block">
+
+                                                <p>{!!  $userProfile->subject  !!}</p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <hr>
+
+                                            <span class="font-weight-bold">Availability: </span>
+                                            <span class="text-grey"> {{ $userProfile->availablity }} </span>
+                                        </div>
+
+
+
+                                        <div class="col-md-12">
+                                            <span class="font-weight-bold">Teaching options:</span>
+                                            <div class="d-inline-block">
+                                                <ul class="navbar-nav flex-row flex-xs-column">
+
+
+                                                    @foreach($userProfile->type as $item)
+                                                        @if($item == '0')
+                                                            <li class="nav-item p-1 rounded m-2 bg-gray linkTooltip" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Another tooltip">
+                                                                Online
+                                                            </li>
+                                                        @elseif($item == '1')
+                                                            <li class="nav-item p-1 rounded m-2 bg-gray linkTooltip" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Another tooltip">
+                                                                At student place
+                                                            </li>
+                                                        @elseif($item == '2')
+                                                            <li class="nav-item p-1 rounded m-2 bg-gray linkTooltip" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Another tooltip">
+                                                                At teacher place
+                                                            </li>
+                                                        @elseif($item == '3')
+                                                            <li class="nav-item p-1 rounded m-2 bg-gray linkTooltip" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Another tooltip">
+                                                                Another place
+                                                            </li>
+                                                        @elseif($item == '4')
+                                                            <li class="nav-item p-1 rounded m-2 bg-gray linkTooltip" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Another tooltip">
+                                                                Teaching for alone
+                                                            </li>
+                                                        @elseif($item == '5')
+                                                            <li class="nav-item p-1 rounded m-2 bg-gray linkTooltip " style="" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Another tooltip">
+                                                                Teaching for group
+                                                            </li>
+
+                                                        @endif
+                                                    @endforeach
+
+
+
+                                                </ul>
+                                            </div>
+                                        </div>
+
+
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <hr>
-                                        <span class="font-weight-bold">Category:</span>
-                                        <div class="d-inline-block">
-{{--                                            <ul class="navbar-nav flex-row">--}}
-{{--                                                <li class="nav-item p-2">Sweden</li>--}}
-{{--                                                <li class="nav-item p-2">Sweden</li>--}}
 
-{{--                                            </ul>--}}
-                                            <p>{!!  $userProfile->category->title  !!}</p>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-12">
-                                        <span class="font-weight-bold">Subject:</span>
-                                        <div class="d-inline-block">
-
-                                            <p>{!!  $userProfile->subject  !!}</p>
-                                        </div>
-                                    </div>
-
-{{--                                    <div class="col-md-12">--}}
-{{--                                        <span class="font-weight-bold">Teaching Specialities:</span>--}}
-{{--                                        <div class="d-inline-block">--}}
-{{--                                            <ul class="navbar-nav flex-row">--}}
-{{--                                                <li class="nav-item p-1 rounded m-2 border text-grey">Sweden</li>--}}
-{{--                                                <li class="nav-item p-1 rounded m-2 border text-grey">Sweden</li>--}}
-{{--                                                <li class="nav-item p-1 rounded m-2 border text-grey">Sweden</li>--}}
-
-{{--                                            </ul>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-                                    <div class="col-md-12">
-                                        <hr>
-
-                                        <span class="font-weight-bold">Availability: </span>
-                                        <span class="text-grey"> {{ $userProfile->avaliablity }} </span>
-                                    </div>
-
-
-
-                                    <div class="col-md-12">
-                                        <span class="font-weight-bold">Teaching options:</span>
-                                        <div class="d-inline-block">
-                                            <ul class="navbar-nav flex-row flex-xs-column">
-
-
-                                                @foreach($userProfile->type as $item)
-                                                    @if($item == '0')
-                                                        <li class="nav-item p-1 rounded m-2 bg-gray linkTooltip" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Another tooltip">
-                                                            Online
-                                                        </li>
-                                                    @elseif($item == '1')
-                                                        <li class="nav-item p-1 rounded m-2 bg-gray linkTooltip" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Another tooltip">
-                                                            At student place
-                                                        </li>
-                                                    @elseif($item == '2')
-                                                        <li class="nav-item p-1 rounded m-2 bg-gray linkTooltip" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Another tooltip">
-                                                            At teacher place
-                                                        </li>
-                                                    @elseif($item == '3')
-                                                        <li class="nav-item p-1 rounded m-2 bg-gray linkTooltip" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Another tooltip">
-                                                            Another place
-                                                        </li>
-                                                    @elseif($item == '4')
-                                                        <li class="nav-item p-1 rounded m-2 bg-gray linkTooltip" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Another tooltip">
-                                                            Teaching for alone
-                                                        </li>
-                                                    @elseif($item == '5')
-                                                        <li class="nav-item p-1 rounded m-2 bg-gray linkTooltip " style="" data-toggle="tooltip" title="" data-placement="bottom" data-original-title="Another tooltip">
-                                                            Teaching for group
-                                                        </li>
-
-                                                    @endif
-                                                @endforeach
-
-
-
-                                            </ul>
-                                        </div>
-                                    </div>
-
-
-
-                                </div>
                             </div>
                         </div>
                     </div>
