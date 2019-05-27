@@ -62,8 +62,10 @@ Choose what you want to learn">
             <li class="nav-item dropdown pr-3 letter-s2 pb-0 mb-0 mt-1 ">
                 <div class="ui category search">
                     <div class="ui icon input">
-                        <input name="subject" class="form-control form-control-sm mx-2 prompt" type="text" placeholder="@if(App::getLocale() == 'en')Search @else Sök @endif" aria-label="Search">
+                        <input name="subject" class="form-control form-control-sm mx-2 prompt pr-2" type="text" placeholder="@if(App::getLocale() == 'en')Search @else Sök @endif" aria-label="Search">
+                        <!--
                         <button type="submit" class="btn m-0 p-0 mr-1" style="background:none;color: black!important;box-shadow: none"> <i class="fas fa-search" aria-hidden="true"></i> </button>
+                        -->
                     </div>
                     <div class="results"></div>
                 </div>
