@@ -211,7 +211,7 @@
                                                        {{$course->category->title }}
                                                     </h5>
 
-                                                    <h5 class="text-center  mt-2 orange-text">
+                                                    <h5 class="text-center  mt-1 orange-text">
                                                         {{$course->subject}}
                                                     </h5>
 
@@ -230,7 +230,7 @@
                                                         <span class="font-weight-bold">{{ $course->AVGrate() }}</span>
                                                     </div>
 
-                                                    <h6 class="text-center  mt-3 orange-text">
+                                                    <h6 class="text-center  mt-1 orange-text">
 
                                                     <span class="text-grey font-weight-bold">Hourly rate:
                                                 </span>
@@ -240,7 +240,7 @@
                                                     </h6>
 
 
-                                                    <h6 class="text-center  mt-2 text-grey ">
+                                                    <h6 class="text-center  mt-1 text-grey ">
                                                         {!! \Illuminate\Support\Str::words($course->intro , $words = 6, $end = '...') !!}
                                                     </h6>
                                                 </div>
