@@ -50,7 +50,7 @@ class HomeController extends Controller
 
         $coursesRequests = CourseRequest::orderBy('id', 'desc')->take(20)->get();
 
-        return view('index', compact( 'slides',
+        return view('index', compact(
             'courses',
             'coursesRequests'
 

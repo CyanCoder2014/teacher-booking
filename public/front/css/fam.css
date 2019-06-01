@@ -234,6 +234,10 @@
     }
 
 }
+.myFilter{
+    display: none;
+}
+
 @media only screen and (max-width: 768px) {
     .fix-tab {
         position: initial;
@@ -246,5 +250,11 @@
     }
     .mt-xs-3{
         margin-top: 2rem;
+    }
+    .myFilter{
+        display: block;
+    }
+    .display-filter{
+        display: none;
     }
 }

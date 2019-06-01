@@ -58,7 +58,13 @@
 
     <div class="    container ">
         <div class="row mt-5 mb-5">
-            <div class="col-md-3 bg-white p-3" style="margin-top: 4.5rem">
+            <div class="col-12">
+                <div class="myFilter">
+                    <div><button type="button" class="btn btn-light text-black">filter</button></div>
+                </div>
+
+            </div>
+            <div class="col-md-3 bg-white p-3 display-filter dis-norm" style="margin-top: 4.5rem">
                 <!--
                 <ul style="list-style: none" class="p-0">
                     <li class="font-weight-bold"><a href="#" class="text-black" id="all">all</a></li>
@@ -67,101 +73,102 @@
                 </ul>
                 <hr>
                 -->
-                <form action="" id="filterform">
-                    <h4 style="color: #ef5258 ;font-size: 1.6rem">@lang('message.Category')</h4>
-                    <ul style="list-style: none" class="p-0">
-                        <li>
-                            <!-- Default unchecked -->
-                            <div class="custom-control custom-checkbox">
-                                <input @if(!is_array(Request::get('categories')))checked @endif type="checkbox" class="custom-control-input" id="all-catgegory">
-                                <label class="custom-control-label"  for="defaultUnchecked">@lang('All Categories')</label>
-                            </div>
-                        </li>
-
-                        @foreach($categories as $category)
+                    <form action="" id="filterform">
+                        <h4 style="color: #ef5258 ;font-size: 1.6rem">@lang('message.Category')</h4>
+                        <ul style="list-style: none" class="p-0">
                             <li>
                                 <!-- Default unchecked -->
                                 <div class="custom-control custom-checkbox">
-                                    <input @if(is_array(Request::get('categories')) and in_array($category->id,Request::get('categories'))) checked @endif type="checkbox" class="custom-control-input category" id="{{$category->title}}" name="categories[]" value="{{$category->id}}">
-                                    <label class="custom-control-label" for="{{$category->title}}">{{$category->title}}</label>
+                                    <input @if(!is_array(Request::get('categories')))checked @endif type="checkbox" class="custom-control-input" id="all-catgegory">
+                                    <label class="custom-control-label"  for="defaultUnchecked">@lang('All Categories')</label>
                                 </div>
                             </li>
-                        @endforeach
 
-                    </ul>
-                    <h4 style="color: #ef5258 ;font-size: 1.6rem">@lang('message.Teaching options')</h4>
-                    <ul style="list-style: none" class="p-0">
-                        <li>
-                            <!-- Default unchecked -->
-                            <div class="custom-control custom-checkbox">
-                                <input @if(!is_array(Request::get('types')))checked @endif type="checkbox" class="custom-control-input" id="all-type">
-                                <label class="custom-control-label"  for="defaultUnchecked1">@lang('All Types')</label>
-                            </div>
-                        </li>
-                        <li>
-                            <!-- Default unchecked -->
-                            <div class="custom-control custom-checkbox">
-                                <input @if(is_array(Request::get('types')) and in_array(0,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input type" id="type1" name="types[]" value="0">
-                                <label class="custom-control-label type" for="type1">@lang('message.Online')</label>
-                            </div>
-                        </li>
-                        <li>
-                            <!-- Default unchecked -->
-                            <div class="custom-control custom-checkbox">
-                                <input @if(is_array(Request::get('types')) and in_array(1,Request::get('types'))) checked @endif  type="checkbox" class="custom-control-input type" id="type2" name="types[]" value="1">
-                                <label class="custom-control-label type" for="type2"> @lang('message.At student’s place')</label>
-                            </div>
-                        </li>
-                        <li>
-                            <!-- Default unchecked -->
-                            <div class="custom-control custom-checkbox">
-                                <input @if(is_array(Request::get('types')) and in_array(2,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input type" id="type3" name="types[]" value="2">
-                                <label class="custom-control-label type" for="type3">@lang('message.At teacher’s place')</label>
-                            </div>
-                        </li>
+                            @foreach($categories as $category)
+                                <li>
+                                    <!-- Default unchecked -->
+                                    <div class="custom-control custom-checkbox">
+                                        <input @if(is_array(Request::get('categories')) and in_array($category->id,Request::get('categories'))) checked @endif type="checkbox" class="custom-control-input category" id="{{$category->title}}" name="categories[]" value="{{$category->id}}">
+                                        <label class="custom-control-label" for="{{$category->title}}">{{$category->title}}</label>
+                                    </div>
+                                </li>
+                            @endforeach
 
-                        <li>
-                            <!-- Default unchecked -->
-                            <div class="custom-control custom-checkbox">
-                                <input @if(is_array(Request::get('types')) and in_array(3,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input type" id="type4" name="types[]" value="2">
-                                <label class="custom-control-label type" for="type4"> @lang('message.Another place')</label>
-                            </div>
-                        </li>
+                        </ul>
+                        <h4 style="color: #ef5258 ;font-size: 1.6rem">@lang('message.Teaching options')</h4>
+                        <ul style="list-style: none" class="p-0">
+                            <li>
+                                <!-- Default unchecked -->
+                                <div class="custom-control custom-checkbox">
+                                    <input @if(!is_array(Request::get('types')))checked @endif type="checkbox" class="custom-control-input" id="all-type">
+                                    <label class="custom-control-label"  for="defaultUnchecked1">@lang('All Types')</label>
+                                </div>
+                            </li>
+                            <li>
+                                <!-- Default unchecked -->
+                                <div class="custom-control custom-checkbox">
+                                    <input @if(is_array(Request::get('types')) and in_array(0,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input type" id="type1" name="types[]" value="0">
+                                    <label class="custom-control-label type" for="type1">@lang('message.Online')</label>
+                                </div>
+                            </li>
+                            <li>
+                                <!-- Default unchecked -->
+                                <div class="custom-control custom-checkbox">
+                                    <input @if(is_array(Request::get('types')) and in_array(1,Request::get('types'))) checked @endif  type="checkbox" class="custom-control-input type" id="type2" name="types[]" value="1">
+                                    <label class="custom-control-label type" for="type2"> @lang('message.At student’s place')</label>
+                                </div>
+                            </li>
+                            <li>
+                                <!-- Default unchecked -->
+                                <div class="custom-control custom-checkbox">
+                                    <input @if(is_array(Request::get('types')) and in_array(2,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input type" id="type3" name="types[]" value="2">
+                                    <label class="custom-control-label type" for="type3">@lang('message.At teacher’s place')</label>
+                                </div>
+                            </li>
 
-                        <li>
-                            <!-- Default unchecked -->
-                            <div class="custom-control custom-checkbox">
-                                <input @if(is_array(Request::get('types')) and in_array(4,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input type" id="type5" name="types[]" value="2">
-                                <label class="custom-control-label type" for="type5">@lang('message.Teaching alone')</label>
-                            </div>
-                        </li>
+                            <li>
+                                <!-- Default unchecked -->
+                                <div class="custom-control custom-checkbox">
+                                    <input @if(is_array(Request::get('types')) and in_array(3,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input type" id="type4" name="types[]" value="2">
+                                    <label class="custom-control-label type" for="type4"> @lang('message.Another place')</label>
+                                </div>
+                            </li>
 
-                        <li>
-                            <!-- Default unchecked -->
-                            <div class="custom-control custom-checkbox">
-                                <input @if(is_array(Request::get('types')) and in_array(5,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input type" id="type6" name="types[]" value="2">
-                                <label class="custom-control-label" for="type6">@lang('message.Teaching for group')</label>
-                            </div>
-                        </li>
+                            <li>
+                                <!-- Default unchecked -->
+                                <div class="custom-control custom-checkbox">
+                                    <input @if(is_array(Request::get('types')) and in_array(4,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input type" id="type5" name="types[]" value="2">
+                                    <label class="custom-control-label type" for="type5">@lang('message.Teaching alone')</label>
+                                </div>
+                            </li>
+
+                            <li>
+                                <!-- Default unchecked -->
+                                <div class="custom-control custom-checkbox">
+                                    <input @if(is_array(Request::get('types')) and in_array(5,Request::get('types'))) checked @endif type="checkbox" class="custom-control-input type" id="type6" name="types[]" value="2">
+                                    <label class="custom-control-label" for="type6">@lang('message.Teaching for group')</label>
+                                </div>
+                            </li>
 
 
 
-                    </ul>
-                    <h4 style="color: #ef5258 ;font-size: 1.6rem">@lang('Hourly rate')</h4>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-6 form-group">
-                                <label for="min">Min</label>
-                                <input type="number" class="form-control" name="min" id="min" value="{{ Request::get('min') }}">
-                            </div>
-                            <div class="col-6 form-group">
-                                <label for="max">Max</label>
-                                <input type="number" class="form-control" name="max" id="max" value="{{ Request::get('max') }}">
+                        </ul>
+                        <h4 style="color: #ef5258 ;font-size: 1.6rem">@lang('Hourly rate')</h4>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6 form-group">
+                                    <label for="min">Min</label>
+                                    <input type="number" class="form-control" name="min" id="min" value="{{ Request::get('min') }}">
+                                </div>
+                                <div class="col-6 form-group">
+                                    <label for="max">Max</label>
+                                    <input type="number" class="form-control" name="max" id="max" value="{{ Request::get('max') }}">
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <button class="btn btn-danger nav-link nav-link btn btn-sm orange-border waves-effect waves-light" type="submit">@lang('message.Filter')</button>
-                </form>
+                        <button class="btn btn-danger nav-link nav-link btn btn-sm orange-border waves-effect waves-light" type="submit">@lang('message.Filter')</button>
+                    </form>
+
             </div>
             <div class="col-md-9 text-right ">
                 <ul class="nav nav-tabs justify-content-end filterUl" id="myTab" role="tablist">

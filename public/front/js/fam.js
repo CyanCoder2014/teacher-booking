@@ -1,5 +1,9 @@
 
 $(document).ready(function () {
+    $( ".myFilter" ).click(function() {
+        $( ".dis-norm" ).toggleClass('display-filter')
+
+    });
     if ($(window).width() < 992) {
         $( ".windowlink" ).click(function() {
             $( ".window-drop" ).toggleClass('apear')
@@ -24,7 +28,6 @@ $(document).ready(function () {
 
     }
     $( "#list-tab" ).click(function() {
-        console.log('lll')
         $( ".mother1" ).removeClass( "col-md-4" ).addClass( "col-md-12" );
         $( ".mother2" ).removeClass( "col-md-12" ).addClass( "col-md-6" );
         $( ".ds-changeable-n" ).removeClass( "ds-none" );
