@@ -80,7 +80,7 @@
                                 <!-- Default unchecked -->
                                 <div class="custom-control custom-checkbox">
                                     <input @if(!is_array(Request::get('categories')))checked @endif type="checkbox" class="custom-control-input" id="all-catgegory">
-                                    <label class="custom-control-label"  for="defaultUnchecked">@lang('All Categories')</label>
+                                    <label class="custom-control-label"  for="all-catgegory">@lang('All Categories')</label>
                                 </div>
                             </li>
 
@@ -101,7 +101,7 @@
                                 <!-- Default unchecked -->
                                 <div class="custom-control custom-checkbox">
                                     <input @if(!is_array(Request::get('types')))checked @endif type="checkbox" class="custom-control-input" id="all-type">
-                                    <label class="custom-control-label"  for="defaultUnchecked1">@lang('All Types')</label>
+                                    <label class="custom-control-label"  for="all-type">@lang('All Types')</label>
                                 </div>
                             </li>
                             <li>

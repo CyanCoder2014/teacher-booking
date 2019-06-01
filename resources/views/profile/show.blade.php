@@ -14,11 +14,16 @@
                 <div class="col-md-12">
                     <div class="bg-white p-3">
                         @if(isset($userProfile->intro_video))
-                        <video class="w-100" controls>
-                             <source src="{{ asset($userProfile->intro_video) }}" type="video/mp4">
-                             Your browser does not support the video tag.
-                         </video>
-                        @endif
+                            @if(pathinfo($userProfile->intro_video, PATHINFO_EXTENSION) == 'mp4')
+                                <video class="w-100" controls>
+                                     <source src="{{ $userProfile->intro_video }}" type="video/mp4">
+                                     Your browser does not support the video tag.
+                                 </video>
+                            @else
+                                <iframe  class="w-100"
+                                        src="{{ $userProfile->intro_video }}">
+                                </iframe>
+                            @endif
                         <div class="mt-3">
                             <div class="container-fluid">
                                 <div class="row">

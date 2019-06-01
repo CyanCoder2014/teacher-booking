@@ -1,4 +1,4 @@
-<div class="col-sm-4 input-group">
+<div class="col-sm-12 input-group">
     <label for="{{ $fiels['name'] }}">{{ $fiels['slug'] }}</label>
     <input type="file" name="{{ $fiels['name'] }}" >
     @if(isset($value))
