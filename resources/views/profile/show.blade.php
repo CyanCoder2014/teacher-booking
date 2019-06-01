@@ -24,6 +24,7 @@
                                         src="{{ $userProfile->intro_video }}">
                                 </iframe>
                             @endif
+                        @endif
                         <div class="mt-3">
                             <div class="container-fluid">
                                 <div class="row">
